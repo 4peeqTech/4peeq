@@ -1,0 +1,248 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "4Peeq inicio" [ref=e4] [cursor=pointer]:
+        - /url: index.html
+        - img "4Peeq · Personas & Equipos" [ref=e5]
+      - navigation [ref=e6]:
+        - button "Lo que hacemos" [ref=e8] [cursor=pointer]:
+          - text: Lo que hacemos
+          - img [ref=e9]
+        - link "Cómo trabajamos" [ref=e11] [cursor=pointer]:
+          - /url: "#proceso"
+        - link "Clientes" [ref=e12] [cursor=pointer]:
+          - /url: "#clientes"
+        - link "Equipo" [ref=e13] [cursor=pointer]:
+          - /url: "#equipo"
+        - link "Autodiagnóstico" [ref=e14] [cursor=pointer]:
+          - /url: https://4peeq.com/autodiagnostico
+      - link "Tomemos un café →" [ref=e16] [cursor=pointer]:
+        - /url: https://wa.me/5493794398385
+        - text: Tomemos un café
+        - generic [ref=e17]: →
+  - generic [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - img [ref=e22]
+        - text: Consultora Organizacional · Corrientes
+      - heading "Ponemos en orden, optimizamos y hacemos crecer tu empresa." [level=1] [ref=e24]:
+        - text: Ponemos en orden, optimizamos y hacemos
+        - generic [ref=e25]:
+          - text: crecer
+          - img [ref=e26]
+        - text: tu empresa.
+      - paragraph [ref=e28]: Somos 4Peeq. Ordenamos empresas, desarrollamos equipos, incorporamos talento, potenciamos con tecnología y generamos comunidad.
+      - link "Tomemos un café ☕" [ref=e30] [cursor=pointer]:
+        - /url: https://wa.me/5493794398385
+      - generic [ref=e32]: +70 empresas ya confiaron en nosotros
+    - generic [ref=e33]:
+      - img "4Peeq" [ref=e35]
+      - generic [ref=e38]: foto humana real · equipo 4Peeq
+      - generic [ref=e39]:
+        - generic [ref=e40]: +90%
+        - generic [ref=e41]:
+          - text: nos vuelven
+          - text: a elegir
+  - generic [ref=e44]:
+    - generic [ref=e45]:
+      - generic [ref=e46]: "+70"
+      - generic [ref=e47]: empresas acompañadas en su transformación
+    - generic [ref=e48]:
+      - generic [ref=e49]: "+3"
+      - generic [ref=e50]: años acompañando organizaciones de la región
+    - generic [ref=e51]:
+      - generic [ref=e52]: +90%
+      - generic [ref=e53]: de clientes que nos vuelven a elegir
+  - generic [ref=e55]:
+    - generic [ref=e56]:
+      - heading "Una solución para cada etapa de tu empresa" [level=2] [ref=e57]:
+        - text: Una solución para cada
+        - emphasis [ref=e58]: etapa
+        - text: de tu empresa
+      - paragraph [ref=e59]: No somos una consultora genérica. Cada unidad de 4Peeq está diseñada para resolver un problema concreto de tu organización.
+    - generic [ref=e60]:
+      - link "Consultoría ACOMPAÑAMIENTO Profesionalización y optimización de las áreas de tu organización. Administración · RRHH · Comercial y ventas · Logística y operaciones" [ref=e61] [cursor=pointer]:
+        - /url: consultoria.html
+        - img [ref=e64]
+        - heading "Consultoría" [level=3] [ref=e69]
+        - generic [ref=e70]: ACOMPAÑAMIENTO
+        - paragraph [ref=e71]: Profesionalización y optimización de las áreas de tu organización.
+        - generic [ref=e72]: Administración · RRHH · Comercial y ventas · Logística y operaciones
+      - link "Academy FORMACIÓN Programas de formación y capacitación para que tus equipos alcancen los objetivos y resultados esperados." [ref=e73] [cursor=pointer]:
+        - /url: academy.html
+        - img [ref=e76]
+        - heading "Academy" [level=3] [ref=e79]
+        - generic [ref=e80]: FORMACIÓN
+        - paragraph [ref=e81]: Programas de formación y capacitación para que tus equipos alcancen los objetivos y resultados esperados.
+      - link "People SELECCIÓN Encontramos a las personas correctas para tu equipo. Proceso riguroso, ágil y con foco en el fit cultural." [ref=e82] [cursor=pointer]:
+        - /url: people.html
+        - img [ref=e85]
+        - heading "People" [level=3] [ref=e89]
+        - generic [ref=e90]: SELECCIÓN
+        - paragraph [ref=e91]: Encontramos a las personas correctas para tu equipo. Proceso riguroso, ágil y con foco en el fit cultural.
+      - 'link "Tech TECNOLOGÍA Soluciones para pymes que quieren crecer con datos: dashboards, automatizaciones y sistemas para decidir mejor." [ref=e92] [cursor=pointer]':
+        - /url: tech.html
+        - img [ref=e95]
+        - heading "Tech" [level=3] [ref=e98]
+        - generic [ref=e99]: TECNOLOGÍA
+        - paragraph [ref=e100]: "Soluciones para pymes que quieren crecer con datos: dashboards, automatizaciones y sistemas para decidir mejor."
+      - 'link "Club COMUNIDAD Experiencias donde empresas y líderes se conectan, aprenden y crecen juntos: Pymeton, 4Peeq Cup y 4Peeqneta." [ref=e101] [cursor=pointer]':
+        - /url: club.html
+        - img [ref=e104]
+        - heading "Club" [level=3] [ref=e107]
+        - generic [ref=e108]: COMUNIDAD
+        - paragraph [ref=e109]: "Experiencias donde empresas y líderes se conectan, aprenden y crecen juntos: Pymeton, 4Peeq Cup y 4Peeqneta."
+      - link "Makers EQUIPO Jornadas de team building, día de la familia, maratones, competencias y experiencias a medida." [ref=e110] [cursor=pointer]:
+        - /url: makers.html
+        - img [ref=e113]
+        - heading "Makers" [level=3] [ref=e115]
+        - generic [ref=e116]: EQUIPO
+        - paragraph [ref=e117]: Jornadas de team building, día de la familia, maratones, competencias y experiencias a medida.
+  - region "Nuestra forma de trabajar" [ref=e118]:
+    - generic [ref=e119]:
+      - generic [ref=e122]:
+        - paragraph [ref=e123]:
+          - img [ref=e124]
+          - text: Nuestra forma de trabajar
+        - heading [level=2] [ref=e126]: Primero entender.
+      - heading [level=2] [ref=e128]: Después transformar.
+      - heading [level=3] [ref=e130]: Diagnosticamos a fondo, intervenimos donde más impacto hay.
+      - generic [ref=e131]:
+        - heading [level=2] [ref=e132]: Hagamos crecer tu empresa.
+        - link [ref=e133] [cursor=pointer]:
+          - /url: https://wa.me/5493794398385
+          - text: Tomemos un café
+          - generic [ref=e134]: →
+      - generic [ref=e135]: Scrolleá ↓
+  - generic [ref=e137]:
+    - heading "Cuatro pasos para transformar tu empresa" [level=2] [ref=e139]:
+      - text: Cuatro pasos para
+      - emphasis [ref=e140]: transformar
+      - text: tu empresa
+    - generic [ref=e141]:
+      - generic [ref=e142]:
+        - generic [ref=e143]:
+          - text: "01"
+          - img [ref=e144]
+        - generic [ref=e146]: PRIMER CONTACTO
+        - heading "Tomamos un café" [level=4] [ref=e147]
+        - paragraph [ref=e148]: Nos contás tu desafío, sin compromiso. El 80% de nuestros clientes empieza así.
+      - generic [ref=e149]:
+        - generic [ref=e150]:
+          - text: "02"
+          - img [ref=e151]
+        - generic [ref=e153]: DIAGNÓSTICO
+        - heading "Hallamos tu punto de dolor" [level=4] [ref=e154]
+        - paragraph [ref=e155]: Escuchamos, preguntamos y detectamos tus oportunidades de mejora.
+      - generic [ref=e156]:
+        - generic [ref=e157]:
+          - text: "03"
+          - img [ref=e158]
+        - generic [ref=e160]: PROPUESTA
+        - heading "Te enviamos el plan" [level=4] [ref=e161]
+        - paragraph [ref=e162]: Una propuesta clara, con objetivos medibles y tiempos concretos. Sin letra chica.
+      - generic [ref=e163]:
+        - generic [ref=e164]: "04"
+        - generic [ref=e165]: IMPLEMENTACIÓN
+        - heading "Trabajamos juntos" [level=4] [ref=e166]
+        - paragraph [ref=e167]: Acompañamiento de nuestro equipo durante todo el proyecto para cumplir los objetivos.
+  - generic [ref=e168]:
+    - generic [ref=e170]:
+      - heading "Más de 70 empresas ya confiaron en 4Peeq" [level=2] [ref=e171]:
+        - text: Más de 70 empresas ya confiaron en
+        - generic [ref=e172]:
+          - img "4Peeq" [ref=e173]
+          - img [ref=e174]
+      - paragraph [ref=e176]: De Corrientes y toda la región, en su camino de orden, optimización y crecimiento.
+    - generic [ref=e178]:
+      - generic "Cliente" [ref=e179]
+      - generic "Cliente" [ref=e180]
+      - generic "Cliente" [ref=e181]
+      - generic "Cliente" [ref=e182]
+      - generic "Cliente" [ref=e183]
+      - generic "Cliente" [ref=e184]
+      - generic "Cliente" [ref=e185]
+      - generic "Cliente" [ref=e186]
+      - generic "Cliente" [ref=e187]
+      - generic "Cliente" [ref=e188]
+      - generic "Cliente" [ref=e189]
+      - generic "Cliente" [ref=e190]
+      - generic "Cliente" [ref=e191]
+      - generic "Cliente" [ref=e192]
+      - generic "Cliente" [ref=e193]
+      - generic "Cliente" [ref=e194]
+  - generic [ref=e196]:
+    - generic [ref=e197]:
+      - heading "4Peeq en acción" [level=2] [ref=e198]:
+        - text: 4Peeq
+        - emphasis [ref=e199]: en acción
+      - paragraph [ref=e200]: El equipo trabajando junto a nuestros clientes, en el campo, todos los días.
+    - generic [ref=e201]:
+      - generic [ref=e202]:
+        - generic [ref=e203]: EN EL CAMPO
+        - generic [ref=e204]: foto equipo · vertical
+      - generic [ref=e206]: retrato
+      - generic [ref=e208]: workshop
+      - generic [ref=e210]: evento Club
+      - generic [ref=e212]: reunión
+  - generic [ref=e215]:
+    - heading "Te invitamos un café y hablamos de tu idea." [level=2] [ref=e216]
+    - paragraph [ref=e217]: Contanos tu desafío, sin compromiso. Empezamos por entender tu empresa y dónde está hoy.
+    - generic [ref=e218]:
+      - link "Quiero una reunión gratuita →" [ref=e219] [cursor=pointer]:
+        - /url: https://wa.me/5493794398385
+        - text: Quiero una reunión gratuita
+        - generic [ref=e220]: →
+      - generic [ref=e221]: o
+      - link "Iniciar diagnóstico gratuito" [ref=e222] [cursor=pointer]:
+        - /url: https://4peeq.com/autodiagnostico
+  - contentinfo [ref=e223]:
+    - generic [ref=e224]:
+      - generic [ref=e225]:
+        - generic [ref=e226]:
+          - img "4Peeq · Personas & Equipos" [ref=e227]
+          - paragraph [ref=e228]: "Personas & Equipos®. Iluminamos el camino de las organizaciones: ordenamos ideas y transformamos el potencial en estructura y resultados."
+        - generic [ref=e229]:
+          - heading "SOLUCIONES" [level=5] [ref=e230]
+          - link "Consultoría" [ref=e231] [cursor=pointer]:
+            - /url: consultoria.html
+          - link "Academy" [ref=e232] [cursor=pointer]:
+            - /url: academy.html
+          - link "People" [ref=e233] [cursor=pointer]:
+            - /url: people.html
+          - link "Tech · Club · Makers" [ref=e234] [cursor=pointer]:
+            - /url: lo-que-hacemos.html
+        - generic [ref=e235]:
+          - heading "EMPRESA" [level=5] [ref=e236]
+          - link "Cómo trabajamos" [ref=e237] [cursor=pointer]:
+            - /url: "#proceso"
+          - link "Club" [ref=e238] [cursor=pointer]:
+            - /url: https://4peeq.com/club
+          - link "¡Postulate!" [ref=e239] [cursor=pointer]:
+            - /url: postulate.html
+          - link "Autodiagnóstico" [ref=e240] [cursor=pointer]:
+            - /url: https://4peeq.com/autodiagnostico
+        - generic [ref=e241]:
+          - heading "CONTACTO" [level=5] [ref=e242]
+          - link "Mendoza 947, Corrientes" [ref=e243] [cursor=pointer]:
+            - /url: https://www.google.com/maps/search/?api=1&query=Mendoza+947
+          - link "4peeq.ok@gmail.com" [ref=e244] [cursor=pointer]:
+            - /url: mailto:4peeq.ok@gmail.com
+          - link "+54 3794 872576" [ref=e245] [cursor=pointer]:
+            - /url: https://wa.me/+543794872576
+      - generic [ref=e246]:
+        - generic [ref=e247]: © 2026 4Peeq · Personas & Equipos® — Todos los derechos reservados.
+        - generic [ref=e248]:
+          - link "Instagram" [ref=e249] [cursor=pointer]:
+            - /url: https://www.instagram.com/4peeq.ok
+            - img [ref=e250]
+          - link "WhatsApp" [ref=e254] [cursor=pointer]:
+            - /url: https://wa.me/+543794872576
+            - img [ref=e255]
+          - link "Email" [ref=e257] [cursor=pointer]:
+            - /url: mailto:4peeq.ok@gmail.com
+            - img [ref=e258]
+  - link "WhatsApp" [ref=e261] [cursor=pointer]:
+    - /url: https://wa.me/+543794872576?text=¡Hola%204Peeq!%20Quiero%20hacer%20una%20consulta.
+    - img [ref=e262]
+    - generic [ref=e264]: Escribinos por WhatsApp

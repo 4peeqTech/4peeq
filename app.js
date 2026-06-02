@@ -140,6 +140,73 @@
   });
 })();
 
+/* ---- scrollytelling: strict scroll-linked scenes ---- */
+(function () {
+  'use strict';
+  var section = document.getElementById('scrolly');
+  if (!section) return;
+
+  var glow  = section.querySelector('.scrolly-glow');
+  var bar   = section.querySelector('.scrolly-bar');
+  var hint  = section.querySelector('.scrolly-hint');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var scenes = [
+    { el: document.getElementById('sy-s1'), range: [0.00, 0.06, 0.18, 0.25] },
+    { el: document.getElementById('sy-s2'), range: [0.22, 0.30, 0.42, 0.50] },
+    { el: document.getElementById('sy-s3'), range: [0.47, 0.55, 0.67, 0.75] },
+    { el: document.getElementById('sy-s4'), range: [0.72, 0.82, 0.95, 1.00] }
+  ];
+
+  /* Maps progress p through a 4-stop range/output pair (like framer useTransform). */
+  function map4(p, r, v) {
+    if (p <= r[0]) return v[0];
+    if (p <= r[1]) return v[0] + (v[1] - v[0]) * (p - r[0]) / (r[1] - r[0]);
+    if (p <= r[2]) return v[1];
+    if (p <= r[3]) return v[1] + (v[3] - v[1]) * (p - r[2]) / (r[3] - r[2]);
+    return v[3];
+  }
+
+  function getProgress() {
+    var scrollTop  = window.scrollY || window.pageYOffset;
+    var sectionTop = section.offsetTop;
+    var sectionH   = section.offsetHeight;
+    var viewH      = window.innerHeight;
+    var raw = (scrollTop - sectionTop) / (sectionH - viewH);
+    return Math.max(0, Math.min(1, raw));
+  }
+
+  function update() {
+    var p = getProgress();
+
+    /* Progress bar: scaleX 0→1 */
+    bar.style.transform = 'scaleX(' + p + ')';
+
+    /* Scroll hint: fades out */
+    hint.style.opacity = p < 0.05 ? (1 - p / 0.05) : 0;
+
+    /* Glow pulse */
+    var go = p <= 0.5 ? 0.25 + 0.25 * (p / 0.5) : 0.5 - 0.25 * ((p - 0.5) / 0.5);
+    glow.style.opacity = go;
+
+    /* Scenes: opacity + translateY (or no translate when reduce-motion) */
+    var yAmp = reduce ? 0 : 60;
+    scenes.forEach(function (s) {
+      var r = s.range;
+      var opacity = map4(p, r, [0, 1, 1, 0]);
+      var y       = map4(p, r, [yAmp, 0, 0, -yAmp]);
+      s.el.style.opacity   = opacity;
+      s.el.style.transform = 'translateY(' + y + 'px)';
+      /* aria-hidden: hide from AT when invisible */
+      s.el.setAttribute('aria-hidden', opacity < 0.05 ? 'true' : 'false');
+    });
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+})();
+
 /* ---- mobile submenu ---- */
 (function () {
   const btn = document.getElementById('mobDdBtn');

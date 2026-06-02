@@ -1,0 +1,27 @@
+- generic [active] [ref=e1]:
+  - banner:
+    - link "4Peeq inicio" [ref=e2] [cursor=pointer]:
+      - /url: index.html
+      - img "4Peeq · Personas & Equipos" [ref=e3]
+      - img "4Peeq · Personas & Equipos" [ref=e4]
+  - main [ref=e6]:
+    - generic:
+      - img
+      - img
+      - img
+      - generic:
+        - generic:
+          - img "4Peeq"
+        - generic: Consultora Organizacional · Corrientes
+        - heading "Ponemos en orden, optimizamos y hacemos crecer tu empresa." [level=1]:
+          - text: Ponemos en orden, optimizamos y hacemos
+          - generic:
+            - text: crecer
+            - img
+          - text: tu empresa.
+        - paragraph: "Esta es nuestra propuesta de trabajo: un camino claro para ordenar, optimizar y hacer crecer tu organización, con metodología probada y acompañamiento real."
+        - generic:
+          - text: Más de
+          - generic: 70 empresas
+          - text: ya recorrieron este camino con nosotros
+      - generic: Deslizá para empezar

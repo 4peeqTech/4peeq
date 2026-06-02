@@ -829,29 +829,62 @@ a{ color:inherit; text-decoration:none; }
 /* stats 4-col variant */
 .stats-4 .stats-inner{ grid-template-columns:repeat(4,1fr); }
 
-/* criteria list (¿Es para vos?) */
-.club-criteria{ list-style:none; padding:0; margin:32px 0 0; display:flex; flex-direction:column; gap:10px; max-width:560px; }
-.criteria-item{
-  display:flex; align-items:center; gap:14px;
-  border:1.5px solid rgba(21,20,43,.1); border-radius:11px;
-  padding:16px 20px; font-size:15px; font-weight:500; color:var(--ink);
-  transition:border-color .2s, background .2s;
+/* ¿Es para vos? — two-column layout */
+.club-criteria-layout{
+  display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,80px); align-items:center;
 }
-.criteria-item::before{
-  content:"✓"; flex:none; width:24px; height:24px; border-radius:6px;
-  background:var(--violet); color:#fff; font-size:13px; font-weight:700;
-  display:flex; align-items:center; justify-content:center;
-}
-.criteria-item:hover{ border-color:var(--violet-lt); background:var(--paper-2); }
+.club-criteria-left{ max-width:560px; }
 
-/* quote block */
-.club-quote-sec{ padding:clamp(60px,7vw,96px) 0; }
-.club-quote{ text-align:center; max-width:680px; margin-inline:auto; }
-.club-quote-text{
-  font-family:var(--serif); font-weight:700; font-style:italic;
-  font-size:clamp(22px,3vw,38px); line-height:1.28; color:#fff; margin:0;
+/* criteria list */
+.club-criteria{ list-style:none; padding:0; margin:32px 0 0; display:flex; flex-direction:column; gap:0; }
+.criteria-item{
+  display:flex; align-items:center; gap:18px;
+  padding:16px 0; border-bottom:1px solid rgba(21,20,43,.08);
+  font-size:15px; font-weight:500; color:var(--ink);
 }
-.club-quote-attr{ margin:18px 0 32px; color:rgba(255,255,255,.5); font-size:13.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
+.criteria-item:last-child{ border-bottom:none; }
+.ci-num{
+  flex:none; font-family:var(--serif); font-size:22px; font-weight:700;
+  color:var(--violet); opacity:.3; line-height:1; min-width:30px;
+}
+.ci-text{ line-height:1.45; }
+
+/* testimonial card */
+.club-testimonial{ position:relative; }
+.club-testimonial-inner{
+  background:var(--ink); border-radius:20px;
+  padding:clamp(32px,4vw,48px); position:relative; overflow:hidden;
+  display:flex; flex-direction:column; gap:24px;
+}
+.club-testimonial-inner::before{
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 80% 0%, rgba(109,73,199,.35) 0%, transparent 65%);
+  pointer-events:none;
+}
+.ct-quote-mark{
+  font-family:var(--serif); font-size:80px; line-height:.8; font-weight:700;
+  color:var(--violet); opacity:.5; margin-bottom:-8px;
+}
+.ct-text{
+  font-family:var(--serif); font-weight:700; font-style:italic;
+  font-size:clamp(19px,2.2vw,26px); line-height:1.38; color:#fff; margin:0;
+  position:relative;
+}
+.ct-footer{ display:flex; align-items:center; gap:14px; position:relative; }
+.ct-avatar{
+  flex:none; width:44px; height:44px; border-radius:50%;
+  background:linear-gradient(135deg,var(--violet),#a87fff);
+  display:flex; align-items:center; justify-content:center;
+  font-size:13px; font-weight:700; color:#fff; letter-spacing:.04em;
+}
+.ct-name{ font-size:14px; font-weight:700; color:#fff; margin:0 0 2px; }
+.ct-role{ font-size:12px; color:rgba(255,255,255,.45); margin:0; }
+.ct-cta{ align-self:flex-start; position:relative; }
+
+@media(max-width:768px){
+  .club-criteria-layout{ grid-template-columns:1fr; }
+  .club-criteria-left{ max-width:100%; }
+}
 
 /* sponsor section */
 .club-sponsor-sec{ background:var(--paper-2); border-block:1px solid rgba(21,20,43,.07); }
@@ -993,4 +1026,116 @@ a{ color:inherit; text-decoration:none; }
 }
 @media(max-width:600px){
   .pr-svg{ overflow:visible; }
+}
+
+/* ============================================================
+   SCROLLYTELLING — "tall container + sticky stage"
+   Strict scroll-linking: opacity/transform driven by JS,
+   NO CSS transitions on animated props (so scroll-up reverses
+   exactly). Only will-change hints for GPU compositing.
+   ============================================================ */
+
+/* (A) Tall container = scroll space */
+.scrolly{
+  position:relative;
+  height:400vh;
+}
+
+/* (B) Sticky stage — pinned to viewport during the 400vh */
+.scrolly-stage{
+  position:sticky;
+  top:0;
+  height:100vh;
+  width:100%;
+  overflow:hidden;
+}
+
+/* (C) Static background, encapsulated (looks fixed, isn't) */
+.scrolly-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:linear-gradient(to bottom, #15142b, #231f3e 50%, #15142b);
+}
+.scrolly-glow{
+  position:absolute;
+  z-index:0;
+  left:50%;
+  top:50%;
+  width:60vmax;
+  height:60vmax;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:var(--violet);
+  filter:blur(140px);
+  opacity:0.25;
+  will-change:opacity;
+}
+
+/* (D) Scenes — driven by scrollYProgress via JS inline styles */
+.scrolly-scene{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:1.5rem var(--pad);
+  text-align:center;
+  opacity:0;
+  will-change:opacity, transform;
+}
+.scrolly-scene .kicker{ margin-bottom:1rem; }
+
+.scrolly-h{
+  font-size:clamp(2.4rem,7vw,4.5rem);
+  font-weight:700;
+  color:#fff;
+  line-height:1.1;
+  max-width:820px;
+  letter-spacing:-0.02em;
+}
+.scrolly-sub{
+  font-size:clamp(1.4rem,4vw,2.5rem);
+  font-weight:600;
+  color:#fff;
+  max-width:680px;
+  line-height:1.25;
+  letter-spacing:-0.01em;
+}
+.scrolly-accent{ color:var(--violet-lt); }
+
+.scrolly-cta{ margin-top:2rem; }
+
+/* Progress bar */
+.scrolly-bar{
+  position:absolute;
+  bottom:0;
+  left:0;
+  height:3px;
+  width:100%;
+  background:var(--violet-lt);
+  transform-origin:left;
+  transform:scaleX(0);
+  z-index:2;
+  will-change:transform;
+}
+
+/* Scroll hint */
+.scrolly-hint{
+  position:absolute;
+  bottom:2rem;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:11px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.45);
+  z-index:2;
+  will-change:opacity;
+}
+
+@media(max-width:600px){
+  .scrolly{ height:450vh; }
 }

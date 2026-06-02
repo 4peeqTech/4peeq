@@ -1,0 +1,272 @@
+- generic [active] [ref=e1]:
+  - banner:
+    - link "4Peeq inicio" [ref=e2] [cursor=pointer]:
+      - /url: index.html
+      - img "4Peeq · Personas & Equipos" [ref=e3]
+      - img "4Peeq · Personas & Equipos" [ref=e4]
+  - generic [ref=e6]:
+    - img
+    - img
+    - img
+    - generic [ref=e7]:
+      - img "4Peeq" [ref=e9]
+      - generic [ref=e10]: Consultora Organizacional · Corrientes
+      - heading "Ponemos en orden, optimizamos y hacemos crecer tu empresa." [level=1] [ref=e12]:
+        - text: Ponemos en orden, optimizamos y hacemos
+        - generic [ref=e13]:
+          - text: crecer
+          - img [ref=e14]
+        - text: tu empresa.
+      - paragraph [ref=e16]: "Esta es nuestra propuesta de trabajo: un camino claro para ordenar, optimizar y hacer crecer tu organización, con metodología probada y acompañamiento real."
+      - generic [ref=e17]:
+        - text: Más de
+        - generic [ref=e19]: 70 empresas
+        - text: ya recorrieron este camino con nosotros
+    - generic [ref=e20]: Deslizá para empezar
+  - generic [ref=e24]:
+    - generic [ref=e25]: El punto de partida
+    - heading "¿Te está pasando esto?" [level=2] [ref=e27]
+    - paragraph [ref=e28]: La mayoría de las pymes que acompañamos llegan sintiendo lo mismo. Identificar el problema es el primer paso para resolverlo.
+    - generic [ref=e29]:
+      - article [ref=e30]:
+        - text: "01"
+        - img [ref=e32]
+        - paragraph [ref=e34]: No sabés si ganás o perdés dinero realmente.
+      - article [ref=e35]:
+        - text: "02"
+        - img [ref=e37]
+        - paragraph [ref=e39]: Sentís desorden, procesos que no funcionan y caos diario.
+      - article [ref=e40]:
+        - text: "03"
+        - img [ref=e42]
+        - paragraph [ref=e45]: Tu equipo no responde o no está alineado con los objetivos.
+      - article [ref=e46]:
+        - text: "04"
+        - img [ref=e48]
+        - paragraph [ref=e52]: Tomás decisiones sin información confiable.
+      - article [ref=e53]:
+        - text: "05"
+        - img [ref=e55]
+        - paragraph [ref=e57]: Trabajás mucho, pero tu empresa no crece.
+    - paragraph [ref=e58]:
+      - text: Si te identificás con esto,
+      - emphasis [ref=e59]: no estás solo
+      - text: — y tiene solución.
+  - generic [ref=e62]:
+    - generic [ref=e63]:
+      - generic [ref=e64]: Nuestra forma de trabajar
+      - heading "Primero entender. Después transformar." [level=2] [ref=e66]:
+        - text: Primero entender.
+        - text: Después transformar.
+      - paragraph [ref=e67]: "No vendemos recetas genéricas. Te proponemos un camino ordenado: diagnosticamos a fondo, intervenimos donde más impacto hay e implementamos junto a tu equipo."
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - generic [ref=e70]: "1"
+        - generic [ref=e71]:
+          - heading "Radiografía" [level=4] [ref=e72]
+          - paragraph [ref=e73]: Una mirada integral y honesta de tu empresa para saber exactamente dónde estás parado hoy.
+      - generic [ref=e74]:
+        - generic [ref=e75]: "2"
+        - generic [ref=e76]:
+          - heading "Intervención" [level=4] [ref=e77]
+          - paragraph [ref=e78]: Trabajamos sobre el área de mayor oportunidad, con objetivos medibles y tiempos concretos.
+      - generic [ref=e79]:
+        - generic [ref=e80]: "3"
+        - generic [ref=e81]:
+          - heading "Implementación" [level=4] [ref=e82]
+          - paragraph [ref=e83]: Acompañamos la ejecución para que los cambios se sostengan y se traduzcan en resultados.
+  - generic [ref=e86]:
+    - generic [ref=e87]: Paso 1 · El diagnóstico
+    - heading "Empezamos con una Radiografía" [level=2] [ref=e89]:
+      - text: Empezamos con una
+      - emphasis [ref=e90]: Radiografía
+    - paragraph [ref=e91]: Analizamos cinco dimensiones de tu empresa para detectar fortalezas, cuellos de botella y oportunidades. Tocá cada eje para ver qué miramos.
+    - generic [ref=e92]:
+      - img [ref=e94]:
+        - generic [ref=e107] [cursor=pointer]: Negocio
+        - generic [ref=e112] [cursor=pointer]: Organi-
+        - generic [ref=e113] [cursor=pointer]: zación
+        - generic [ref=e118] [cursor=pointer]: Procesos
+        - generic [ref=e123] [cursor=pointer]: Números
+        - generic [ref=e128] [cursor=pointer]: Resul-
+        - generic [ref=e129] [cursor=pointer]: tado
+      - generic [ref=e130]:
+        - generic [ref=e131]:
+          - button "Negocio" [ref=e132] [cursor=pointer]
+          - button "Organización" [ref=e133] [cursor=pointer]
+          - button "Procesos" [ref=e134] [cursor=pointer]
+          - button "Números" [ref=e135] [cursor=pointer]
+          - button "Resultado" [ref=e136] [cursor=pointer]
+        - generic [ref=e137]:
+          - generic [ref=e138]: "01"
+          - heading "Negocio" [level=3] [ref=e139]
+          - paragraph [ref=e140]: Modelo de negocio, propuesta de valor, segmentos de clientes y canales. Entendemos cómo y con qué gana tu empresa.
+  - generic [ref=e143]:
+    - generic [ref=e144]: Cómo podemos empezar
+    - heading "Elegí el formato que mejor te acompaña" [level=2] [ref=e146]
+    - paragraph [ref=e147]: Tres maneras de trabajar juntos, según el momento de tu empresa. Siempre arrancamos por entender.
+    - generic [ref=e148]:
+      - article [ref=e149]:
+        - generic [ref=e150]: Opción 1
+        - heading "Solo Radiografía" [level=3] [ref=e151]
+        - generic [ref=e152]:
+          - img [ref=e153]
+          - text: 2 meses
+        - paragraph [ref=e156]: Diagnóstico completo de la empresa para saber dónde estás y qué priorizar.
+        - list [ref=e157]:
+          - listitem [ref=e158]:
+            - img [ref=e159]
+            - text: Análisis de las 5 dimensiones
+          - listitem [ref=e161]:
+            - img [ref=e162]
+            - text: Informe integral
+          - listitem [ref=e164]:
+            - img [ref=e165]
+            - text: Plan de acción
+      - article [ref=e167]:
+        - generic [ref=e168]:
+          - img [ref=e169]
+          - text: Recomendado
+        - generic [ref=e171]: Opción 3
+        - heading "Radiografía + 1 Área" [level=3] [ref=e172]
+        - generic [ref=e173]:
+          - img [ref=e174]
+          - text: 4 meses
+        - paragraph [ref=e177]: Diagnóstico completo + intervención en el área clave que detectamos en la radiografía.
+        - list [ref=e178]:
+          - listitem [ref=e179]:
+            - img [ref=e180]
+            - text: Todo lo de la Radiografía
+          - listitem [ref=e182]:
+            - img [ref=e183]
+            - text: Intervención en 1 área clave
+          - listitem [ref=e185]:
+            - img [ref=e186]
+            - text: Implementación acompañada
+      - article [ref=e188]:
+        - generic [ref=e189]: Opción 2
+        - heading "1 Área Específica" [level=3] [ref=e190]
+        - generic [ref=e191]:
+          - img [ref=e192]
+          - text: 4 meses
+        - paragraph [ref=e195]: Intervención directa en un área clave que ya tenés identificada como prioridad.
+        - list [ref=e196]:
+          - listitem [ref=e197]:
+            - img [ref=e198]
+            - text: Foco en 1 área específica
+          - listitem [ref=e200]:
+            - img [ref=e201]
+            - text: Objetivos medibles
+          - listitem [ref=e203]:
+            - img [ref=e204]
+            - text: Implementación acompañada
+  - generic [ref=e208]:
+    - generic [ref=e209]: Dónde intervenimos
+    - heading "Seis áreas, una sola empresa ordenada" [level=2] [ref=e211]
+    - paragraph [ref=e212]: Según lo que muestre la radiografía, trabajamos a fondo el área que más impacto va a generar.
+    - generic [ref=e213]:
+      - article [ref=e214]:
+        - img [ref=e216]
+        - heading "Administración y Finanzas" [level=4] [ref=e219]
+      - article [ref=e220]:
+        - img [ref=e222]
+        - heading "Marketing y Comercial" [level=4] [ref=e226]
+      - article [ref=e227]:
+        - img [ref=e229]
+        - heading "Recursos Humanos" [level=4] [ref=e232]
+      - article [ref=e233]:
+        - img [ref=e235]
+        - heading "Operaciones y Logística" [level=4] [ref=e239]
+      - article [ref=e240]:
+        - img [ref=e242]
+        - heading "Experiencia de Cliente" [level=4] [ref=e244]
+      - article [ref=e245]:
+        - img [ref=e247]
+        - heading "Profesionalización y Procesos" [level=4] [ref=e250]
+  - generic [ref=e253]:
+    - generic [ref=e254]: Lo que nos hace distintos
+    - heading "No solo recomendamos. Ejecutamos." [level=2] [ref=e256]:
+      - text: No solo recomendamos.
+      - emphasis [ref=e257]: Ejecutamos.
+    - paragraph [ref=e258]: Tenemos unidades propias para llevar el plan a la práctica. La estrategia y la ejecución, en el mismo equipo.
+    - generic [ref=e259]:
+      - article [ref=e260]:
+        - img [ref=e262]
+        - heading "Academy" [level=3] [ref=e265]
+        - generic [ref=e266]: Formación
+        - paragraph [ref=e267]: Capacitamos y desarrollamos a tus equipos para que alcancen los objetivos y sostengan los cambios.
+      - article [ref=e268]:
+        - img [ref=e270]
+        - heading "Tech" [level=3] [ref=e273]
+        - generic [ref=e274]: Tecnología
+        - paragraph [ref=e275]: Dashboards, automatizaciones y sistemas para que decidas con datos confiables, no con intuición.
+      - article [ref=e276]:
+        - img [ref=e278]
+        - heading "People" [level=3] [ref=e282]
+        - generic [ref=e283]: Selección
+        - paragraph [ref=e284]: Incorporamos a las personas correctas para tu equipo, con foco en el fit cultural.
+  - generic [ref=e287]:
+    - generic [ref=e288]: Cómo se desarrolla
+    - heading "Un proceso claro, mes a mes" [level=2] [ref=e290]
+    - paragraph [ref=e291]: Trabajamos con reuniones de seguimiento, entregables tangibles y acompañamiento constante durante todo el recorrido.
+    - generic [ref=e294]:
+      - generic [ref=e297]:
+        - text: Meses 1–2
+        - heading "Radiografía" [level=4] [ref=e298]
+        - paragraph [ref=e299]: Diagnóstico integral de las cinco dimensiones, con informe y plan de acción.
+      - generic [ref=e302]:
+        - text: Meses 3–4
+        - heading "Intervención inicial" [level=4] [ref=e303]
+        - paragraph [ref=e304]: Arrancamos a trabajar el área de mayor oportunidad, con objetivos medibles.
+      - generic [ref=e307]:
+        - text: Meses 5–6
+        - heading "Implementación y optimización" [level=4] [ref=e308]
+        - paragraph [ref=e309]: Consolidamos los cambios, medimos resultados y ajustamos para que perduren.
+  - generic [ref=e312]:
+    - generic [ref=e313]: A dónde llegamos
+    - heading "Lo que vas a conseguir" [level=2] [ref=e315]
+    - paragraph [ref=e316]: "El orden no es un fin en sí mismo: es el camino hacia una empresa más rentable, clara y que crece."
+    - generic [ref=e317]:
+      - article [ref=e318]:
+        - img [ref=e320]
+        - heading "Mayor rentabilidad" [level=4] [ref=e322]
+      - article [ref=e323]:
+        - img [ref=e325]
+        - heading "Claridad y control" [level=4] [ref=e329]
+      - article [ref=e330]:
+        - img [ref=e332]
+        - heading "Orden y eficiencia" [level=4] [ref=e334]
+      - article [ref=e335]:
+        - img [ref=e337]
+        - heading "Crecimiento sostenible" [level=4] [ref=e340]
+    - generic [ref=e341]:
+      - generic [ref=e342]:
+        - generic [ref=e343]: "+70"
+        - generic [ref=e344]: empresas acompañadas en su transformación
+      - generic [ref=e345]:
+        - generic [ref=e346]: "+3"
+        - generic [ref=e347]: años acompañando organizaciones de la región
+      - generic [ref=e348]:
+        - generic [ref=e349]: +90%
+        - generic [ref=e350]: de clientes que nos vuelven a elegir
+  - generic [ref=e353]:
+    - img "4Peeq" [ref=e355]
+    - heading "Ordenemos hoy lo que hará crecer tu empresa mañana." [level=2] [ref=e356]:
+      - text: Ordenemos hoy lo que hará
+      - generic [ref=e357]:
+        - text: crecer
+        - img [ref=e358]
+      - text: tu empresa mañana.
+    - paragraph [ref=e360]: Gracias por tomarte el tiempo de leer nuestra propuesta. Cuando quieras, damos el primer paso juntos.
+    - generic [ref=e361]:
+      - img "4Peeq · Personas & Equipos" [ref=e362]
+      - generic [ref=e363]:
+        - generic [ref=e364]:
+          - img [ref=e365]
+          - text: Mendoza 947, Corrientes
+        - generic [ref=e368]:
+          - img [ref=e369]
+          - text: 4peeq.ok@gmail.com
+        - generic [ref=e372]:
+          - img [ref=e373]
+          - text: +54 3794 872576

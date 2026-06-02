@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4Peeq — Orden, Optimización y Crecimiento de Empresas</title>
+<meta name="description" content="4Peeq es una consultora organizacional que ordena empresas, desarrolla equipos, incorpora talento, potencia con tecnología y genera comunidad. Corrientes, Argentina.">
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand" aria-label="4Peeq inicio">
+      <img class="logo-blanco" src="assets/logo-blanco.png" alt="4Peeq · Personas & Equipos">
+      <img class="logo-color" src="assets/logo-color.png" alt="4Peeq · Personas & Equipos">
+    </a>
+    <nav class="nav-links">
+      <div class="nav-dd-wrap">
+        <button class="nav-dd-btn" aria-expanded="false" aria-controls="nav-dd" aria-haspopup="true">
+          Lo que hacemos
+          <svg class="chev" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <div class="nav-dd" id="nav-dd" role="menu">
+          <a href="consultoria.html" role="menuitem">Consultoría</a>
+          <a href="academy.html" role="menuitem">Academy</a>
+          <a href="people.html" role="menuitem">People</a>
+          <a href="tech.html" role="menuitem">Tech</a>
+          <a href="club.html" role="menuitem">Club</a>
+          <a href="makers.html" role="menuitem">Makers</a>
+        </div>
+      </div>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#equipo">Equipo</a>
+      <a href="https://4peeq.com/autodiagnostico">Autodiagnóstico</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="https://wa.me/5493794398385" class="btn btn-violet">Tomemos un café <span class="arr">→</span></a>
+      <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+  <div class="mob-dd-wrap">
+    <button class="mob-dd-btn" id="mobDdBtn" aria-expanded="false">
+      Lo que hacemos
+      <svg class="chev" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="mob-dd" id="mobDd">
+      <a href="consultoria.html">Consultoría</a>
+      <a href="academy.html">Academy</a>
+      <a href="people.html">People</a>
+      <a href="tech.html">Tech</a>
+      <a href="club.html">Club</a>
+      <a href="makers.html">Makers</a>
+    </div>
+  </div>
+  <a href="#proceso">Cómo trabajamos</a>
+  <a href="#clientes">Clientes</a>
+  <a href="#equipo">Equipo</a>
+  <a href="https://4peeq.com/autodiagnostico">Autodiagnóstico</a>
+  <a href="https://wa.me/5493794398385" class="btn btn-violet">Tomemos un café ☕</a>
+</nav>
+
+<a name="top"></a>
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-glow v" data-par="0.05"></div>
+  <div class="hero-glow p" data-par="0.03"></div>
+  <div class="spotlight"></div>
+
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="kicker on-dark up">
+        <svg class="spark" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 0c.6 6.4 5.6 11.4 12 12-6.4.6-11.4 5.6-12 12-.6-6.4-5.6-11.4-12-12C6.4 11.4 11.4 6.4 12 0z"/></svg>
+        Consultora Organizacional · Corrientes
+      </span>
+      <h1 class="up" data-d="1">Ponemos en orden, optimizamos y hacemos
+        <span class="hl">crecer<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M3 17 C 70 6, 150 6, 210 12 S 280 20, 297 9"/></svg></span>
+        tu empresa.</h1>
+      <p class="hero-lead up" data-d="2">Somos 4Peeq. Ordenamos empresas, desarrollamos equipos, incorporamos talento, potenciamos con tecnología y generamos comunidad.</p>
+      <div class="hero-cta up" data-d="3">
+        <a href="https://wa.me/5493794398385" class="btn btn-violet">Tomemos un café ☕</a>
+      </div>
+      <div class="hero-meta up" data-d="4">
+        <span>+70 empresas ya confiaron en nosotros</span>
+      </div>
+    </div>
+
+    <div class="hero-art up" data-d="3">
+      <div class="foco-chip"><img src="assets/foco-color.png" alt="4Peeq"></div>
+      <div class="block"></div>
+      <div class="photo">
+        <span class="ph-tag">foto humana real · equipo 4Peeq</span>
+      </div>
+      <div class="badge">
+        <div class="n">+90%</div>
+        <div class="t">nos vuelven<br>a elegir</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="wrap stats-inner">
+    <div class="stat reveal"><span class="n" data-count>+70</span><span class="l">empresas acompañadas en su transformación</span></div>
+    <div class="stat reveal" data-d="1"><span class="n" data-count>+3</span><span class="l">años acompañando organizaciones de la región</span></div>
+    <div class="stat reveal" data-d="2"><span class="n" data-count>+90%</span><span class="l">de clientes que nos vuelven a elegir</span></div>
+  </div>
+</section>
+
+<!-- ============ LO QUE HACEMOS ============ -->
+<section class="sec services" id="servicios">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Una solución para cada <em>etapa</em> de tu empresa</h2>
+      <p>No somos una consultora genérica. Cada unidad de 4Peeq está diseñada para resolver un problema concreto de tu organización.</p>
+    </div>
+    <div class="svc-grid">
+
+      <a href="consultoria.html" class="svc svc-featured reveal" data-d="1">
+        <div class="svc-top">
+          <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        </div>
+        <h3>Consultoría</h3>
+        <div class="tag">ACOMPAÑAMIENTO</div>
+        <p>Profesionalización y optimización de las áreas de tu organización.</p>
+        <div class="areas">Administración · RRHH · Comercial y ventas · Logística y operaciones</div>
+      </a>
+
+      <a href="academy.html" class="svc reveal" data-d="2">
+        <div class="svc-top">
+          <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        </div>
+        <h3>Academy</h3>
+        <div class="tag">FORMACIÓN</div>
+        <p>Programas de formación y capacitación para que tus equipos alcancen los objetivos y resultados esperados.</p>
+      </a>
+
+      <a href="people.html" class="svc reveal" data-d="3">
+        <div class="svc-top">
+          <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="0.6" fill="currentColor"/></svg></div>
+        </div>
+        <h3>People</h3>
+        <div class="tag">SELECCIÓN</div>
+        <p>Encontramos a las personas correctas para tu equipo. Proceso riguroso, ágil y con foco en el fit cultural.</p>
+      </a>
+
+      <a href="tech.html" class="svc reveal" data-d="1">
+        <div class="svc-top">
+          <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M6 8l2 2-2 2M11 12h4"/></svg></div>
+        </div>
+        <h3>Tech</h3>
+        <div class="tag">TECNOLOGÍA</div>
+        <p>Soluciones para pymes que quieren crecer con datos: dashboards, automatizaciones y sistemas para decidir mejor.</p>
+      </a>
+
+      <a href="club.html" class="svc reveal" data-d="2">
+        <div class="svc-top">
+          <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        </div>
+        <h3>Club</h3>
+        <div class="tag">COMUNIDAD</div>
+        <p>Experiencias donde empresas y líderes se conectan, aprenden y crecen juntos: Pymeton, 4Peeq Cup y 4Peeqneta.</p>
+      </a>
+
+      <a href="makers.html" class="svc reveal" data-d="3">
+        <div class="svc-top">
+          <div class="svc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4a2 2 0 1 0-4 0v3H4a2 2 0 1 0 0 4h3v3a2 2 0 1 0 4 0M13 7h3a2 2 0 1 1 0 4h-3v3a2 2 0 1 0 4 0"/><path d="M11 4v16"/></svg></div>
+        </div>
+        <h3>Makers</h3>
+        <div class="tag">EQUIPO</div>
+        <p>Jornadas de team building, día de la familia, maratones, competencias y experiencias a medida.</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="sec process" id="proceso">
+  <img class="foco-watermark" src="assets/foco-blanco.png" alt="">
+  <div class="hero-glow v" style="opacity:.5; top:auto; bottom:-200px; right:10%"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2 style="color:#fff">Cuatro pasos para <em style="color:var(--violet-lt); font-style:italic">transformar</em> tu empresa</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal" data-d="1">
+        <div class="idx">01<svg class="arrow" viewBox="0 0 40 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 9h32M28 3l8 6-8 6"/></svg></div>
+        <div class="ph">PRIMER CONTACTO</div>
+        <h4>Tomamos un café</h4>
+        <p>Nos contás tu desafío, sin compromiso. El 80% de nuestros clientes empieza así.</p>
+      </div>
+      <div class="step reveal" data-d="2">
+        <div class="idx">02<svg class="arrow" viewBox="0 0 40 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 9h32M28 3l8 6-8 6"/></svg></div>
+        <div class="ph">DIAGNÓSTICO</div>
+        <h4>Hallamos tu punto de dolor</h4>
+        <p>Escuchamos, preguntamos y detectamos tus oportunidades de mejora.</p>
+      </div>
+      <div class="step reveal" data-d="3">
+        <div class="idx">03<svg class="arrow" viewBox="0 0 40 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 9h32M28 3l8 6-8 6"/></svg></div>
+        <div class="ph">PROPUESTA</div>
+        <h4>Te enviamos el plan</h4>
+        <p>Una propuesta clara, con objetivos medibles y tiempos concretos. Sin letra chica.</p>
+      </div>
+      <div class="step reveal" data-d="4">
+        <div class="idx">04</div>
+        <div class="ph">IMPLEMENTACIÓN</div>
+        <h4>Trabajamos juntos</h4>
+        <p>Acompañamiento de nuestro equipo durante todo el proyecto para cumplir los objetivos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENTES ============ -->
+<section class="sec proof" id="clientes">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <h2>Más de 70 empresas ya confiaron en <span class="logo-inline"><img src="assets/logo-color-notext.png" alt="4Peeq"><svg class="ul" viewBox="0 0 200 24" preserveAspectRatio="none" aria-hidden="true"><path d="M3 15 C 50 8, 150 8, 197 14"/></svg></span></h2>
+      <p>De Corrientes y toda la región, en su camino de orden, optimización y crecimiento.</p>
+    </div>
+  </div>
+  <div class="marquee reveal" data-d="1">
+    <div class="marquee-track" id="track">
+      <div class="logo-cell" aria-label="Cliente"></div>
+      <div class="logo-cell" aria-label="Cliente"></div>
+      <div class="logo-cell" aria-label="Cliente"></div>
+      <div class="logo-cell" aria-label="Cliente"></div>
+      <div class="logo-cell" aria-label="Cliente"></div>
+      <div class="logo-cell" aria-label="Cliente"></div>
+      <div class="logo-cell" aria-label="Cliente"></div>
+      <div class="logo-cell" aria-label="Cliente"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EQUIPO ============ -->
+<section class="sec" id="equipo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>4Peeq <em>en acción</em></h2>
+      <p>El equipo trabajando junto a nuestros clientes, en el campo, todos los días.</p>
+    </div>
+    <div class="team-grid reveal" data-d="1">
+      <div class="ph-img big"><span class="pin">EN EL CAMPO</span><span class="ph-tag">foto equipo · vertical</span></div>
+      <div class="ph-img"><span class="ph-tag">retrato</span></div>
+      <div class="ph-img"><span class="ph-tag">workshop</span></div>
+      <div class="ph-img"><span class="ph-tag">evento Club</span></div>
+      <div class="ph-img"><span class="ph-tag">reunión</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final">
+  <div class="wrap">
+    <div class="final-card reveal">
+      <img class="foco-watermark" src="assets/foco-blanco.png" alt="">
+      <h2>Te invitamos un café y hablamos de tu idea.</h2>
+      <p>Contanos tu desafío, sin compromiso. Empezamos por entender tu empresa y dónde está hoy.</p>
+      <div class="final-cta">
+        <a href="https://wa.me/5493794398385" class="btn btn-violet">Quiero una reunión gratuita <span class="arr">→</span></a>
+        <span class="or">o</span>
+        <a href="https://4peeq.com/autodiagnostico" class="btn btn-ghost on-dark">Iniciar diagnóstico gratuito</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <img class="foot-logo" src="assets/logo-blanco.png" alt="4Peeq · Personas & Equipos">
+        <p class="foot-blurb">Personas &amp; Equipos®. Iluminamos el camino de las organizaciones: ordenamos ideas y transformamos el potencial en estructura y resultados.</p>
+      </div>
+      <div class="foot-col">
+        <h5>SOLUCIONES</h5>
+        <a href="consultoria.html">Consultoría</a>
+        <a href="academy.html">Academy</a>
+        <a href="people.html">People</a>
+        <a href="lo-que-hacemos.html">Tech · Club · Makers</a>
+      </div>
+      <div class="foot-col">
+        <h5>EMPRESA</h5>
+        <a href="#proceso">Cómo trabajamos</a>
+        <a href="https://4peeq.com/club">Club</a>
+        <a href="postulate.html">¡Postulate!</a>
+        <a href="https://4peeq.com/autodiagnostico">Autodiagnóstico</a>
+      </div>
+      <div class="foot-col">
+        <h5>CONTACTO</h5>
+        <a href="https://www.google.com/maps/search/?api=1&query=Mendoza+947">Mendoza 947, Corrientes</a>
+        <a href="mailto:4peeq.ok@gmail.com">4peeq.ok@gmail.com</a>
+        <a href="https://wa.me/+543794872576">+54 3794 872576</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 4Peeq · Personas &amp; Equipos® — Todos los derechos reservados.</span>
+      <div class="foot-socials">
+        <a href="https://www.instagram.com/4peeq.ok" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/+543794872576" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6s1.8 2.8 4.4 3.9c1.6.7 2.2.7 3 .6a2.5 2.5 0 0 0 1.7-1.2 2 2 0 0 0 .1-1.1c0-.2-.2-.2-.4-.3z"/></svg></a>
+        <a href="mailto:4peeq.ok@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/+543794872576?text=¡Hola%204Peeq!%20Quiero%20hacer%20una%20consulta." aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A8 8 0 1 1 12 20zm4.4-5.6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6s1.8 2.8 4.4 3.9c1.6.7 2.2.7 3 .6a2.5 2.5 0 0 0 1.7-1.2 2 2 0 0 0 .1-1.1c0-.2-.2-.2-.4-.3z"/></svg>
+  <span class="wa-txt">Escribinos por WhatsApp</span>
+</a>
+
+<script src="app.js?v=3"></script>
+</body>
+</html>
+
