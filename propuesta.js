@@ -22,16 +22,6 @@
     { t: 'Números',      n: '04', d: 'Ingresos, costos, rentabilidad y flujo de caja. La salud financiera real, con datos confiables.' },
     { t: 'Resultado',    n: '05', d: 'Informe integral con los puntos críticos detectados y un plan de acción claro para avanzar.' }
   ];
-  var VERTS  = [ [200,50], [342.6,153.6], [288.2,321.4], [111.8,321.4], [57.4,153.6] ];
-  var CENTER = [200, 200];
-  var LABEL_MAP = [[0], [1, 2], [3], [4], [5, 6]];
-  var lerp = function (a, b, t) { return a + (b - a) * t; };
-  function shapePoints(active) {
-    return VERTS.map(function (v, i) {
-      var f = (i === active) ? 0.98 : 0.55;
-      return lerp(CENTER[0], v[0], f).toFixed(1) + ',' + lerp(CENTER[1], v[1], f).toFixed(1);
-    }).join(' ');
-  }
 
   /* ---- scroll reveal con GSAP (Locked Viewport) ---- */
   var deck = document.getElementById('scrolly-deck');
@@ -47,10 +37,23 @@
         pin: true,
         scrub: 1, // suavizado
         start: "top top",
-        // Multiplicamos por cantidad de slides para dar suficiente "espacio de scroll"
         end: "+=" + (slides.length * 200) + "%" 
       }
     });
+
+    // Animación de Portada S1 atada al scroll inicial
+    masterTl.addLabel("scene_intro");
+    masterTl.fromTo("#s1 .foco-spin", 
+      { scale: 2, y: "20vh" }, 
+      { scale: 1, y: 0, duration: 1.2, ease: "power2.inOut" }, 
+      "scene_intro"
+    );
+    masterTl.fromTo("#s1 .s1-text", 
+      { opacity: 0, y: 30 }, 
+      { opacity: 1, y: 0, duration: 1.2, stagger: 0.15, ease: "power2.out" }, 
+      "scene_intro+=0.5"
+    );
+    masterTl.to("#s1 .cue", { opacity: 0, duration: 0.5 }, "scene_intro+=0.2");
 
     slides.forEach(function(slide, index) {
       var reveals = slide.querySelectorAll('.reveal');
@@ -81,75 +84,78 @@
 
       // Especial: Animación Scrollytelling de la Radiografía (S4)
       if (slide.id === 's4') {
-        var radarShape = document.getElementById('radarShape');
+        var scannerLine = document.getElementById('scannerLine');
         var rdPanel = document.getElementById('rdPanel');
-        var radarNodes = Array.prototype.slice.call(document.querySelectorAll('.radar-node'));
-        var radarLabels = Array.prototype.slice.call(document.querySelectorAll('.rn-label'));
+        var xrNodes = Array.prototype.slice.call(document.querySelectorAll('.xr-node'));
         
-        if (radarShape && rdPanel) {
-          // Inicializar estado 0 al crearse
+        if (scannerLine && rdPanel) {
           rdPanel.innerHTML = '<div class="rd-panel-num">' + DIMS[0].n + '</div><h3>' + DIMS[0].t + '</h3><p>' + DIMS[0].d + '</p>';
-          radarShape.setAttribute('points', shapePoints(0));
-          if(radarNodes[0]) radarNodes[0].classList.add('on');
-          (LABEL_MAP[0] || []).forEach(function (idx) { if (radarLabels[idx]) radarLabels[idx].classList.add('on'); });
+          if(xrNodes[0]) xrNodes[0].classList.add('on');
+          
+          var scanStops = ["15%", "45%", "68%", "85%", "100%"]; // Y positions for scanner
 
           for (var k = 1; k < 5; k++) {
             (function(step) {
-              masterTl.to(radarShape, {
-                attr: { points: shapePoints(step) },
+              masterTl.to(scannerLine, {
+                top: scanStops[step],
                 duration: 1.5,
                 ease: "power2.inOut",
                 onStart: function() {
-                   radarNodes.forEach(function (n, j) { n.classList.toggle('on', j === step); });
-                   radarLabels.forEach(function (l) { l.classList.remove('on'); });
-                   (LABEL_MAP[step] || []).forEach(function (idx) { if (radarLabels[idx]) radarLabels[idx].classList.add('on'); });
+                   xrNodes.forEach(function (n, j) { n.classList.toggle('on', j === step); });
                    rdPanel.innerHTML = '<div class="rd-panel-num">' + DIMS[step].n + '</div><h3>' + DIMS[step].t + '</h3><p>' + DIMS[step].d + '</p>';
                    rdPanel.classList.remove('rd-anim'); void rdPanel.offsetWidth; rdPanel.classList.add('rd-anim');
                 },
                 onReverseComplete: function() {
                    var prev = step - 1;
-                   radarNodes.forEach(function (n, j) { n.classList.toggle('on', j === prev); });
-                   radarLabels.forEach(function (l) { l.classList.remove('on'); });
-                   (LABEL_MAP[prev] || []).forEach(function (idx) { if (radarLabels[idx]) radarLabels[idx].classList.add('on'); });
+                   xrNodes.forEach(function (n, j) { n.classList.toggle('on', j === prev); });
                    rdPanel.innerHTML = '<div class="rd-panel-num">' + DIMS[prev].n + '</div><h3>' + DIMS[prev].t + '</h3><p>' + DIMS[prev].d + '</p>';
                    rdPanel.classList.remove('rd-anim'); void rdPanel.offsetWidth; rdPanel.classList.add('rd-anim');
                 }
-              }, "+=0.6"); // Pequeña pausa entre dimensiones
+              }, "+=0.2");
             })(k);
           }
-          // Pausa extra final para dejar leer el último punto
-          masterTl.to({}, { duration: 1 });
         }
       }
+
+      // Especial: Animación del Club
+
 
       /* ---- timeline: animar atado al scroll ---- */
       if (isTimelineSlide) {
         var trackFill = isTimelineSlide.querySelector('.tl-fill');
         var nodes = isTimelineSlide.querySelectorAll('.tl-node');
-        masterTl.to(trackFill, { width: "100%", duration: 2, ease: "none" });
-        masterTl.fromTo(nodes, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.4, stagger: 0.6 }, "<0.2");
+        var cards = isTimelineSlide.querySelectorAll('.tl-card');
+        
+        masterTl.to(trackFill, { width: "100%", duration: 3, ease: "none" });
+        masterTl.fromTo(nodes, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.5, stagger: 1 }, "<0.2");
+        masterTl.fromTo(cards, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, stagger: 1 }, "<");
       }
 
       /* ---- contador animado atado al scroll ---- */
       if (isStatsSlide) {
         var nums = isStatsSlide.querySelectorAll('[data-count]');
-        nums.forEach(function(el) {
-          var raw = el.dataset.final || el.textContent.trim();
-          el.dataset.final = raw;
-          var prefix = (raw.match(/^\D*/) || [''])[0];
-          var suffix = (raw.match(/\D*$/) || [''])[0];
-          var target = parseInt(raw.replace(/\D/g, ''), 10) || 0;
-          
-          var counter = { val: 0 };
-          masterTl.to(counter, {
-            val: target,
-            duration: 1.5,
-            ease: "power1.out",
-            onUpdate: function() {
-              el.textContent = prefix + Math.round(counter.val) + suffix;
-            }
-          }, "<");
-        });
+        var counted = false;
+        masterTl.call(function() {
+          if (counted) return;
+          counted = true;
+          nums.forEach(function(el) {
+            var raw = el.dataset.final || el.textContent.trim();
+            el.dataset.final = raw;
+            var prefix = (raw.match(/^\D*/) || [''])[0];
+            var suffix = (raw.match(/\D*$/) || [''])[0];
+            var target = parseInt(raw.replace(/\D/g, ''), 10) || 0;
+            
+            var counter = { val: 0 };
+            gsap.to(counter, {
+              val: target,
+              duration: 3.5,
+              ease: "power1.inOut",
+              onUpdate: function() {
+                el.textContent = prefix + Math.round(counter.val) + suffix;
+              }
+            });
+          });
+        }, null, "scene" + index + "+=0.4");
       }
     });
   }
@@ -168,4 +174,19 @@
       sp.style.setProperty('--my', '35%');
     });
   });
+
+  // Ocultar Navbar al scrollear
+  var pnav = document.getElementById('pnav');
+  if (pnav) {
+    ScrollTrigger.create({
+      start: "top -50%", 
+      onUpdate: function(self) {
+        if (self.direction === 1) { 
+          gsap.to(pnav, { yPercent: -100, autoAlpha: 0, duration: 0.3, overwrite: true });
+        } else { 
+          gsap.to(pnav, { yPercent: 0, autoAlpha: 1, duration: 0.3, overwrite: true });
+        }
+      }
+    });
+  }
 })();

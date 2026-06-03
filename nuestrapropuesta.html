@@ -34,12 +34,12 @@
 
   <div class="wrap">
     <div class="foco-spin"><img src="assets/foco-color.png" alt="4Peeq"></div>
-    <span class="eyebrow"><span class="dot"></span>Consultora Organizacional · Corrientes</span>
-    <h1>Ponemos en orden, optimizamos y hacemos
+    <span class="eyebrow s1-text"><span class="dot"></span>Consultora Organizacional · Corrientes</span>
+    <h1 class="s1-text">Ponemos en orden, optimizamos y hacemos
       <span class="hl">crecer<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M3 17 C 70 6, 150 6, 210 12 S 280 20, 297 9"/></svg></span>
       tu empresa.</h1>
-    <p class="cover-sub">Esta es nuestra propuesta de trabajo: un camino claro para ordenar, optimizar y hacer crecer tu organización, con metodología probada y acompañamiento real.</p>
-    <div class="cover-meta"><span class="pip"></span>Más de <b>70 empresas</b> ya recorrieron este camino con nosotros</div>
+    <p class="cover-sub s1-text">Esta es nuestra propuesta de trabajo: un camino claro para ordenar, optimizar y hacer crecer tu organización, con metodología probada y acompañamiento real.</p>
+    <div class="cover-meta s1-text"><span class="pip"></span>Más de <b>70 empresas</b> ya recorrieron este camino con nosotros</div>
   </div>
   <div class="cue">Deslizá para empezar<div class="mouse"></div></div>
 </section>
@@ -119,56 +119,46 @@
     <h2 class="s-title reveal" data-d="1">Empezamos con una <em style="color:var(--violet-lt); font-style:italic">Radiografía</em></h2>
     <p class="s-lead reveal" data-d="2">Analizamos cinco dimensiones de tu empresa para detectar fortalezas, cuellos de botella y oportunidades. Tocá cada eje para ver qué miramos.</p>
 
-    <div class="radar-layout reveal" data-d="1">
-      <div class="radar-wrap">
-        <svg class="radar-svg" viewBox="0 0 400 400" id="radarSvg" aria-hidden="true">
-          <!-- anillos -->
-          <polygon class="radar-grid" points="200,80 320,162 274,303 126,303 80,162" opacity=".5"></polygon>
-          <polygon class="radar-grid" points="200,50 342.6,153.6 288.2,321.4 111.8,321.4 57.4,153.6"></polygon>
-          <!-- spokes -->
-          <g class="radar-spoke-g">
-            <line class="radar-spoke" x1="200" y1="200" x2="200" y2="50"></line>
-            <line class="radar-spoke" x1="200" y1="200" x2="342.6" y2="153.6"></line>
-            <line class="radar-spoke" x1="200" y1="200" x2="288.2" y2="321.4"></line>
-            <line class="radar-spoke" x1="200" y1="200" x2="111.8" y2="321.4"></line>
-            <line class="radar-spoke" x1="200" y1="200" x2="57.4" y2="153.6"></line>
-          </g>
-          <!-- forma de datos -->
-          <polygon class="radar-shape" id="radarShape" points="200,78 300,160 262,290 138,290 92,160"></polygon>
-          <!-- nodos -->
-          <g class="radar-node on" data-i="0">
-            <circle class="rn-hit" cx="200" cy="50" r="26"></circle>
-            <circle class="rn-ring" cx="200" cy="50" r="9"></circle>
-            <circle class="rn-core" cx="200" cy="50" r="4"></circle>
-          </g>
-          <text class="rn-label on" x="200" y="33" text-anchor="middle">Negocio</text>
-          <g class="radar-node" data-i="1">
-            <circle class="rn-hit" cx="342.6" cy="153.6" r="26"></circle>
-            <circle class="rn-ring" cx="342.6" cy="153.6" r="9"></circle>
-            <circle class="rn-core" cx="342.6" cy="153.6" r="4"></circle>
-          </g>
-          <text class="rn-label" x="368" y="150" text-anchor="middle">Organi-</text>
-          <text class="rn-label" x="368" y="166" text-anchor="middle">zación</text>
-          <g class="radar-node" data-i="2">
-            <circle class="rn-hit" cx="288.2" cy="321.4" r="26"></circle>
-            <circle class="rn-ring" cx="288.2" cy="321.4" r="9"></circle>
-            <circle class="rn-core" cx="288.2" cy="321.4" r="4"></circle>
-          </g>
-          <text class="rn-label" x="300" y="350" text-anchor="middle">Procesos</text>
-          <g class="radar-node" data-i="3">
-            <circle class="rn-hit" cx="111.8" cy="321.4" r="26"></circle>
-            <circle class="rn-ring" cx="111.8" cy="321.4" r="9"></circle>
-            <circle class="rn-core" cx="111.8" cy="321.4" r="4"></circle>
-          </g>
-          <text class="rn-label" x="100" y="350" text-anchor="middle">Números</text>
-          <g class="radar-node" data-i="4">
-            <circle class="rn-hit" cx="57.4" cy="153.6" r="26"></circle>
-            <circle class="rn-ring" cx="57.4" cy="153.6" r="9"></circle>
-            <circle class="rn-core" cx="57.4" cy="153.6" r="4"></circle>
-          </g>
-          <text class="rn-label" x="34" y="150" text-anchor="middle">Resul-</text>
-          <text class="rn-label" x="34" y="166" text-anchor="middle">tado</text>
+    <div class="radar-layout">
+      <div class="radar-box">
+        <svg class="xray-svg" viewBox="0 0 400 400" id="xraySvg" aria-hidden="true" style="max-height: 250px;">
+          <defs>
+            <linearGradient id="xrGlow" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="rgba(162,126,227,0.4)"/>
+              <stop offset="100%" stop-color="transparent"/>
+            </linearGradient>
+          </defs>
+          <!-- Wireframe Empresa (Tienda de Barrio con Cartel) -->
+          <!-- Base -->
+          <rect class="xr-line" x="20" y="320" width="360" height="40" />
+          
+          <!-- Local principal -->
+          <rect class="xr-line" x="50" y="160" width="220" height="160" />
+          <rect class="xr-line" x="120" y="240" width="80" height="80" /> <!-- Puerta -->
+          <path class="xr-line" d="M 120 240 L 200 240" />
+          <line class="xr-line" x1="160" y1="240" x2="160" y2="320" />
+          <rect class="xr-line" x="70" y="200" width="40" height="60" /> <!-- Vidrieras -->
+          <rect class="xr-line" x="210" y="200" width="40" height="60" />
+          
+          <!-- Toldo / Techo -->
+          <path class="xr-line" d="M 30 160 L 290 160 L 250 100 L 70 100 Z" />
+          <rect class="xr-line" x="100" y="60" width="120" height="40" /> <!-- Cartel superior -->
+
+          <!-- Cartel de pie (Negocio de barrio) a la derecha -->
+          <line class="xr-line" x1="330" y1="320" x2="330" y2="180" style="stroke-width:3" />
+          <rect class="xr-line" x="290" y="120" width="80" height="60" rx="4" />
+          <rect class="xr-line" x="295" y="125" width="70" height="50" rx="2" />
+          <line class="xr-line" x1="305" y1="140" x2="355" y2="140" />
+          <line class="xr-line" x1="305" y1="155" x2="355" y2="155" />
+
+          <!-- Nodos XRay que brillan -->
+          <path class="xr-node" data-i="0" d="M 100 60 H 220 V 100 H 100 Z M 290 120 H 370 V 180 H 290 Z" /> <!-- Identidad / Negocios -->
+          <path class="xr-node" data-i="1" d="M 30 160 L 290 160 L 250 100 L 70 100 Z" /> <!-- Organización -->
+          <rect class="xr-node" data-i="2" x="120" y="240" width="80" height="80" /> <!-- Procesos -->
+          <rect class="xr-node" data-i="3" x="20" y="320" width="360" height="40" /> <!-- Números / Base -->
+          <rect class="xr-node" data-i="4" x="10" y="20" width="380" height="360" rx="10" style="opacity:0; fill:none; stroke:var(--violet-lt); stroke-width:3; pointer-events:none;" /> <!-- Resultado Glow -->
         </svg>
+        <div class="scanner-line" id="scannerLine"></div>
       </div>
 
       <div class="radar-detail">
@@ -373,13 +363,82 @@
     </div>
 
     <div class="res-stats reveal" data-d="2">
-      <div class="res-stat"><div class="n" data-count>+70</div><div class="l">empresas acompañadas en su transformación</div></div>
-      <div class="res-stat"><div class="n" data-count>+3</div><div class="l">años acompañando organizaciones de la región</div></div>
-      <div class="res-stat"><div class="n" data-count>+90%</div><div class="l">de clientes que nos vuelven a elegir</div></div>
+      <div class="res-stat"><div class="n" data-count data-final="+70">--</div><div class="l">empresas acompañadas en su transformación</div></div>
+      <div class="res-stat"><div class="n" data-count data-final="+3">--</div><div class="l">años acompañando organizaciones de la región</div></div>
+      <div class="res-stat"><div class="n" data-count data-final="+90%">--</div><div class="l">de clientes que nos vuelven a elegir</div></div>
     </div>
   </div>
 </section>
 
+
+<!-- ============ 9b · 4PEEQ CLUB ============ -->
+<section class="slide plum stage" id="s-club" data-label="Comunidad">
+  <div class="spotlight"></div>
+  <div class="wrap" style="align-items:center; text-align:center;">
+    <div class="sec-head reveal">
+      <span class="kicker">MÁS ALLÁ DEL DIAGNÓSTICO</span>
+      <h2>Además, sos parte de 4Peeq Club.</h2>
+      <p class="s-lead" style="margin-left:auto; margin-right:auto;">Comunidad, experiencias y conexiones para dueños de pymes que quieren crecer acompañados.</p>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9c · CLUB: 4Peeqneta ============ -->
+<section class="slide plum stage" id="s-club-1">
+  <div class="spotlight"></div>
+  <div class="wrap bridge">
+    <div class="club-slide-content">
+      <img class="reveal" data-d="1" src="https://picsum.photos/seed/4peeqneta/800/500" alt="4Peeqneta">
+      <div class="club-text reveal" data-d="2">
+        <h3>4Peeqneta</h3>
+        <p>Encuentros informales de networking. Donde las conversaciones sin agenda rígida se vuelven las oportunidades más importantes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9d · CLUB: Cup ============ -->
+<section class="slide plum stage" id="s-club-2">
+  <div class="spotlight"></div>
+  <div class="wrap bridge">
+    <div class="club-slide-content reverse">
+      <img class="reveal" data-d="1" src="https://picsum.photos/seed/4peeqcup/800/500" alt="4Peeq Cup">
+      <div class="club-text reveal" data-d="2">
+        <h3>4Peeq Cup</h3>
+        <p>Torneo interempresas. Competencia sana que genera vínculos profundos y una excusa perfecta para conocer otras organizaciones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9e · CLUB: Pymeton ============ -->
+<section class="slide plum stage" id="s-club-3">
+  <div class="spotlight"></div>
+  <div class="wrap bridge">
+    <div class="club-slide-content">
+      <img class="reveal" data-d="1" src="https://picsum.photos/seed/pymeton/800/500" alt="Pymeton">
+      <div class="club-text reveal" data-d="2">
+        <h3>Pymeton</h3>
+        <p>Visitas a empresas de la región. Aprendizaje in situ de los que ya recorrieron el camino y están dispuestos a compartirlo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9f · CLUB: Talks ============ -->
+<section class="slide plum stage" id="s-club-4">
+  <div class="spotlight"></div>
+  <div class="wrap bridge">
+    <div class="club-slide-content reverse">
+      <img class="reveal" data-d="1" src="https://picsum.photos/seed/talks/800/500" alt="4Peeq Talks">
+      <div class="club-text reveal" data-d="2">
+        <h3>4Peeq Talks</h3>
+        <p>Charlas que inspiran, ideas que transforman. Speakers con experiencia real compartiendo lo que funciona y lo que no.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============ 10 · CIERRE ============ -->
 <section class="slide dark close stage" id="s10" data-label="Cierre">
