@@ -86,6 +86,19 @@
     });
   });
 
+  /* ---- photo card tilt (desktop only, respects reduced-motion) ---- */
+  if (!reduce) {
+    document.querySelectorAll('.ph-img').forEach((card) => {
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) scale(1.02)`;
+      });
+      card.addEventListener('pointerleave', () => { card.style.transform = ''; });
+    });
+  }
+
   /* ---- count-up stats ---- */
   const animateCount = (el) => {
     const raw = el.dataset.final || el.textContent.trim();
@@ -221,22 +234,98 @@
 
 /* ---- active nav state ---- */
 (function () {
-  const file = location.pathname.split('/').pop() || 'index.html';
-  const svcPages = ['consultoria.html', 'academy.html', 'people.html', 'tech.html', 'club.html', 'makers.html'];
+  const path = location.pathname;
+  const file = path.split('/').pop() || 'index.html';
+  const svcPages = ['consultoria.html', 'academy.html', 'people.html', 'tech.html', 'makers.html'];
+  const isClub = /\/club(\/|$)/.test(path);
 
   document.querySelectorAll('.nav-links > a').forEach((a) => {
     const href = (a.getAttribute('href') || '').split('#')[0].split('/').pop();
     if (href === file || (file === '' && href === 'index.html')) a.classList.add('active');
   });
 
-  if (svcPages.includes(file)) {
+  if (svcPages.includes(file) || isClub) {
     document.querySelector('.nav-dd-btn')?.classList.add('active');
   }
 
   document.querySelectorAll('.nav-dd a').forEach((a) => {
-    const href = (a.getAttribute('href') || '').split('/').pop();
-    if (href === file) a.classList.add('active');
+    const href = a.getAttribute('href') || '';
+    const hrefFile = href.split('/').pop();
+    if (hrefFile === file || (isClub && href === '/club')) a.classList.add('active');
   });
+})();
+
+/* ---- club gallery with random rotation ---- */
+(function () {
+  const gallery = document.getElementById('clubGallery');
+  if (!gallery) return;
+
+  const CLUB_IMGS = [
+    '../public/club/opt/IMG-20251015-WA0095.webp',
+    '../public/club/opt/IMG-20251125-WA0220.webp',
+    '../public/club/opt/IMG-20251203-WA0085.webp',
+    '../public/club/opt/IMG_6827.webp',
+    '../public/club/opt/Screenshot_20251105_212939_YouTube.webp',
+    '../public/club/opt/1062-DSC01997.webp',
+    '../public/club/opt/1086-DSC02035.webp',
+    '../public/club/opt/1107-DSC02066.webp',
+    '../public/club/opt/20251121_223727.webp',
+    '../public/club/opt/645-DSC01371.webp',
+    '../public/club/opt/659-DSC01385.webp',
+    '../public/club/opt/DSC04063_v1.webp',
+    '../public/club/opt/DSC04100_v2.webp',
+    '../public/club/opt/_DSC5059.webp',
+    '../public/club/opt/_DSC5657.webp',
+    '../public/club/opt/_DSC5713_v2.webp',
+    '../public/club/opt/_DSC5914.webp',
+    '../public/club/opt/_DSC5941.webp',
+    '../public/club/opt/4peeq-182.webp',
+    '../public/club/opt/4peeq-213.webp',
+    '../public/club/opt/4peeq-221.webp',
+    '../public/club/opt/4peeq-289.webp',
+    '../public/club/opt/4peeq-291.webp',
+  ];
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  const slots = gallery.querySelectorAll('[data-slot]');
+  const pool = shuffle([...CLUB_IMGS]);
+  const active = pool.splice(0, 5);
+  const busy = [false, false, false, false, false];
+
+  slots.forEach((slot, i) => {
+    const img = document.createElement('img');
+    img.src = active[i];
+    img.alt = '';
+    img.loading = 'lazy';
+    slot.appendChild(img);
+  });
+
+  setInterval(() => {
+    if (pool.length === 0) return;
+    const si = Math.floor(Math.random() * 5);
+    if (busy[si]) return;
+    busy[si] = true;
+    const slot = slots[si];
+    const img = slot.querySelector('img');
+    if (!img) { busy[si] = false; return; }
+    img.classList.add('fading');
+    setTimeout(() => {
+      const ni = Math.floor(Math.random() * pool.length);
+      const next = pool[ni];
+      pool[ni] = active[si];
+      active[si] = next;
+      img.src = next;
+      img.classList.remove('fading');
+      busy[si] = false;
+    }, 450);
+  }, 3500);
 })();
 
 /* ---- PeeqRoadmap interactivo ---- */
