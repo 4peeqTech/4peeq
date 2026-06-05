@@ -413,9 +413,9 @@ body::-webkit-scrollbar { width: 0; display: none; }
   left: var(--x);
   top: var(--y);
   width: var(--w);
+  margin-top: -10vh;
   transform: translate(-50%, -50%) rotate(var(--rot));
   z-index: var(--z);
-  margin: 0;
   border: 6px solid #fff;
   border-radius: 8px;
   box-shadow: 0 16px 40px rgba(0,0,0,.45);
@@ -577,12 +577,11 @@ body::-webkit-scrollbar { width: 0; display: none; }
   max-height: 100%;
   object-fit: contain;
   opacity: 0.85;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-.c-logo.inv {
-  filter: invert(1);
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.18)) drop-shadow(0 0px 1px rgba(0,0,0,0.10));
+  transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease;
 }
 .c-logo:hover {
   opacity: 1;
   transform: scale(1.15);
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.22)) drop-shadow(0 0px 2px rgba(0,0,0,0.12));
 }

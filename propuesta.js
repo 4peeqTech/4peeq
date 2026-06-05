@@ -44,8 +44,8 @@
     // Animación de Portada S1 atada al scroll inicial
     masterTl.addLabel("scene_intro");
     masterTl.fromTo("#s1 .foco-spin", 
-      { scale: 2, y: "20vh" }, 
-      { scale: 1, y: 0, duration: 1.2, ease: "power2.inOut" }, 
+      { scale: 3.5, y: "30vh" }, 
+      { scale: 1, y: 0, duration: 1.5, ease: "power2.inOut" }, 
       "scene_intro"
     );
     masterTl.fromTo("#s1 .s1-text", 
