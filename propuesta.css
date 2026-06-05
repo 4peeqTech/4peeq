@@ -401,14 +401,106 @@ body::-webkit-scrollbar { width: 0; display: none; }
 .close-contact svg{ width:16px; height:16px; opacity:.7; }
 
 /* ============================================================
-   CLUB 4PEEQ (Slides)
+   CLUB 4PEEQ (Slides — collage)
    ============================================================ */
-.club-slide-content { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; width: 100%; }
-.club-slide-content.reverse img { order: 2; }
-.club-slide-content.reverse .club-text { order: 1; text-align: left; }
-.club-slide-content img { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
-.club-slide-content .club-text h3 { font-size: clamp(32px, 4vw, 48px); margin: 0 0 16px; color: #fff; font-family: var(--serif); letter-spacing: -0.02em; }
-.club-slide-content .club-text p { font-size: clamp(16px, 1.5vw, 20px); margin: 0; color: rgba(255,255,255,0.74); line-height: 1.6; }
+.club-collage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.cphoto {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  transform: translate(-50%, -50%) rotate(var(--rot));
+  z-index: var(--z);
+  margin: 0;
+  border: 6px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.45);
+  overflow: hidden;
+  opacity: 0; /* JS animates in */
+}
+.cphoto img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+.cphoto.hero {
+  box-shadow: 0 24px 60px rgba(0,0,0,.6);
+}
+.club-text {
+  position: absolute;
+  bottom: 10%;
+  left: 8%;
+  max-width: 360px;
+  background: rgba(20,18,40,.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 24px 28px;
+  z-index: 20;
+}
+.club-text h3 {
+  font-size: clamp(28px, 3.5vw, 42px);
+  margin: 0 0 12px;
+  color: #fff;
+  font-family: var(--serif);
+  letter-spacing: -0.02em;
+}
+.club-text p {
+  font-size: clamp(14px, 1.4vw, 18px);
+  margin: 0;
+  color: rgba(255,255,255,.74);
+  line-height: 1.6;
+}
+/* Talks — Próximamente */
+.club-soon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--slide-pad) clamp(40px, 8vw, 120px);
+  z-index: 5;
+}
+.club-soon .soon-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--violet-lt);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 100px;
+  padding: 7px 20px;
+  margin-bottom: 28px;
+  display: inline-block;
+}
+.club-soon h3 {
+  font-size: clamp(38px, 5.5vw, 64px);
+  font-family: var(--serif);
+  letter-spacing: -0.03em;
+  margin: 0 0 20px;
+  color: #fff;
+}
+.club-soon p {
+  font-size: clamp(16px, 1.6vw, 22px);
+  color: rgba(255,255,255,.7);
+  max-width: 520px;
+  line-height: 1.65;
+  margin: 0;
+}
+.club-soon .soon-icon {
+  margin-top: 36px;
+  opacity: .2;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+}
 
 /* ============================================================
    RESPONSIVE
@@ -423,9 +515,10 @@ body::-webkit-scrollbar { width: 0; display: none; }
   .radar-layout{ grid-template-columns:1fr; }
   .radar-wrap{ max-width:340px; }
   .bridge .wrap{ grid-template-columns:1fr; gap:34px; }
-  .club-slide-content { grid-template-columns: 1fr; gap: 30px; text-align: center; }
-  .club-slide-content.reverse img { order: 1; }
-  .club-slide-content.reverse .club-text { order: 2; text-align: center; }
+  .cphoto { display: none; }
+  .cphoto.hero { display: block; position: relative; left: auto; top: auto; transform: rotate(var(--rot)); width: 60%; max-width: 440px; opacity: 1; }
+  .club-collage { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 40px 40px; }
+  .club-text { position: relative; left: auto; bottom: auto; max-width: 480px; margin-top: 24px; }
 }
 @media (max-width:680px){
   :root{ --slide-pad: clamp(96px,12vh,120px); }
@@ -438,7 +531,9 @@ body::-webkit-scrollbar { width: 0; display: none; }
   .tl-card{ margin-top:0; }
   .res-stats{ grid-template-columns:1fr; gap:30px; }
   .rd-panel-num{ font-size:46px; }
-
+  .cphoto.hero { width: 78%; max-width: 300px; }
+  .club-collage { padding: 72px 24px 32px; }
+  .club-text { padding: 18px 22px; border-radius: 16px; max-width: 100%; }
 }
 
 /* respeta reduce motion — sin desplazamientos, solo fundidos */
@@ -453,4 +548,41 @@ body::-webkit-scrollbar { width: 0; display: none; }
 @keyframes drawHl{
   from{ stroke-dashoffset:680; }
   to{ stroke-dashoffset:0; }
+}
+
+/* ============ CLIENTES EXPLOSIÓN ============ */
+.clientes-universe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  z-index: 10;
+}
+.c-logo-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+  opacity: 0; /* JS will override */
+}
+.c-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.c-logo.inv {
+  filter: invert(1);
+}
+.c-logo:hover {
+  opacity: 1;
+  transform: scale(1.15);
 }

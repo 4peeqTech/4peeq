@@ -240,13 +240,25 @@ a{ color:inherit; text-decoration:none; }
 .marquee{ margin-top:54px; position:relative; overflow:hidden;
   -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
           mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-.marquee-track{ display:flex; gap:18px; width:max-content; animation:scroll-x 36s linear infinite; }
+.marquee-track{ display:flex; gap:18px; width:max-content; animation:scroll-x 55s linear infinite; padding: 16px 0; }
 .marquee:hover .marquee-track{ animation-play-state:paused; }
 @keyframes scroll-x{ to{ transform:translateX(-50%); } }
 .logo-cell{ flex:none; width:200px; height:104px; border:1px solid rgba(21,20,43,.1); border-radius:16px;
   display:flex; align-items:center; justify-content:center; background:var(--white); color:#a7a4b4;
   font-family:var(--display); font-weight:700; font-size:15px; letter-spacing:.08em; transition:.3s; }
-.logo-cell:hover{ color:var(--violet); border-color:var(--violet); transform:translateY(-3px); box-shadow:var(--shadow-sm); }
+.logo-cell:hover{ color:var(--violet); border-color:var(--violet); transform:translateY(-4px); box-shadow:var(--shadow-sm); }
+.logo-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.8s var(--ease), filter 0.8s var(--ease);
+  filter: grayscale(100%) opacity(0.5);
+  transform: scale(1.6);
+}
+.logo-cell:hover img {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.85);
+}
 
 /* ============ TEAM ============ */
 .team-grid{ display:grid; grid-template-columns:1.5fr 1fr 1fr; grid-auto-rows:215px; gap:16px; margin-top:54px; }

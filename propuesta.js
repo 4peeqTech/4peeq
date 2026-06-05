@@ -117,8 +117,64 @@
         }
       }
 
-      // Especial: Animación del Club
+      // Especial: Animación Clientes (Big Bang)
+      if (slide.id === 's-clientes') {
+        var logoWraps = slide.querySelectorAll('.c-logo-wrap');
+        var revealCl = slide.querySelectorAll('.s-cl-reveal');
+        
+        masterTl.addLabel("clientes_intro", "+=0.2");
+        masterTl.fromTo(revealCl, 
+          { opacity: 0, y: 30 }, 
+          { opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power2.out" },
+          "clientes_intro"
+        );
 
+        masterTl.addLabel("clientes_explode", "clientes_intro+=0.3");
+
+        logoWraps.forEach(function(wrap, i) {
+          var n = i + 1;
+          var angle = n * 137.5 * (Math.PI / 180); // Phyllotaxis angle
+          var maxRadius = 32;
+          var radius = Math.sqrt(n / logoWraps.length) * maxRadius;
+          var rRandom = radius + (Math.random() - 0.5) * 8; // leve aleatoriedad
+          
+          // Ampliamos el multiplicador para aprovechar mejor los bordes sin salir de la pantalla
+          var endX = (rRandom * Math.cos(angle)) * 1.4 + "vw"; 
+          var endY = (rRandom * Math.sin(angle)) * 1.25 + "vh";
+          var endScale = 1.1 + Math.random() * 0.5; // tamaño base más grande (1.1 a 1.6) para garantizar legibilidad
+          var endRotation = (Math.random() - 0.5) * 15; // orientados casi rectos para que sean legibles
+          
+          // Empezar desde un pixel en el centro absoluto
+          var startX = "0vw";
+          var startY = "0vh";
+          var startScale = 0;
+          var startRotation = (Math.random() - 0.5) * 720; // empiezan con rotación al azar (dados vuelta varias veces)
+          
+          // Set initial state at the moment the section starts
+          masterTl.set(wrap, 
+            { xPercent: -50, yPercent: -50, x: startX, y: startY, scale: startScale, rotation: startRotation, opacity: 1 }, 
+            "clientes_intro"
+          );
+          
+          // Explode out
+          masterTl.to(wrap,
+            { x: endX, y: endY, scale: endScale, rotation: endRotation, ease: "power3.out", duration: 4 },
+            "clientes_explode"
+          );
+        });
+      }
+
+      // Especial: Animación del Club
+      if (slide.id && /^s-club-[123]$/.test(slide.id)) {
+        var photos = Array.prototype.slice.call(slide.querySelectorAll('.cphoto'));
+        if (photos.length > 0) {
+          masterTl.fromTo(photos,
+            { opacity: 0, scale: reduce ? 1 : 0.82 },
+            { opacity: 1, scale: 1, duration: 0.7, stagger: 0.08, ease: 'back.out(1.3)' },
+            '<0.1'
+          );
+        }
+      }
 
       /* ---- timeline: animar atado al scroll ---- */
       if (isTimelineSlide) {
