@@ -282,25 +282,63 @@ body::-webkit-scrollbar { width: 0; display: none; }
 /* ============================================================
    6 · ÁREAS
    ============================================================ */
-.area-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:clamp(28px,4vh,52px); }
+
+/* Compact title */
+.areas-title{
+  font-family:var(--serif); font-weight:700;
+  font-size:clamp(20px,2.4vw,30px); letter-spacing:-0.02em;
+  line-height:1.2; color:#fff; margin:6px 0 0;
+}
+
+/* Professions scattered */
+.prof-scatter{
+  position:relative; width:100%; height:168px;
+  margin:clamp(14px,2vh,22px) 0 0;
+}
+.prof-tag{
+  position:absolute;
+  display:inline-flex; align-items:center; gap:8px;
+  padding:7px 14px; border:1px solid rgba(154,134,207,.28); border-radius:100px;
+  font-size:12.5px; color:rgba(255,255,255,.72); background:rgba(154,134,207,.07);
+  white-space:nowrap; line-height:1.2;
+  transition:border-color .3s, background .3s, color .3s;
+}
+.prof-tag::before{
+  content:""; flex:none; width:15px; height:15px; border-radius:0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%239a86cf'%3E%3Ccircle cx='12' cy='7' r='4.5'/%3E%3Cpath d='M12 14c-6 0-9 2.2-9 4.5V21h18v-2.5C21 16.2 18 14 12 14z'/%3E%3C/svg%3E") center/contain no-repeat;
+  opacity:.75;
+}
+.prof-tag:hover{ border-color:rgba(154,134,207,.55); background:rgba(154,134,207,.13); color:#fff; }
+
+/* SVG connector (full width, vertical funnel) */
+.areas-connector{ width:100%; margin:0; line-height:0; overflow:visible; }
+.areas-connector svg{ width:100%; height:80px; display:block; overflow:visible; }
+
+/* Areas 3×2 grid */
+.area-col-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+
+/* Card styles */
 .areax{
   position:relative; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.12);
-  border-radius:var(--r); padding:28px 26px; overflow:hidden;
-  display:flex; align-items:center; gap:18px;
-  transition:transform .4s var(--ease), box-shadow .4s, border-color .3s, background .3s;
+  border-radius:var(--r); padding:20px 18px; overflow:hidden;
+  display:flex; align-items:center; gap:15px;
+  transition:transform .4s var(--ease), border-color .3s, background .3s;
 }
 .areax::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
   background:var(--violet-lt); transform:scaleY(0); transform-origin:bottom; transition:transform .4s var(--ease); }
-.areax:hover{ transform:translateY(-6px); border-color:rgba(154,134,207,.5); background:rgba(255,255,255,.06); }
+.areax:hover{ transform:translateY(-5px); border-color:rgba(154,134,207,.5); background:rgba(255,255,255,.06); }
 .areax:hover::before{ transform:scaleY(1); }
 .areax .ax-ico{
-  flex:none; width:52px; height:52px; border-radius:14px; background:rgba(154,134,207,.16); color:var(--violet-lt);
+  flex:none; width:46px; height:46px; border-radius:12px; background:rgba(154,134,207,.16); color:var(--violet-lt);
   display:flex; align-items:center; justify-content:center;
   transition:background .35s, color .35s, transform .4s var(--ease-back);
 }
 .areax:hover .ax-ico{ background:var(--violet); color:#fff; transform:rotate(-6deg); }
-.areax .ax-ico svg{ width:26px; height:26px; }
-.areax h4{ font-family:var(--serif); font-weight:700; font-size:17.5px; letter-spacing:-0.01em; line-height:1.25; color:#fff; }
+.areax .ax-ico svg{ width:22px; height:22px; }
+.areax h4{ font-family:var(--serif); font-weight:700; font-size:15px; letter-spacing:-0.01em; line-height:1.25; color:#fff; }
+
+/* Legacy .area-grid kept for any other page that uses it */
+.area-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:clamp(28px,4vh,52px); }
 
 /* ============================================================
    7 · CAPACIDAD DE EJECUCIÓN
@@ -511,6 +549,10 @@ body::-webkit-scrollbar { width: 0; display: none; }
   .fmt.reco{ transform:none; } .fmt.reco:hover{ transform:translateY(-6px); }
   .exec-grid{ grid-template-columns:1fr; max-width:480px; margin-inline:auto; }
   .area-grid{ grid-template-columns:repeat(2,1fr); }
+  .area-col-grid{ grid-template-columns:repeat(2,1fr); }
+  .areas-connector{ display:none; }
+  .prof-scatter{ height:auto; display:flex; flex-wrap:wrap; gap:8px; position:static; }
+  .prof-tag{ position:static; transform:none !important; }
   .res-grid{ grid-template-columns:repeat(2,1fr); }
   .radar-layout{ grid-template-columns:1fr; }
   .radar-wrap{ max-width:340px; }
@@ -524,6 +566,8 @@ body::-webkit-scrollbar { width: 0; display: none; }
   :root{ --slide-pad: clamp(96px,12vh,120px); }
   .pain-grid{ grid-template-columns:1fr; }
   .area-grid{ grid-template-columns:1fr; }
+  .area-col-grid{ grid-template-columns:1fr; }
+  .prof-scatter{ gap:7px; }
   .res-grid{ grid-template-columns:1fr; }
   .tl-phases{ grid-template-columns:1fr; gap:40px; }
   .tl-track{ display:none; }
