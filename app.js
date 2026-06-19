@@ -328,16 +328,25 @@
   }, 3500);
 })();
 
-/* ---- PeeqRoadmap interactivo ---- */
+/* ---- Calendario scrollytelling (rail + fecha gigante + countdown) ---- */
 (function () {
   'use strict';
-  var rm = document.querySelector('.peeq-roadmap');
-  if (!rm) return;
+  var scrolly = document.querySelector('.cal-scrolly');
+  if (!scrolly) return;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var HITOS = [
+  /* === EDITAR ACÁ: próximos eventos del Club ===========================
+     Para cambiar fechas/eventos, editá SOLO este array. El rail, la
+     furgoneta y la cuenta regresiva se recalculan solos. Agregar o quitar
+     un objeto ajusta todo automáticamente.
+     - iso : fecha máquina 'AAAA-MM-DD' (mueve la cuenta regresiva)
+     - dia / mes / anio : fecha gigante que se muestra en pantalla
+     ==================================================================== */
+  var EVENTOS = [
     {
-      fecha: '15 DE ABRIL DE 2026',
+      iso: '2026-04-15',
+      dia: '15', mes: 'ABR', anio: '2026',
+      label: '4Peeqneta',
       categoria: 'NETWORKING',
       titulo: '4Peeqneta',
       desc: 'Encuentros informales de networking. Donde las conversaciones sin agenda rígida se vuelven las oportunidades más importantes.',
@@ -345,7 +354,9 @@
       cta: { texto: 'Reservar lugar', href: 'https://wa.me/5493794398385' }
     },
     {
-      fecha: '23 DE MAYO DE 2026',
+      iso: '2026-05-23',
+      dia: '23', mes: 'MAY', anio: '2026',
+      label: '4Peeq Cup',
       categoria: 'COMPETENCIA · TORNEO',
       titulo: '4Peeq Cup · Pádel',
       desc: 'Torneo de pádel interempresas. Una tarde para competir, conocer otros dueños y transformar saques en alianzas.',
@@ -353,7 +364,9 @@
       cta: { texto: 'Reservar mi lugar', href: 'https://wa.me/5493794398385' }
     },
     {
-      fecha: '5 DE JUNIO DE 2026',
+      iso: '2026-06-05',
+      dia: '05', mes: 'JUN', anio: '2026',
+      label: 'Pymeton',
       categoria: 'VISITAS',
       titulo: 'Pymeton',
       desc: 'Visitas a empresas de la región. Aprendizaje in situ de los que ya recorrieron el camino y están dispuestos a compartirlo.',
@@ -361,7 +374,9 @@
       cta: { texto: 'Reservar lugar', href: 'https://wa.me/5493794398385' }
     },
     {
-      fecha: '20 DE JULIO DE 2026',
+      iso: '2026-07-20',
+      dia: '20', mes: 'JUL', anio: '2026',
+      label: '4Peeq Talks',
       categoria: 'INSPIRACIÓN',
       titulo: '4Peeq Talks',
       desc: 'Charlas que inspiran, ideas que transforman. Speakers con experiencia real compartiendo lo que funciona y lo que no.',
@@ -370,79 +385,232 @@
     }
   ];
 
-  /* Posiciones de la furgoneta para cada hito.
-     Las coordenadas del SVG (viewBox 600×300) se convierten a % del contenedor 2:1. */
-  var VAN_POS = [
-    { l: 'calc(5%  - 22px)', t: 'calc(82% - 14px)' },  /* dot 1: (30,246)  */
-    { l: 'calc(38% - 22px)', t: 'calc(40% - 14px)' },  /* dot 2: (228,120) */
-    { l: 'calc(65% - 22px)', t: 'calc(55% - 14px)' },  /* dot 3: (390,165) */
-    { l: 'calc(93% - 22px)', t: 'calc(22% - 14px)' }   /* dot 4: (558,66)  */
-  ];
+  var N = EVENTOS.length;
+  if (!N) return;
 
-  var van    = rm.querySelector('.pr-van');
-  var detail = rm.querySelector('.pr-detail');
-  var btn    = rm.querySelector('.pr-next');
-  var dots   = Array.from(rm.querySelectorAll('.pr-dot'));
-  var nums   = Array.from(rm.querySelectorAll('.pr-dot-num'));
-  var labels = Array.from(rm.querySelectorAll('.pr-dot-label'));
-  var cur    = 0;
+  /* El alto del scroll se ajusta solo al número de eventos. */
+  scrolly.style.setProperty('--cal-events', N);
 
-  function renderCard(h) {
-    var metaHTML = h.meta.map(function (m) {
-      return '<div class="pr-card-meta-item">' + m + '</div>';
+  /* Combi VW Type 2 (vista lateral) en los colores de 4Peeq: cuerpo
+     violeta + crema lavanda. Apunta a la derecha; el JS la rota para
+     seguir la curva del camino. */
+  var VAN_SVG =
+    '<svg viewBox="0 0 104 64" width="104" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">'
+    + '<ellipse cx="52" cy="59.5" rx="42" ry="3.6" fill="rgba(21,20,43,.16)"/>'
+    /* carrocería crema lavanda */
+    + '<path d="M8 25 Q8 13 22 11.5 L80 10.5 Q96 11.5 98.5 30 L98.5 44 Q98.5 49 92 49 L12 49 Q8 49 8 44 Z" fill="#ece4f7"/>'
+    /* mitad inferior violeta (sube hacia el frente) */
+    + '<path d="M8 33 L78 33 Q85 25 98.5 30.5 L98.5 44 Q98.5 49 92 49 L12 49 Q8 49 8 44 Z" fill="#7764a9"/>'
+    /* moldura plateada de la cintura */
+    + '<path d="M8 32 L78 32 Q85 24.5 98.5 29.6" stroke="#cdbfe6" stroke-width="1.6" fill="none"/>'
+    /* techo claro */
+    + '<path d="M21 11.5 Q21 6 31 6 L73 6 Q83 6 84 11.5 Z" fill="#f5f0fc"/>'
+    /* ventanas laterales (tintadas) */
+    + '<rect x="14" y="14" width="13" height="13" rx="2" fill="#2c2150"/>'
+    + '<rect x="29" y="14" width="13" height="13" rx="2" fill="#2c2150"/>'
+    + '<rect x="44" y="14" width="13" height="13" rx="2" fill="#2c2150"/>'
+    /* parabrisas delantero (curvo) */
+    + '<path d="M60 14 L74 14 Q83 15.5 85 23 L60 27 Z" fill="#2c2150"/>'
+    /* reflejos en ventanas */
+    + '<rect x="15" y="15" width="11" height="3" rx="1" fill="#ffffff" opacity=".25"/>'
+    + '<rect x="45" y="15" width="11" height="3" rx="1" fill="#ffffff" opacity=".25"/>'
+    /* faro redondo */
+    + '<circle cx="94" cy="35" r="3.6" fill="#fff3d6" stroke="#b9a3df" stroke-width="1.1"/>'
+    /* emblema (anillo 4Peeq) */
+    + '<circle cx="80" cy="38.5" r="4.4" fill="#ffffff" stroke="#45315f" stroke-width="1"/>'
+    + '<circle cx="80" cy="38.5" r="1.7" fill="#7764a9"/>'
+    /* paragolpes plateados */
+    + '<rect x="83" y="44" width="15" height="3.6" rx="1.6" fill="#d3cde0"/>'
+    + '<rect x="6" y="44" width="11" height="3.2" rx="1.6" fill="#d3cde0"/>'
+    /* ruedas con banda clara y tapón */
+    + '<circle cx="26" cy="49" r="8" fill="#23222b"/>'
+    + '<circle cx="26" cy="49" r="5" fill="#ece4f7"/>'
+    + '<circle cx="26" cy="49" r="2.4" fill="#c4b6df"/>'
+    + '<circle cx="80" cy="49" r="8" fill="#23222b"/>'
+    + '<circle cx="80" cy="49" r="5" fill="#ece4f7"/>'
+    + '<circle cx="80" cy="49" r="2.4" fill="#c4b6df"/>'
+    + '</svg>';
+
+  /* --- Camino diagonal que cruza toda la sección (esquina sup-izq →
+     inf-der), con ondas. Los puntos quedan dispersos en diagonal y deja
+     libres las esquinas inf-izq (fecha) y sup-der (detalle) para el texto.
+     viewBox estirado al escenario con preserveAspectRatio none. --- */
+  var VBW = 1000, VBH = 600;
+  var PATH_D = 'M 30 120 C 210 90 280 215 430 250 C 560 282 640 360 760 362 C 872 364 930 470 985 540';
+
+  /* --- Estructura: camino (svg + puntos + furgoneta) y escenas --- */
+  var road   = scrolly.querySelector('.cal-road');
+  var scenes = scrolly.querySelector('.cal-scenes');
+  var bar    = scrolly.querySelector('.cal-bar');
+  var hint   = scrolly.querySelector('.cal-hint');
+
+  road.innerHTML =
+    '<svg class="cal-road-svg" viewBox="0 0 ' + VBW + ' ' + VBH + '" preserveAspectRatio="none" aria-hidden="true">'
+    + '<path class="cal-road-bg" d="' + PATH_D + '"/>'
+    + '<path class="cal-road-line" d="' + PATH_D + '"/>'
+    + '</svg>';
+
+  var path    = road.querySelector('.cal-road-line');
+  var pathLen = path.getTotalLength();
+
+  /* Puntos: ubicados sobre el camino donde queda la furgoneta cuando
+     cada escena está centrada (len = (i+0.5)/N del recorrido). */
+  var dotsFrag = '';
+  EVENTOS.forEach(function (e, i) {
+    var pt = path.getPointAtLength(((i + 0.5) / N) * pathLen);
+    dotsFrag += '<div class="cal-dot" data-i="' + i + '" '
+      + 'style="left:' + (pt.x / VBW * 100) + '%;top:' + (pt.y / VBH * 100) + '%">'
+      + '<span class="cal-dot-label">' + e.label + '</span></div>';
+  });
+  dotsFrag += '<div class="cal-van" aria-hidden="true">' + VAN_SVG + '</div>';
+  road.insertAdjacentHTML('beforeend', dotsFrag);
+
+  scenes.innerHTML = EVENTOS.map(function (e) {
+    var metaHTML = e.meta.map(function (m) {
+      return '<div class="cal-chip">' + m + '</div>';
     }).join('');
-    return '<div class="pr-card">'
-      + '<div class="pr-card-date">' + h.fecha + '</div>'
-      + '<div class="pr-card-cat">' + h.categoria + '</div>'
-      + '<h3 class="pr-card-title">' + h.titulo + '</h3>'
-      + '<p class="pr-card-desc">' + h.desc + '</p>'
-      + (metaHTML ? '<div class="pr-card-meta">' + metaHTML + '</div>' : '')
-      + '<a href="' + h.cta.href + '" class="pr-card-cta">'
-      + h.cta.texto + ' <span class="arr">→</span></a>'
-      + '</div>';
+    return '<article class="cal-scene" aria-hidden="true">'
+      + '<div class="cal-date">'
+      +   '<span class="cal-date-day">' + e.dia + '</span>'
+      +   '<span class="cal-date-mo">' + e.mes + '</span>'
+      +   '<span class="cal-date-yr">' + e.anio + '</span>'
+      +   cdMarkup(e.iso)
+      + '</div>'
+      + '<div class="cal-info">'
+      +   '<div class="cal-cat">' + e.categoria + '</div>'
+      +   '<h3 class="cal-title">' + e.titulo + '</h3>'
+      +   '<p class="cal-desc">' + e.desc + '</p>'
+      +   (metaHTML ? '<div class="cal-meta">' + metaHTML + '</div>' : '')
+      +   '<a href="' + e.cta.href + '" class="cal-cta">' + e.cta.texto + ' <span class="arr">→</span></a>'
+      + '</div>'
+      + '</article>';
+  }).join('');
+
+  var sceneEls = Array.from(scenes.querySelectorAll('.cal-scene'));
+  var dotEls   = Array.from(road.querySelectorAll('.cal-dot'));
+  var van      = road.querySelector('.cal-van');
+
+  /* ---- Cuenta regresiva en vivo (días · horas · min · seg) ---- */
+  function cdMarkup(iso) {
+    function unit(u, lab, extra) {
+      return '<div class="cal-cd-unit' + (extra || '') + '">'
+        + '<span class="cal-cd-num" data-u="' + u + '">--</span>'
+        + '<span class="cal-cd-lab">' + lab + '</span></div>';
+    }
+    return '<div class="cal-countdown" data-iso="' + iso + '">'
+      + '<span class="cal-cd-head">Faltan</span>'
+      + '<div class="cal-cd-grid">'
+      +   unit('d', 'días') + unit('h', 'horas') + unit('m', 'min')
+      +   unit('s', 'seg', ' is-sec')
+      + '</div></div>';
   }
 
-  function setHito(i) {
-    van.style.left = VAN_POS[i].l;
-    van.style.top  = VAN_POS[i].t;
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
 
-    dots.forEach(function (d, j) {
-      d.classList.remove('is-active', 'is-done');
-      nums[j].style.fill   = '#3d3d3c';
-      labels[j].style.fill = '#3d3d3c';
-      if (j < i) {
-        d.classList.add('is-done');
-        nums[j].style.fill = '#fff';
+  function tick() {
+    var now = Date.now();
+    scenes.querySelectorAll('.cal-countdown').forEach(function (box) {
+      if (box.classList.contains('is-past')) return;
+      var ev = new Date(box.getAttribute('data-iso') + 'T00:00:00').getTime();
+      var diff = ev - now;
+      if (diff <= 0) {
+        box.classList.add('is-past');
+        box.innerHTML = '<span class="cal-cd-done">Este evento ya ocurrió</span>';
+        return;
       }
-      if (j === i) {
-        d.classList.add('is-active');
-        nums[j].style.fill   = '#fff';
-        labels[j].style.fill = '#7764a9';
-      }
+      var s = Math.floor(diff / 1000);
+      set(box, 'd', Math.floor(s / 86400));
+      set(box, 'h', pad(Math.floor(s % 86400 / 3600)));
+      set(box, 'm', pad(Math.floor(s % 3600 / 60)));
+      set(box, 's', pad(s % 60));
+    });
+  }
+  function set(box, u, v) {
+    var el = box.querySelector('[data-u="' + u + '"]');
+    if (el) el.textContent = v;
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* Maps progress p through a 4-stop range/output pair (igual que el scrollytelling de la home). */
+  function map4(p, r, v) {
+    if (p <= r[0]) return v[0];
+    if (p <= r[1]) return v[0] + (v[1] - v[0]) * (p - r[0]) / (r[1] - r[0]);
+    if (p <= r[2]) return v[1];
+    if (p <= r[3]) return v[1] + (v[3] - v[1]) * (p - r[2]) / (r[3] - r[2]);
+    return v[3];
+  }
+
+  /* Reparte uniformemente los 4 stops de cada escena a lo largo del scroll. */
+  var seg = 1 / N;
+  var ranges = EVENTOS.map(function (e, i) {
+    var a = i * seg, b = (i + 1) * seg, w = b - a;
+    return [
+      i === 0 ? 0 : a + w * 0.10,
+      a + w * 0.30,
+      b - w * 0.30,
+      i === N - 1 ? 1 : b - w * 0.10
+    ];
+  });
+
+  /* Dimensiones del escenario (para rotar la furgoneta bajo escala no uniforme). */
+  var stageW = 0, stageH = 0;
+  function measure() {
+    var r = road.getBoundingClientRect();
+    stageW = r.width; stageH = r.height;
+  }
+
+  function getProgress() {
+    var scrollTop  = window.scrollY || window.pageYOffset;
+    var rect       = scrolly.getBoundingClientRect();
+    var sectionTop = rect.top + scrollTop;
+    var raw = (scrollTop - sectionTop) / (scrolly.offsetHeight - window.innerHeight);
+    return Math.max(0, Math.min(1, raw));
+  }
+
+  function moveVan(p) {
+    var len = pathLen * p;
+    var pt  = path.getPointAtLength(len);
+    var pt2 = path.getPointAtLength(Math.min(pathLen, len + 1));
+    van.style.left = (pt.x / VBW * 100) + '%';
+    van.style.top  = (pt.y / VBH * 100) + '%';
+    var rot = '';
+    if (!reduce) {
+      var dx = (pt2.x - pt.x) / VBW * stageW;
+      var dy = (pt2.y - pt.y) / VBH * stageH;
+      rot = ' rotate(' + (Math.atan2(dy, dx) * 180 / Math.PI) + 'deg)';
+    }
+    van.style.transform = 'translate(-50%,-50%)' + rot;
+  }
+
+  function update() {
+    var p = getProgress();
+
+    bar.style.transform = 'scaleX(' + p + ')';
+    if (hint) hint.style.opacity = p < 0.05 ? (1 - p / 0.05) : 0;
+
+    moveVan(p);
+
+    var active = Math.min(N - 1, Math.floor(p / seg + 0.5));
+    var yAmp = reduce ? 0 : 50;
+    sceneEls.forEach(function (el, i) {
+      var r = ranges[i];
+      var opacity = map4(p, r, [0, 1, 1, 0]);
+      el.style.opacity   = opacity;
+      el.style.transform = 'translateY(' + map4(p, r, [yAmp, 0, 0, -yAmp]) + 'px)';
+      el.setAttribute('aria-hidden', opacity < 0.05 ? 'true' : 'false');
     });
 
-    detail.innerHTML = renderCard(HITOS[i]);
-    if (!reduce) {
-      var card = detail.querySelector('.pr-card');
-      card.classList.remove('pr-in');
-      void card.offsetWidth;
-      card.classList.add('pr-in');
-    }
+    dotEls.forEach(function (d, i) {
+      d.classList.toggle('is-done', i < active);
+      d.classList.toggle('is-active', i === active);
+    });
   }
 
-  setHito(0);
+  function onResize() { measure(); update(); }
 
-  btn.addEventListener('click', function () {
-    if (cur < HITOS.length - 1) {
-      cur++;
-      setHito(cur);
-      if (cur === HITOS.length - 1) {
-        btn.innerHTML = 'Reiniciar Ruta <span class="arr">→</span>';
-      }
-    } else {
-      cur = 0;
-      setHito(cur);
-      btn.innerHTML = 'Siguiente Hito <span class="arr">→</span>';
-    }
-  });
+  measure();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', onResize, { passive: true });
+  update();
 })();

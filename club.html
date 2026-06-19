@@ -15,7 +15,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://4peeq.com/assets/og-image.png">
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 
@@ -44,7 +44,6 @@
       <a href="/#proceso">Cómo trabajamos</a>
       <a href="/#clientes">Clientes</a>
       <a href="/#equipo">Equipo</a>
-      <a href="https://4peeq.com/autodiagnostico">Autodiagnóstico</a>
     </nav>
     <div class="nav-cta">
       <a href="https://wa.me/5493794398385" class="btn btn-violet">Tomemos un café <span class="arr">→</span></a>
@@ -71,7 +70,6 @@
   <a href="/#proceso">Cómo trabajamos</a>
   <a href="/#clientes">Clientes</a>
   <a href="/#equipo">Equipo</a>
-  <a href="https://4peeq.com/autodiagnostico">Autodiagnóstico</a>
   <a href="https://wa.me/5493794398385" class="btn btn-violet">Tomemos un café ☕</a>
 </nav>
 
@@ -287,61 +285,17 @@
       <h2>Próximos eventos</h2>
       <p>Reservá tu lugar. Los cupos son limitados para mantener la calidad de las conexiones.</p>
     </div>
-    <div class="peeq-roadmap">
+  </div>
 
-      <!-- PANEL IZQUIERDO: mapa -->
-      <div class="pr-map">
-        <div class="pr-map-inner">
-          <svg class="pr-svg" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-            <!-- curva del camino: pasa exactamente por los 4 hitos -->
-            <path class="pr-track" d="M 30,246 C 110,246 155,120 228,120 C 310,120 330,165 390,165 C 465,165 490,66 558,66"/>
-            <!-- hito 1: 4Peeqneta -->
-            <circle class="pr-dot" data-i="0" cx="30" cy="246" r="14"/>
-            <text class="pr-dot-num" x="30" y="251" text-anchor="middle">1</text>
-            <text class="pr-dot-label" x="30" y="273" text-anchor="middle">4Peeqneta</text>
-            <!-- hito 2: 4Peeq Cup -->
-            <circle class="pr-dot" data-i="1" cx="228" cy="120" r="14"/>
-            <text class="pr-dot-num" x="228" y="125" text-anchor="middle">2</text>
-            <text class="pr-dot-label" x="228" y="98" text-anchor="middle">4Peeq Cup</text>
-            <!-- hito 3: Pymeton -->
-            <circle class="pr-dot" data-i="2" cx="390" cy="165" r="14"/>
-            <text class="pr-dot-num" x="390" y="170" text-anchor="middle">3</text>
-            <text class="pr-dot-label" x="390" y="193" text-anchor="middle">Pymeton</text>
-            <!-- hito 4: 4Peeq Talks -->
-            <circle class="pr-dot" data-i="3" cx="558" cy="66" r="14"/>
-            <text class="pr-dot-num" x="558" y="71" text-anchor="middle">4</text>
-            <text class="pr-dot-label" x="558" y="44" text-anchor="middle">4Peeq Talks</text>
-          </svg>
-          <!-- furgoneta posicionada sobre el mapa -->
-          <div class="pr-van" aria-hidden="true">
-            <svg viewBox="0 0 44 28" width="44" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="0" y="5" width="40" height="18" rx="3" fill="#7764a9"/>
-              <rect x="25" y="1" width="15" height="14" rx="2" fill="#9a86cf"/>
-              <rect x="1" y="1" width="23" height="14" rx="2" fill="#9a86cf"/>
-              <rect x="2" y="3" width="9" height="8" rx="1" fill="#e3d8ec" opacity=".75"/>
-              <rect x="13" y="3" width="7" height="8" rx="1" fill="#e3d8ec" opacity=".75"/>
-              <rect x="27" y="2" width="11" height="9" rx="1" fill="#e3d8ec" opacity=".75"/>
-              <circle cx="9" cy="23" r="5" fill="#232c58"/>
-              <circle cx="32" cy="23" r="5" fill="#232c58"/>
-              <circle cx="9" cy="23" r="2" fill="#9a86cf"/>
-              <circle cx="32" cy="23" r="2" fill="#9a86cf"/>
-              <rect x="40" y="9" width="4" height="6" rx="1" fill="#e3d8ec" opacity=".8"/>
-            </svg>
-          </div>
-        </div>
-        <div class="pr-controls">
-          <button class="btn btn-violet pr-next">Siguiente Hito <span class="arr">→</span></button>
-        </div>
-      </div>
-
-      <!-- PANEL DERECHO: tarjeta de detalle -->
-      <div class="pr-detail">
-        <div class="pr-welcome">
-          <span class="kicker">4PEEQ CLUB · RUTA DEL AÑO</span>
-          <p class="pr-welcome-txt">Seguí el recorrido para descubrir cada experiencia.</p>
-        </div>
-      </div>
-
+  <!-- Scrollytelling: rail con furgoneta + fecha gigante + countdown.
+       Rail, escenas y datos se generan desde EVENTOS en app.js. -->
+  <div class="cal-scrolly">
+    <div class="cal-stage">
+      <div class="cal-bg" aria-hidden="true"></div>
+      <div class="cal-road" aria-hidden="true"></div>
+      <div class="cal-scenes"></div>
+      <div class="cal-bar" aria-hidden="true"></div>
+      <div class="cal-hint" aria-hidden="true">Scrolleá para ver la ruta</div>
     </div>
   </div>
 </section>
@@ -381,7 +335,6 @@
         <a href="/#proceso">Cómo trabajamos</a>
         <a href="/club">Club</a>
         <a href="postulate.html">¡Postulate!</a>
-        <a href="https://4peeq.com/autodiagnostico">Autodiagnóstico</a>
       </div>
       <div class="foot-col">
         <h5>CONTACTO</h5>
@@ -406,6 +359,6 @@
   <span class="wa-txt">Escribinos por WhatsApp</span>
 </a>
 
-<script src="app.js?v=3"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>
