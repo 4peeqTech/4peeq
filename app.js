@@ -220,6 +220,60 @@
   update();
 })();
 
+/* ---- pymeton: sidekick "El Pelado" que comenta cada sección ---- */
+(function () {
+  'use strict';
+  var buddy = document.querySelector('[data-pym-buddy]');
+  if (!buddy) return;
+
+  var bubble = buddy.querySelector('[data-pym-bubble]');
+  var char = buddy.querySelector('[data-pym-char]');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* EDITAR ACÁ: diálogos por sección, en orden de aparición en la página */
+  var LINES = [
+    { sel: '.pym-edition', text: '¡Volvió PYMETON! 🔥 Mirá la segunda edición.' },
+    { sel: '.pym-edition + .pym-edition', text: '¿Te perdiste la primera? Están todos acá 👇' },
+    { sel: '.final', text: '¿Te sumás al próximo en vivo? 🙌' }
+  ];
+
+  var entries = LINES
+    .map(function (l) { return { el: document.querySelector(l.sel), text: l.text }; })
+    .filter(function (e) { return e.el; });
+  if (!entries.length) return;
+
+  var hero = document.querySelector('.pym-hero');
+  var talkTimer = null;
+
+  function say(text) {
+    bubble.textContent = text;
+    bubble.classList.add('show');
+    if (!reduce) {
+      char.classList.add('talking');
+      clearTimeout(talkTimer);
+      talkTimer = setTimeout(function () { char.classList.remove('talking'); }, 1200);
+    }
+  }
+
+  var current = null;
+  var io = new IntersectionObserver(function (ents) {
+    ents.forEach(function (e) {
+      if (e.isIntersecting) {
+        var match = entries.find(function (en) { return en.el === e.target; });
+        if (match && match.text !== current) { current = match.text; say(match.text); }
+      }
+    });
+  }, { threshold: 0.45 });
+  entries.forEach(function (e) { io.observe(e.el); });
+
+  if (hero && 'IntersectionObserver' in window) {
+    var heroIo = new IntersectionObserver(function (ents) {
+      ents.forEach(function (e) { buddy.classList.toggle('is-on', e.intersectionRatio < 0.6); });
+    }, { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] });
+    heroIo.observe(hero);
+  }
+})();
+
 /* ---- mobile submenu ---- */
 (function () {
   const btn = document.getElementById('mobDdBtn');

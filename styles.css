@@ -1253,3 +1253,149 @@ a{ color:inherit; text-decoration:none; }
 @media(max-width:600px){
   .scrolly{ height:450vh; }
 }
+
+/* ============================================================
+   PYMETON
+   ============================================================ */
+:root{
+  --pym-red: #e23b34;
+  --pym-green: #7cb342;
+}
+
+.svc-clickable{ display:block; text-decoration:none; color:inherit; cursor:pointer; }
+
+.pym-hero{
+  background:var(--paper); color:var(--ink);
+  padding:clamp(96px,9vw,128px) 0 clamp(70px,7vw,96px);
+  position:relative; overflow:hidden; isolation:isolate;
+  border-bottom:1px solid rgba(21,20,43,.07);
+}
+.pym-hero-glow{
+  position:absolute; width:560px; height:560px; border-radius:50%;
+  background:rgba(226,59,52,.16); filter:blur(120px);
+  top:-180px; right:-120px; pointer-events:none; z-index:0;
+}
+.pym-hero .wrap{ position:relative; z-index:2; }
+.pym-breadcrumb{ color:var(--gray-d); margin-bottom:24px; }
+.pym-breadcrumb a{ color:var(--gray-d); }
+.pym-breadcrumb a:hover{ color:var(--violet); }
+.pym-logo{ height:46px; width:auto; margin-bottom:22px; }
+.pym-hero h1{
+  font-family:var(--display); font-weight:800; font-size:clamp(44px,8vw,86px);
+  line-height:1; letter-spacing:-0.02em; color:var(--pym-red); margin-bottom:18px;
+}
+.pym-hero-lead{
+  font-size:clamp(17px,1.5vw,19.5px); color:var(--gray-d);
+  max-width:56ch; line-height:1.6;
+}
+
+.pym-edition{ background:var(--paper); }
+.pym-edition + .pym-edition{ border-top:1px solid rgba(21,20,43,.07); }
+.pym-kicker{ color:var(--pym-red); }
+
+.pym-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:44px; }
+.pym-video{
+  position:relative; background:var(--white); border:1px solid rgba(21,20,43,.08);
+  border-radius:var(--r); overflow:hidden; transition:transform .4s var(--ease), box-shadow .4s, border-color .3s;
+}
+.pym-video:hover{ transform:translateY(-5px); box-shadow:var(--shadow-md); border-color:transparent; }
+.pym-edition-tag{
+  position:absolute; top:14px; left:14px; z-index:3;
+  font-family:var(--display); font-weight:600; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:#fff; background:var(--violet); padding:5px 12px; border-radius:100px;
+}
+.pym-thumb{ position:relative; aspect-ratio:16/9; background:var(--ink); cursor:pointer; overflow:hidden; }
+.pym-thumb img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s var(--ease); }
+.pym-video:hover .pym-thumb img{ transform:scale(1.04); }
+.pym-thumb iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+.pym-play{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:62px; height:62px; border-radius:50%; border:none; cursor:pointer;
+  background:var(--pym-red); color:#fff; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 10px 30px rgba(226,59,52,.45); transition:transform .3s var(--ease-back), background .3s;
+}
+.pym-video:hover .pym-play{ transform:translate(-50%,-50%) scale(1.08); background:#c92f29; }
+.pym-video-body{ padding:20px 22px 24px; }
+.pym-chapter-badge{
+  display:inline-block; font-family:var(--display); font-weight:600; font-size:11.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--violet); margin-bottom:8px;
+}
+.pym-video h3{ font-family:var(--serif); font-weight:700; font-size:18.5px; letter-spacing:-0.01em; line-height:1.3; }
+
+/* café button: hidden over the light Pymeton hero, shown once the nav scrolls */
+body.pym-page .nav:not(.scrolled) .nav-cta .btn-violet{
+  opacity:0; pointer-events:none; transform:translateY(-6px);
+}
+body.pym-page .nav-cta .btn-violet{ transition:opacity .3s var(--ease), transform .3s var(--ease); }
+
+/* video intro */
+.pym-intro{
+  position:relative; margin-top:36px; max-width:760px; aspect-ratio:16/9;
+  border-radius:var(--r); overflow:hidden; box-shadow:var(--shadow-md); background:var(--ink);
+}
+.pym-intro-vid{ width:100%; height:100%; object-fit:cover; display:block; }
+.pym-intro-ctrls{
+  position:absolute; left:0; right:0; bottom:0; display:flex; align-items:center; gap:10px;
+  padding:14px; background:linear-gradient(to top, rgba(0,0,0,.55), transparent);
+}
+.pym-intro-btn{
+  border:none; cursor:pointer; border-radius:100px; font-family:var(--display); font-weight:600;
+  font-size:13.5px; padding:9px 16px; display:inline-flex; align-items:center; gap:6px;
+  background:rgba(255,255,255,.9); color:var(--ink); transition:transform .2s var(--ease), background .2s;
+}
+.pym-intro-btn:hover{ transform:translateY(-2px); }
+.pym-intro-unmute{ background:var(--violet); color:#fff; }
+.pym-intro-unmute:hover{ background:var(--violet-lt); }
+@keyframes pym-pulse{ 0%,100%{ box-shadow:0 0 0 0 rgba(119,100,169,.55); } 50%{ box-shadow:0 0 0 10px rgba(119,100,169,0); } }
+.pym-intro-unmute{ animation:pym-pulse 1.8s ease-out infinite; }
+@media (prefers-reduced-motion:reduce){ .pym-intro-unmute{ animation:none; } }
+
+/* sidekick "El Pelado" */
+.pym-buddy{
+  position:fixed; left:18px; bottom:18px; z-index:50; display:flex; align-items:flex-end; gap:10px;
+  opacity:0; transform:translateY(20px); pointer-events:none; transition:opacity .4s var(--ease), transform .4s var(--ease);
+}
+.pym-buddy.is-on{ opacity:1; transform:translateY(0); }
+.pym-buddy-char{ width:74px; height:auto; flex:0 0 auto; }
+.pym-buddy-char img{ display:block; width:100%; height:auto; filter:drop-shadow(0 8px 18px rgba(21,20,43,.25)); image-rendering:-webkit-optimize-contrast; }
+.pym-buddy-bubble{
+  position:relative; max-width:240px; background:#fff; color:var(--ink); border-radius:14px;
+  padding:10px 14px; font-size:13.5px; line-height:1.4; box-shadow:var(--shadow-md);
+  opacity:0; transform:translateY(8px) scale(.96); transition:opacity .3s var(--ease), transform .3s var(--ease);
+  margin-bottom:18px;
+}
+.pym-buddy-bubble::after{
+  content:""; position:absolute; left:18px; bottom:-7px; width:14px; height:14px;
+  background:#fff; clip-path:polygon(0 0, 100% 0, 0 100%);
+}
+.pym-buddy-bubble.show{ opacity:1; transform:translateY(0) scale(1); }
+@keyframes pym-talk{ 0%,100%{ transform:rotate(0deg) translateY(0); } 25%{ transform:rotate(-3deg) translateY(-2px); } 75%{ transform:rotate(3deg) translateY(-1px); } }
+.pym-buddy-char.talking{ animation:pym-talk .45s ease-in-out infinite; }
+@media (prefers-reduced-motion:reduce){ .pym-buddy-char.talking{ animation:none; } }
+@media (max-width:680px){
+  .pym-buddy{ left:auto; right:90px; bottom:18px; }
+  .pym-buddy-char{ width:50px; }
+  .pym-buddy-bubble{ max-width:160px; font-size:12.5px; }
+}
+
+/* en la página de pymeton, el pelado ocupa el lugar del botón flotante de WhatsApp */
+body.pym-page .wa{ display:none; }
+body.pym-page .pym-buddy{
+  left:auto; right:22px; bottom:22px; flex-direction:column; align-items:center; gap:8px;
+}
+body.pym-page .pym-buddy-char{ width:104px; }
+body.pym-page .pym-buddy-bubble{ margin-bottom:0; }
+body.pym-page .pym-buddy-bubble::after{
+  left:50%; bottom:-7px; transform:translateX(-50%); clip-path:polygon(50% 100%, 0 0, 100% 0);
+}
+@media (max-width:680px){
+  body.pym-page .pym-buddy{ right:14px; bottom:14px; }
+  body.pym-page .pym-buddy-char{ width:72px; }
+}
+
+@media (max-width:1000px){
+  .pym-grid{ grid-template-columns:1fr; }
+}
+@media (max-width:680px){
+  .pym-hero{ padding-top:96px; }
+}
