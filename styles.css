@@ -50,6 +50,7 @@ a{ color:inherit; text-decoration:none; }
 ::selection{ background:var(--violet); color:#fff; }
 
 .wrap{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:var(--pad); }
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 
 /* ---------- type helpers ---------- */
 .serif{ font-family:var(--serif); }
@@ -1258,8 +1259,8 @@ a{ color:inherit; text-decoration:none; }
    PYMETON
    ============================================================ */
 :root{
-  --pym-red: #e23b34;
-  --pym-green: #7cb342;
+  --pym-navy: #00174e;
+  --pym-plum: #330066;
 }
 
 .svc-clickable{ display:block; text-decoration:none; color:inherit; cursor:pointer; }
@@ -1272,26 +1273,39 @@ a{ color:inherit; text-decoration:none; }
 }
 .pym-hero-glow{
   position:absolute; width:560px; height:560px; border-radius:50%;
-  background:rgba(226,59,52,.16); filter:blur(120px);
+  background:rgba(51,0,102,.14); filter:blur(120px);
   top:-180px; right:-120px; pointer-events:none; z-index:0;
 }
+.pym-hero-mark{
+  position:absolute; top:18px; right:-30px; width:min(360px,46vw); height:auto;
+  opacity:.05; pointer-events:none; z-index:1; transform:rotate(6deg);
+}
+.pym-hero-mark img{ display:block; width:100%; height:auto; }
 .pym-hero .wrap{ position:relative; z-index:2; }
 .pym-breadcrumb{ color:var(--gray-d); margin-bottom:24px; }
 .pym-breadcrumb a{ color:var(--gray-d); }
 .pym-breadcrumb a:hover{ color:var(--violet); }
-.pym-logo{ height:46px; width:auto; margin-bottom:22px; }
-.pym-hero h1{
-  font-family:var(--display); font-weight:800; font-size:clamp(44px,8vw,86px);
-  line-height:1; letter-spacing:-0.02em; color:var(--pym-red); margin-bottom:18px;
+.pym-wordmark{ display:block; height:clamp(56px,9vw,96px); width:auto; margin-bottom:18px; }
+.pym-streaming-badge{
+  display:inline-flex; align-items:center; gap:7px; margin-bottom:16px;
+  font-family:var(--display); font-weight:600; font-size:12.5px; letter-spacing:.04em;
+  color:#fff; background:var(--ink); padding:7px 14px 7px 12px; border-radius:100px;
 }
+.pym-streaming-badge b{ color:var(--violet-lt); font-weight:700; }
 .pym-hero-lead{
   font-size:clamp(17px,1.5vw,19.5px); color:var(--gray-d);
   max-width:56ch; line-height:1.6;
 }
+@media (max-width:680px){
+  .pym-hero-mark{ width:min(220px,58vw); top:24px; right:-40px; }
+}
+@media (max-width:420px){
+  .pym-hero-mark{ width:min(170px,52vw); top:20px; right:-30px; }
+}
 
 .pym-edition{ background:var(--paper); }
 .pym-edition + .pym-edition{ border-top:1px solid rgba(21,20,43,.07); }
-.pym-kicker{ color:var(--pym-red); }
+.pym-kicker{ color:var(--pym-navy); }
 
 .pym-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:44px; }
 .pym-video{
@@ -1311,16 +1325,31 @@ a{ color:inherit; text-decoration:none; }
 .pym-play{
   position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
   width:62px; height:62px; border-radius:50%; border:none; cursor:pointer;
-  background:var(--pym-red); color:#fff; display:flex; align-items:center; justify-content:center;
-  box-shadow:0 10px 30px rgba(226,59,52,.45); transition:transform .3s var(--ease-back), background .3s;
+  background:var(--pym-navy); color:#fff; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 10px 30px rgba(0,23,78,.45); transition:transform .3s var(--ease-back), background .3s;
 }
-.pym-video:hover .pym-play{ transform:translate(-50%,-50%) scale(1.08); background:#c92f29; }
+.pym-video:hover .pym-play{ transform:translate(-50%,-50%) scale(1.08); background:var(--pym-plum); }
 .pym-video-body{ padding:20px 22px 24px; }
 .pym-chapter-badge{
   display:inline-block; font-family:var(--display); font-weight:600; font-size:11.5px; letter-spacing:.1em;
   text-transform:uppercase; color:var(--violet); margin-bottom:8px;
 }
-.pym-video h3{ font-family:var(--serif); font-weight:700; font-size:18.5px; letter-spacing:-0.01em; line-height:1.3; }
+.pym-video h3{ font-family:var(--serif); font-weight:700; font-size:18.5px; letter-spacing:-0.01em; line-height:1.3; margin-bottom:10px; }
+
+.pym-video-hook{
+  margin:0 0 12px; font-family:var(--serif); font-weight:600; font-style:italic; font-size:15.5px;
+  line-height:1.4; color:var(--pym-navy);
+}
+.pym-video-toggle{ border-top:1px solid rgba(21,20,43,.08); padding-top:12px; }
+.pym-video-toggle summary{
+  display:inline-flex; align-items:center; gap:6px; cursor:pointer; list-style:none;
+  font-family:var(--display); font-weight:600; font-size:13.5px; color:var(--violet);
+}
+.pym-video-toggle summary::-webkit-details-marker{ display:none; }
+.pym-video-toggle summary .arr{ transition:transform .25s var(--ease); }
+.pym-video-toggle[open] summary .arr{ transform:rotate(90deg); }
+.pym-video-toggle summary:hover{ color:var(--violet-lt); }
+.pym-video-text{ margin-top:10px; font-size:14px; line-height:1.6; color:var(--gray-d); }
 
 /* café button: hidden over the light Pymeton hero, shown once the nav scrolls */
 body.pym-page .nav:not(.scrolled) .nav-cta .btn-violet{
