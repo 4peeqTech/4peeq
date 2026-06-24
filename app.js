@@ -264,12 +264,28 @@
     }
   }
 
+  var finalEl = document.querySelector('.final');
+
+  function setLinkMode(on) {
+    char.classList.toggle('is-link', on);
+    if (on) {
+      char.setAttribute('role', 'link');
+      char.setAttribute('aria-label', 'Seguinos en Instagram');
+    } else {
+      char.removeAttribute('role');
+      char.removeAttribute('aria-label');
+    }
+  }
+
   var current = null;
   var io = new IntersectionObserver(function (ents) {
     ents.forEach(function (e) {
       if (e.isIntersecting) {
         var match = entries.find(function (en) { return en.el === e.target; });
         if (match && match.text !== current) { current = match.text; say(match.text); }
+        if (e.target === finalEl) setLinkMode(true);
+      } else if (e.target === finalEl) {
+        setLinkMode(false);
       }
     });
   }, { threshold: 0.45 });
@@ -282,10 +298,8 @@
     heroIo.observe(hero);
   }
 
-  char.style.cursor = 'pointer';
-  char.setAttribute('role', 'link');
-  char.setAttribute('aria-label', 'Seguinos en Instagram');
   char.addEventListener('click', function () {
+    if (!char.classList.contains('is-link')) return;
     window.open('https://www.instagram.com/4peeq.ok/', '_blank', 'noopener');
   });
 })();

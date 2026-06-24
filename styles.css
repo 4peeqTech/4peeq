@@ -1426,14 +1426,16 @@ body.pym-page .nav-cta .btn-violet{ transition:opacity .3s var(--ease), transfor
   opacity:0; transform:translateY(20px); pointer-events:none; transition:opacity .4s var(--ease), transform .4s var(--ease);
 }
 .pym-buddy.is-on{ opacity:1; transform:translateY(0); pointer-events:auto; }
-.pym-buddy-char{ position:relative; width:74px; height:auto; flex:0 0 auto; }
+.pym-buddy-char{ position:relative; width:74px; height:auto; flex:0 0 auto; cursor:default; }
 .pym-buddy-char img{ display:block; width:100%; height:auto; filter:drop-shadow(0 8px 18px rgba(21,20,43,.25)); image-rendering:-webkit-optimize-contrast; }
+.pym-buddy-char.is-link{ cursor:pointer; }
 .pym-buddy-ig{
   position:absolute; top:-4px; right:-4px; width:26px; height:26px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center; color:#fff;
+  display:none; align-items:center; justify-content:center; color:#fff;
   background:linear-gradient(135deg,#feda75,#d62976,#4f5bd5); box-shadow:0 4px 10px rgba(21,20,43,.35);
   border:2px solid #fff;
 }
+.pym-buddy-char.is-link .pym-buddy-ig{ display:flex; }
 @keyframes pym-ig-pulse{ 0%,100%{ box-shadow:0 0 0 0 rgba(214,41,118,.5); } 50%{ box-shadow:0 0 0 7px rgba(214,41,118,0); } }
 .pym-buddy-ig{ animation:pym-ig-pulse 1.8s ease-out infinite; }
 @media (prefers-reduced-motion:reduce){ .pym-buddy-ig{ animation:none; } }
