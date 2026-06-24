@@ -54,6 +54,15 @@
     });
   });
 
+  /* ---- pymeton page-wide violet glow follows cursor ---- */
+  const pymGlow = document.querySelector('.pym-page-glow');
+  if (pymGlow && !reduce) {
+    window.addEventListener('pointermove', (e) => {
+      pymGlow.style.setProperty('--mx', (e.clientX / window.innerWidth * 100) + '%');
+      pymGlow.style.setProperty('--my', (e.clientY / window.innerHeight * 100) + '%');
+    });
+  }
+
   /* ---- hero glow parallax (mouse + scroll) ---- */
   const pars = [...document.querySelectorAll('.hero [data-par]')];
   if (!reduce && pars.length) {

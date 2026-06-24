@@ -1265,6 +1265,17 @@ a{ color:inherit; text-decoration:none; }
 
 .svc-clickable{ display:block; text-decoration:none; color:inherit; cursor:pointer; }
 
+/* page-wide violet glow that follows the cursor — same idea as the hero spotlight,
+   stretched across the whole page for extra Pymeton identity */
+.pym-page-glow{
+  position:fixed; inset:0; z-index:45; pointer-events:none;
+  background:radial-gradient(420px 420px at var(--mx,50%) var(--my,30%),
+    rgba(119,100,169,.16), rgba(119,100,169,.06) 45%, transparent 72%);
+  mix-blend-mode:multiply;
+  transition:background .12s linear;
+}
+@media (hover:none), (prefers-reduced-motion:reduce){ .pym-page-glow{ display:none; } }
+
 .pym-hero{
   background:var(--paper); color:var(--ink);
   padding:clamp(96px,9vw,128px) 0 clamp(70px,7vw,96px);
@@ -1281,20 +1292,20 @@ a{ color:inherit; text-decoration:none; }
   opacity:.05; pointer-events:none; z-index:1; transform:rotate(6deg);
 }
 .pym-hero-mark img{ display:block; width:100%; height:auto; }
-.pym-hero .wrap{ position:relative; z-index:2; }
-.pym-breadcrumb{ color:var(--gray-d); margin-bottom:24px; }
+.pym-hero .wrap{ position:relative; z-index:2; max-width:none; text-align:center; }
+.pym-breadcrumb{ color:var(--gray-d); margin-bottom:24px; justify-content:center; }
 .pym-breadcrumb a{ color:var(--gray-d); }
 .pym-breadcrumb a:hover{ color:var(--violet); }
-.pym-wordmark{ display:block; height:clamp(56px,9vw,96px); width:auto; margin-bottom:18px; }
+.pym-wordmark{ display:block; width:min(100%,520px); height:auto; margin:0 auto 18px; }
 .pym-streaming-badge{
-  display:inline-flex; align-items:center; gap:7px; margin-bottom:16px;
+  display:inline-flex; align-items:center; gap:7px; margin:0 auto 16px;
   font-family:var(--display); font-weight:600; font-size:12.5px; letter-spacing:.04em;
   color:#fff; background:var(--ink); padding:7px 14px 7px 12px; border-radius:100px;
 }
 .pym-streaming-badge b{ color:var(--violet-lt); font-weight:700; }
 .pym-hero-lead{
   font-size:clamp(17px,1.5vw,19.5px); color:var(--gray-d);
-  max-width:56ch; line-height:1.6;
+  max-width:56ch; line-height:1.6; margin-inline:auto;
 }
 @media (max-width:680px){
   .pym-hero-mark{ width:min(220px,58vw); top:24px; right:10px; }
@@ -1359,7 +1370,7 @@ body.pym-page .nav-cta .btn-violet{ transition:opacity .3s var(--ease), transfor
 
 /* video intro */
 .pym-intro{
-  position:relative; margin-top:36px; max-width:760px; aspect-ratio:16/9;
+  position:relative; margin:36px auto 0; width:100%; max-width:900px; aspect-ratio:16/9;
   border-radius:var(--r); overflow:hidden; box-shadow:var(--shadow-md); background:var(--ink);
 }
 .pym-intro-vid{ width:100%; height:100%; object-fit:cover; display:block; }
