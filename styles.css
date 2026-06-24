@@ -1298,10 +1298,11 @@ a{ color:inherit; text-decoration:none; }
 .pym-breadcrumb a:hover{ color:var(--violet); }
 .pym-wordmark{ display:block; width:min(100%,520px); height:auto; margin:0 auto 18px; }
 .pym-streaming-badge{
-  display:inline-flex; align-items:center; gap:7px; margin:0 auto 16px;
-  font-family:var(--display); font-weight:600; font-size:12.5px; letter-spacing:.04em;
-  color:#fff; background:var(--ink); padding:7px 14px 7px 12px; border-radius:100px;
+  display:inline-flex; align-items:center; gap:9px; margin:0 auto 18px;
+  font-family:var(--display); font-weight:600; font-size:15px; letter-spacing:.02em;
+  color:#fff; background:var(--ink); padding:11px 20px 11px 16px; border-radius:100px;
 }
+.pym-streaming-badge svg{ flex:0 0 auto; color:var(--violet-lt); }
 .pym-streaming-badge b{ color:var(--violet-lt); font-weight:700; }
 .pym-hero-lead{
   font-size:clamp(17px,1.5vw,19.5px); color:var(--gray-d);
@@ -1313,6 +1314,35 @@ a{ color:inherit; text-decoration:none; }
 @media (max-width:420px){
   .pym-hero-mark{ width:min(170px,52vw); top:20px; right:10px; }
 }
+
+/* horario / canal: banda superior pegada al video de intro */
+.pym-airtime{
+  position:absolute; top:0; left:0; right:0; z-index:2;
+  display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;
+  margin:0; padding:10px 16px; font-family:var(--display); font-weight:600; font-size:13.5px;
+  color:#fff; background:linear-gradient(to bottom, rgba(0,0,0,.75), rgba(0,0,0,.45) 70%, transparent);
+  letter-spacing:.01em;
+}
+.pym-airtime-logo{ height:18px; width:auto; display:block; }
+
+/* botones de navegación bajo el video de intro */
+.pym-intro-nav{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin:24px auto 0;
+}
+
+/* offset para que las anclas no queden bajo el header fijo */
+#segunda-edicion, #primera-edicion{ scroll-margin-top:90px; }
+
+/* año debajo del título de cada edición */
+.pym-edition-year{
+  display:block; font-family:var(--display); font-weight:700; font-size:14px;
+  letter-spacing:.12em; color:var(--violet); margin-top:6px;
+}
+
+/* CTA final: wordmark inline + 3 botones */
+.final-card h2.pym-cta-heading{ max-width:26ch; text-wrap:wrap; }
+.pym-cta-wordmark{ display:inline; height:.95em; width:auto; vertical-align:middle; margin:0 .08em; }
+.pym-cta-3{ flex-wrap:wrap; justify-content:center; gap:12px; }
 
 .pym-edition{ background:var(--paper); }
 .pym-edition + .pym-edition{ border-top:1px solid rgba(21,20,43,.07); }
@@ -1395,9 +1425,18 @@ body.pym-page .nav-cta .btn-violet{ transition:opacity .3s var(--ease), transfor
   position:fixed; left:18px; bottom:18px; z-index:50; display:flex; align-items:flex-end; gap:10px;
   opacity:0; transform:translateY(20px); pointer-events:none; transition:opacity .4s var(--ease), transform .4s var(--ease);
 }
-.pym-buddy.is-on{ opacity:1; transform:translateY(0); }
-.pym-buddy-char{ width:74px; height:auto; flex:0 0 auto; }
+.pym-buddy.is-on{ opacity:1; transform:translateY(0); pointer-events:auto; }
+.pym-buddy-char{ position:relative; width:74px; height:auto; flex:0 0 auto; }
 .pym-buddy-char img{ display:block; width:100%; height:auto; filter:drop-shadow(0 8px 18px rgba(21,20,43,.25)); image-rendering:-webkit-optimize-contrast; }
+.pym-buddy-ig{
+  position:absolute; top:-4px; right:-4px; width:26px; height:26px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; color:#fff;
+  background:linear-gradient(135deg,#feda75,#d62976,#4f5bd5); box-shadow:0 4px 10px rgba(21,20,43,.35);
+  border:2px solid #fff;
+}
+@keyframes pym-ig-pulse{ 0%,100%{ box-shadow:0 0 0 0 rgba(214,41,118,.5); } 50%{ box-shadow:0 0 0 7px rgba(214,41,118,0); } }
+.pym-buddy-ig{ animation:pym-ig-pulse 1.8s ease-out infinite; }
+@media (prefers-reduced-motion:reduce){ .pym-buddy-ig{ animation:none; } }
 .pym-buddy-bubble{
   position:relative; max-width:240px; background:#fff; color:var(--ink); border-radius:14px;
   padding:10px 14px; font-size:13.5px; line-height:1.4; box-shadow:var(--shadow-md);

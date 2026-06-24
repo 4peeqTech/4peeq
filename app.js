@@ -243,7 +243,7 @@
   var LINES = [
     { sel: '.pym-edition', text: '¡Volvió PYMETON! 🔥 Mirá la segunda edición.' },
     { sel: '.pym-edition + .pym-edition', text: '¿Te perdiste la primera? Están todos acá 👇' },
-    { sel: '.final', text: '¿Te sumás al próximo en vivo? 🙌' }
+    { sel: '.final', text: '¡Seguinos en Instagram! 👉 Tocame.' }
   ];
 
   var entries = LINES
@@ -281,6 +281,13 @@
     }, { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] });
     heroIo.observe(hero);
   }
+
+  char.style.cursor = 'pointer';
+  char.setAttribute('role', 'link');
+  char.setAttribute('aria-label', 'Seguinos en Instagram');
+  char.addEventListener('click', function () {
+    window.open('https://www.instagram.com/4peeq.ok/', '_blank', 'noopener');
+  });
 })();
 
 /* ---- mobile submenu ---- */
