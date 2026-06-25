@@ -311,8 +311,16 @@ body::-webkit-scrollbar { width: 0; display: none; }
 .prof-tag:hover{ border-color:rgba(154,134,207,.55); background:rgba(154,134,207,.13); color:#fff; }
 
 /* SVG connector (full width, vertical funnel) */
-.areas-connector{ width:100%; margin:0; line-height:0; overflow:visible; }
+.areas-connector{ position:relative; width:100%; margin:0; line-height:0; overflow:visible; }
 .areas-connector svg{ width:100%; height:80px; display:block; overflow:visible; }
+/* Foquito 4Peeq en el punto de convergencia de las flechas */
+.areas-node-logo{
+  position:absolute; left:50%; top:58px; transform:translate(-50%,-50%);
+  width:52px; height:52px; border-radius:50%; background:#fff;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:var(--shadow-lg); z-index:2;
+}
+.areas-node-logo img{ height:30px; width:auto; }
 
 /* Areas 3×2 grid */
 .area-col-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
@@ -575,9 +583,29 @@ body::-webkit-scrollbar { width: 0; display: none; }
   .tl-card{ margin-top:0; }
   .res-stats{ grid-template-columns:1fr; gap:30px; }
   .rd-panel-num{ font-size:46px; }
-  .cphoto.hero { width: 78%; max-width: 300px; }
-  .club-collage { padding: 72px 24px 32px; }
-  .club-text { padding: 18px 22px; border-radius: 16px; max-width: 100%; }
+
+  /* portada: la meta inline queda enorme en celu, hay que !important */
+  .cover{ padding-top: calc(var(--slide-pad) + 16px); }
+  .cover .foco-spin{ width:72px; height:72px; margin-bottom:24px; }
+  .cover .foco-spin img{ height:44px; }
+  .cover .cover-meta{ font-size:14px !important; padding:10px 18px !important; margin-top:24px !important; border-width:1px !important; gap:8px !important; }
+  .cover .cover-meta b{ font-size:15px !important; }
+  .cover .cover-meta .pip{ width:8px !important; height:8px !important; }
+  .cue{ margin-bottom:32px; }
+
+  /* clientes: subir el título para no chocar con los logos */
+  #s-clientes .sec-head{ top:9vh !important; }
+  .c-logo-wrap{ width:96px; height:54px; }
+
+  /* club: grid compacto de hero photos en vez de columna que desborda */
+  .club-collage{ flex-direction:row; flex-wrap:wrap; align-content:center; padding:88px 20px 24px; gap:10px; }
+  .cphoto{ margin-top:0; }
+  .cphoto.hero{ width:44%; max-width:180px; flex:0 0 auto; }
+  .cphoto.hero:nth-of-type(n+4){ display:none; }
+  .club-text{ width:100%; flex:0 0 100%; padding:16px 20px; border-radius:16px; max-width:100%; margin-top:8px; }
+
+  .close-brand{ margin-top:36px; gap:12px; }
+  .close-contact{ gap:8px 18px; font-size:13px; margin-top:8px; }
 }
 
 /* respeta reduce motion — sin desplazamientos, solo fundidos */

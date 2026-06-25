@@ -31,13 +31,16 @@
     gsap.set(slides, { autoAlpha: 0 });
     gsap.set(slides[0], { autoAlpha: 1 });
 
+    var isMobile = window.matchMedia('(max-width: 680px)').matches;
+    var perSlide = isMobile ? 120 : 200;
+
     var masterTl = gsap.timeline({
       scrollTrigger: {
         trigger: deck,
         pin: true,
         scrub: 1, // suavizado
         start: "top top",
-        end: "+=" + (slides.length * 200) + "%" 
+        end: "+=" + (slides.length * perSlide) + "%"
       }
     });
 
