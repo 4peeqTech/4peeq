@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap');
+
+/* 4peeq Variables de CSS para sobrescribir Payload */
+:root {
+  --font-body: 'Poppins', system-ui, sans-serif;
+  --font-display: 'Poppins', system-ui, sans-serif;
+}
+
+/* LIGHT MODE */
+html[data-theme='light'], :root {
+  --theme-bg: #faf9fc;
+  --theme-elevation-0: #faf9fc;
+  --theme-elevation-50: #f1eef7;
+  --theme-elevation-100: #e3d8ec;
+  --theme-elevation-150: #dadada;
+  --theme-elevation-200: #3d3d3c;
+  --theme-elevation-250: #3d3d3c;
+  --theme-elevation-300: #15142b;
+  --theme-elevation-350: #15142b;
+  --theme-elevation-400: #15142b;
+  --theme-text: #15142b;
+
+  --theme-success-400: #7764a9; /* Usando nuestro violeta como color de acción principal donde Payload usa success */
+  --theme-success-500: #9a86cf; 
+}
+
+/* DARK MODE */
+html[data-theme='dark'] {
+  --theme-bg: #15142b; /* ink */
+  --theme-elevation-0: #15142b;
+  --theme-elevation-50: #232c58; /* ink-2 */
+  --theme-elevation-100: #3d3d3c; /* gray-d */
+  --theme-elevation-150: #3d3d3c;
+  --theme-elevation-200: #dadada;
+  --theme-elevation-250: #dadada;
+  --theme-elevation-300: #faf9fc;
+  --theme-elevation-350: #faf9fc;
+  --theme-elevation-400: #faf9fc;
+  --theme-text: #ffffff;
+
+  --theme-success-400: #9a86cf; /* Violeta claro en dark mode */
+  --theme-success-500: #7764a9; 
+}
+
+/* Component overrides para adaptarse al branding 4peeq */
+.btn {
+  border-radius: 20px !important;
+  font-family: var(--font-body) !important;
+}
+
+.btn--style-primary {
+  background-color: #7764a9 !important;
+  color: #ffffff !important;
+  box-shadow: 0 18px 50px rgba(119,100,169,.40) !important;
+  transition: transform .35s cubic-bezier(.22,1,.36,1), background .25s !important;
+  border-color: transparent !important;
+}
+
+.btn--style-primary:hover {
+  background-color: #9a86cf !important;
+  transform: translateY(-2px) !important;
+}
+
+.panel, .card, input, select, textarea {
+  border-radius: 12px !important; /* Payload defaults to small radius, we use 12px for inputs to match 20px on buttons somewhat */
+}
+
+/* Nav styles */
+.nav {
+  background-color: #15142b !important;
+}
+
+.nav * {
+  color: #ffffff !important;
+}
+
+.nav .nav-group__toggle,
+.nav .nav__link {
+  color: #e3d8ec !important;
+}
+
+.nav .nav__link--active,
+.nav .nav__link:hover,
+.nav .nav-group__toggle:hover {
+  color: #ffffff !important;
+  background-color: #232c58 !important;
+  border-radius: 8px !important;
+}

@@ -18,6 +18,17 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    meta: {
+      titleSuffix: ' · 4peeq Panel',
+      icons: [{ rel: 'icon', url: '/favicon.svg' }],
+    },
+    components: {
+      graphics: {
+        Logo: '@/components/admin/Logo#Logo',
+        Icon: '@/components/admin/Icon#Icon',
+      },
+      beforeLogin: ['@/components/admin/BeforeLogin#BeforeLogin'],
+    },
   },
   collections: [Users, Media],
   editor: lexicalEditor(),

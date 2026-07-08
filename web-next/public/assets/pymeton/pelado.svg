@@ -1,0 +1,53 @@
+<svg viewBox="0 0 120 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <ellipse cx="60" cy="160" rx="32" ry="6" fill="rgba(21,20,43,.16)"/>
+
+  <!-- piernas (estilo lego: dos bloques) -->
+  <rect x="38" y="118" width="18" height="38" rx="3" fill="#1f2440"/>
+  <rect x="64" y="118" width="18" height="38" rx="3" fill="#1f2440"/>
+  <rect x="36" y="150" width="20" height="9" rx="2" fill="#15142b"/>
+  <rect x="64" y="150" width="20" height="9" rx="2" fill="#15142b"/>
+  <!-- cadera -->
+  <rect x="36" y="108" width="48" height="16" rx="4" fill="#15142b"/>
+
+  <!-- brazo izq (lego: tubo + codo + mano garra) -->
+  <path d="M38 64 Q22 70 20 92 Q19 100 26 102" fill="none" stroke="#15142b" stroke-width="13" stroke-linecap="round"/>
+  <circle cx="26" cy="103" r="7.5" fill="#f0c419"/>
+  <path d="M21 101 Q26 110 31 101" fill="none" stroke="#b8930a" stroke-width="2" stroke-linecap="round"/>
+  <!-- brazo der -->
+  <path d="M82 64 Q98 70 100 92 Q101 100 94 102" fill="none" stroke="#15142b" stroke-width="13" stroke-linecap="round"/>
+  <circle cx="94" cy="103" r="7.5" fill="#f0c419"/>
+  <path d="M89 101 Q94 110 99 101" fill="none" stroke="#b8930a" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- torso (remera negra PYMETON, bloque tipo lego) -->
+  <path d="M34 60 Q60 50 86 60 L90 110 Q60 118 30 110 Z" fill="#15142b"/>
+  <rect x="42" y="78" width="36" height="11" rx="2.5" fill="#7764a9"/>
+  <text x="60" y="86.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="7.5" font-weight="700" fill="#fff" letter-spacing="0.4">PYMETON</text>
+
+  <!-- cuello -->
+  <rect x="51" y="50" width="18" height="13" fill="#f0c419"/>
+
+  <!-- cabeza (cilindro estilo lego) -->
+  <rect x="35" y="14" width="50" height="42" rx="14" fill="#f0c419"/>
+  <ellipse cx="60" cy="16" rx="25" ry="8" fill="#ffd83d"/>
+
+  <!-- brillo cabeza pelada -->
+  <ellipse cx="50" cy="22" rx="12" ry="6" fill="#ffe27a" opacity=".7"/>
+
+  <!-- orejas -->
+  <rect x="31" y="30" width="6" height="12" rx="3" fill="#f0c419"/>
+  <rect x="83" y="30" width="6" height="12" rx="3" fill="#f0c419"/>
+
+  <!-- cejas -->
+  <rect x="42" y="30" width="12" height="3" rx="1.5" fill="#15142b"/>
+  <rect x="66" y="30" width="12" height="3" rx="1.5" fill="#15142b"/>
+
+  <!-- ojos (estilo print lego: puntos simples) -->
+  <circle cx="48" cy="38" r="2.8" fill="#15142b"/>
+  <circle cx="72" cy="38" r="2.8" fill="#15142b"/>
+
+  <!-- barba corta (pieza lego superpuesta) -->
+  <path d="M37 38 Q37 56 60 58 Q83 56 83 38 Q83 50 74 53 Q67 55 60 55 Q53 55 46 53 Q37 50 37 38 Z" fill="#2a2a2a"/>
+
+  <!-- boca (animable) -->
+  <ellipse class="mouth" cx="60" cy="46" rx="6.5" ry="2.2" fill="#7a2e22"/>
+</svg>
