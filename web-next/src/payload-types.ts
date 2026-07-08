@@ -70,6 +70,7 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    courses: Course;
     'payload-mcp-api-keys': PayloadMcpApiKey;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -80,6 +81,7 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    courses: CoursesSelect<false> | CoursesSelect<true>;
     'payload-mcp-api-keys': PayloadMcpApiKeysSelect<false> | PayloadMcpApiKeysSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -90,8 +92,12 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: ('false' | 'none' | 'null') | false | null | 'es' | 'es'[];
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    academyPage: AcademyPage;
+  };
+  globalsSelect: {
+    academyPage: AcademyPageSelect<false> | AcademyPageSelect<true>;
+  };
   locale: 'es';
   widgets: {
     collections: CollectionsWidget;
@@ -144,6 +150,8 @@ export interface PayloadMcpApiKeyAuthOperations {
  */
 export interface User {
   id: number;
+  role: 'admin' | 'editor';
+  modules?: ('academy' | 'club' | 'consultoria' | 'people' | 'tech' | 'makers' | 'general')[] | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -181,6 +189,39 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "courses".
+ */
+export interface Course {
+  id: number;
+  title: string;
+  description: string;
+  status: 'abierto' | 'cerrado';
+  dates?: string | null;
+  quotas?: string | null;
+  mediaType: {
+    type: 'icon' | 'image';
+    icon?:
+      | (
+          | 'custom-program'
+          | 'leadership'
+          | 'sales'
+          | 'culture'
+          | 'chat'
+          | 'target'
+          | 'heart'
+          | 'star'
+          | 'check'
+          | 'book'
+        )
+      | null;
+    image?: (number | null) | Media;
+  };
+  link: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * API keys control which collections, resources, tools, and prompts MCP clients can access
@@ -240,6 +281,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'courses';
+        value: number | Course;
       } | null)
     | ({
         relationTo: 'payload-mcp-api-keys';
@@ -302,6 +347,8 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  role?: T;
+  modules?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -336,6 +383,27 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "courses_select".
+ */
+export interface CoursesSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  status?: T;
+  dates?: T;
+  quotas?: T;
+  mediaType?:
+    | T
+    | {
+        type?: T;
+        icon?: T;
+        image?: T;
+      };
+  link?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -390,6 +458,84 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "academyPage".
+ */
+export interface AcademyPage {
+  id: number;
+  hero: {
+    tag: string;
+    title: string;
+    lead: string;
+    cta: {
+      text: string;
+      link: string;
+    };
+  };
+  coursesSection: {
+    title: string;
+    description?: string | null;
+  };
+  process: {
+    title: string;
+  };
+  finalCta: {
+    title: string;
+    description?: string | null;
+    button: {
+      text: string;
+      link: string;
+    };
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "academyPage_select".
+ */
+export interface AcademyPageSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        tag?: T;
+        title?: T;
+        lead?: T;
+        cta?:
+          | T
+          | {
+              text?: T;
+              link?: T;
+            };
+      };
+  coursesSection?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  process?:
+    | T
+    | {
+        title?: T;
+      };
+  finalCta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        button?:
+          | T
+          | {
+              text?: T;
+              link?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
