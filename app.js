@@ -135,6 +135,116 @@
   /* ---- duplicate marquee track for seamless loop ---- */
   const track = document.getElementById('track');
   if (track) track.innerHTML += track.innerHTML;
+
+  /* ---- invitation cards carousel: loop infinito, se frena y centra la card en hover, tipeo del hook ---- */
+  const invMarquee = document.querySelector('.inv-marquee');
+  const invTrack = invMarquee && invMarquee.querySelector('.inv-track');
+  const hoverCapable = window.matchMedia('(hover: hover)').matches;
+
+  if (invMarquee && invTrack && !reduce && hoverCapable) {
+    const BASE_SPEED = 0.6;
+    const CENTER_EASE = 0.18;
+    const LOCK_MS = 380; // tras activar una card, ignora el hit-test del mouse hasta que termine de centrarse:
+    // evita que el desplazamiento del contenido (no un movimiento real del cursor) "seleccione" a la vecina
+
+    let ix = 0;
+    let activeCell = null;
+    let lockUntil = 0;
+    const typeTimers = new Map();
+
+    invTrack.style.animation = 'none';
+    invTrack.style.willChange = 'transform';
+
+    const startTyping = (cell, instant) => {
+      const card = cell.querySelector('.inv-card');
+      const typedEl = cell.querySelector('.inv-hook-typed');
+      const reveal = cell.querySelector('.inv-reveal');
+      if (!card || !typedEl) return;
+      const text = card.dataset.hook || '';
+      const prevTimer = typeTimers.get(cell);
+      if (prevTimer) clearInterval(prevTimer);
+      if (reveal) reveal.classList.remove('is-revealed');
+      if (instant) {
+        typedEl.textContent = text;
+        if (reveal) reveal.classList.add('is-revealed');
+        return;
+      }
+      let i = 0;
+      typedEl.textContent = '';
+      const timer = setInterval(() => {
+        i++;
+        typedEl.textContent = text.slice(0, i);
+        if (i >= text.length) {
+          clearInterval(timer);
+          typeTimers.delete(cell);
+          if (reveal) reveal.classList.add('is-revealed');
+        }
+      }, 22);
+      typeTimers.set(cell, timer);
+    };
+
+    const stopTyping = (cell) => {
+      const timer = typeTimers.get(cell);
+      if (timer) { clearInterval(timer); typeTimers.delete(cell); }
+      const typedEl = cell.querySelector('.inv-hook-typed');
+      const reveal = cell.querySelector('.inv-reveal');
+      if (typedEl) typedEl.textContent = '';
+      if (reveal) reveal.classList.remove('is-revealed');
+    };
+
+    const setActive = (cell, instant) => {
+      if (activeCell === cell) return;
+      if (activeCell) { activeCell.classList.remove('is-active'); stopTyping(activeCell); }
+      activeCell = cell;
+      if (activeCell) {
+        activeCell.classList.add('is-active');
+        startTyping(activeCell, !!instant);
+        lockUntil = performance.now() + LOCK_MS;
+      }
+    };
+
+    invMarquee.addEventListener('pointermove', (e) => {
+      if (performance.now() < lockUntil) return;
+      const cell = e.target.closest('.inv-cell');
+      setActive(cell);
+    });
+
+    invMarquee.addEventListener('pointerleave', () => setActive(null));
+
+    invTrack.addEventListener('focusin', (e) => {
+      const cell = e.target.closest('.inv-cell');
+      if (cell) setActive(cell, true);
+    });
+    invTrack.addEventListener('focusout', (e) => {
+      const cell = e.target.closest('.inv-cell');
+      if (cell && !cell.contains(e.relatedTarget)) setActive(null);
+    });
+
+    const wrapInv = () => {
+      if (activeCell) return;
+      const half = invTrack.scrollWidth / 2;
+      if (half <= 0) return;
+      if (ix <= -half) ix += half;
+      if (ix > 0) ix -= half;
+    };
+
+    const tickInv = () => {
+      if (activeCell) {
+        // se frena: sólo corrige hacia el centro exacto del carrusel, no sigue avanzando
+        const mRect = invMarquee.getBoundingClientRect();
+        const cRect = activeCell.getBoundingClientRect();
+        const delta = (mRect.left + mRect.width / 2) - (cRect.left + cRect.width / 2);
+        ix += delta * CENTER_EASE;
+      } else {
+        // sin card activa: el carrusel sigue scrolleando lento, en loop infinito
+        ix -= BASE_SPEED;
+      }
+      wrapInv();
+      invTrack.style.transform = `translate3d(${ix}px,0,0)`;
+      requestAnimationFrame(tickInv);
+    };
+    requestAnimationFrame(tickInv);
+  }
 })();
 
 /* ---- nav dropdown (desktop) ---- */

@@ -1622,3 +1622,97 @@ body.pym-page .pym-buddy-bubble::after{
     font-size: 22px;
   }
 }
+
+/* ============ INVITATION CARDS CAROUSEL (Academy) ============ */
+.inv-section{ background:var(--ink); color:#fff; padding:clamp(74px,9vw,128px) 0; overflow:hidden; }
+.inv-section .sec-head h2{ color:#fff; }
+.inv-section .sec-head p{ color:rgba(255,255,255,.66); }
+
+.inv-marquee{
+  width:100%; margin-top:60px; overflow:hidden; white-space:nowrap; padding:26px 0 60px;
+  mask-image:linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image:linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+.inv-track{ display:inline-flex; align-items:flex-start; gap:30px; padding-left:30px; will-change:transform; animation:inv-scroll 50s linear infinite; }
+.inv-track:hover{ animation-play-state:paused; }
+@keyframes inv-scroll{ 0%{ transform:translateX(0); } 100%{ transform:translateX(calc(-50% - 15px)); } }
+
+.inv-cell{
+  position:relative; flex:0 0 auto; width:300px; height:380px; white-space:normal;
+  transition:width .5s var(--ease); z-index:1;
+}
+.inv-cell.is-active{ width:min(800px, 88vw); z-index:10; }
+
+/* Marco superpuesto (estilo hero): más grande que la card en TODOS los lados antes de rotar,
+   así ninguna rotación puede dejar una esquina descubierta mostrando el fondo oscuro de la sección. */
+.inv-frame{
+  position:absolute; inset:-10px; background:var(--violet); border-radius:30px;
+  transform:rotate(2.5deg); transition:transform .4s var(--ease); z-index:0;
+}
+.inv-cell.is-active .inv-frame{ transform:rotate(-1.5deg); }
+
+.inv-card{
+  position:absolute; inset:0; z-index:1; overflow:hidden;
+  background:#fff; border-radius:24px; border:1px solid rgba(21,20,43,.06);
+  box-shadow:0 14px 34px rgba(10,8,25,.28);
+  display:flex; align-items:stretch; padding:28px;
+  transition:box-shadow .4s var(--ease);
+}
+.inv-cell.is-active .inv-card{ box-shadow:var(--shadow-violet); }
+
+.inv-main{
+  position:relative; z-index:1; flex:0 0 220px;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+
+.inv-head{ display:flex; align-items:baseline; gap:10px; }
+.inv-index{ font-family:var(--display); font-weight:800; font-size:14px; letter-spacing:.06em; color:var(--violet); flex:none; }
+.inv-title{ font-family:'Poppins',sans-serif; font-weight:600; font-size:20px; line-height:1.2; color:var(--ink); }
+
+.inv-icon{ flex:1; display:flex; align-items:center; justify-content:center; color:var(--violet); opacity:.8; }
+.inv-icon svg{ width:64px; height:64px; }
+
+.inv-btn{ align-self:flex-start; }
+
+.inv-reveal{
+  position:relative; z-index:1; flex:1; min-width:0; opacity:0; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:center;
+  margin-left:0; padding-left:0; border-left:1px solid transparent;
+  transition:opacity .3s var(--ease) .1s, padding-left .5s var(--ease), margin-left .5s var(--ease), border-color .3s var(--ease) .1s;
+}
+.inv-cell.is-active .inv-reveal{
+  opacity:1; margin-left:24px; padding-left:24px; border-left-color:rgba(21,20,43,.1);
+}
+
+.inv-hook{ font-family:'Poppins',sans-serif; font-weight:700; font-size:19px; line-height:1.32; color:var(--ink); margin:0 0 10px; }
+.inv-hook-typed{ display:inline; white-space:pre-line; }
+.inv-caret{ display:inline-block; width:8px; height:18px; margin-left:2px; background:var(--violet); vertical-align:text-bottom; animation:inv-blink 1s step-end infinite; }
+@keyframes inv-blink{ 50%{ opacity:0; } }
+
+.inv-body{ font-size:14px; line-height:1.6; color:var(--gray-d); opacity:0; transform:translateY(6px); transition:opacity .4s var(--ease), transform .4s var(--ease); }
+.inv-close{ font-size:14px; font-weight:600; color:var(--ink); margin-top:10px; opacity:0; transform:translateY(6px); transition:opacity .4s var(--ease) .08s, transform .4s var(--ease) .08s; }
+.inv-kw{ color:var(--violet); font-weight:700; }
+
+.inv-reveal.is-revealed .inv-body,
+.inv-reveal.is-revealed .inv-close{ opacity:1; transform:none; }
+
+/* Mobile / touch: sin expansión, sin frame, sin auto-scroll — cards apiladas con scroll manual, contenido siempre visible */
+@media (hover:none), (max-width:640px){
+  .inv-marquee{ overflow-x:auto; -webkit-overflow-scrolling:touch; mask-image:none; -webkit-mask-image:none; padding-bottom:20px; }
+  .inv-track{ animation:none !important; }
+  .inv-cell{ width:260px; height:auto; }
+  .inv-frame{ display:none; }
+  .inv-card{ position:static; width:260px !important; height:auto; flex-direction:column; }
+  .inv-main{ flex:none; }
+  .inv-icon{ flex:none; opacity:1; margin:6px 0; }
+  .inv-icon svg{ width:32px; height:32px; }
+  .inv-reveal{ opacity:1 !important; flex:none; margin-left:0 !important; padding-left:0 !important; border-left:none !important; margin-top:14px; }
+  .inv-caret{ display:none; }
+  .inv-body, .inv-close{ opacity:1 !important; transform:none !important; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .inv-track{ animation:none; }
+  .inv-marquee{ overflow-x:auto; }
+  .inv-cell, .inv-frame, .inv-card, .inv-reveal, .inv-body, .inv-close{ transition-duration:0s; transition-delay:0s; }
+}
