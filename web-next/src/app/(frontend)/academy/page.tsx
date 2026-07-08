@@ -11,6 +11,16 @@ export default async function AcademyPage() {
   const coursesData = await payload.find({ collection: 'courses', where: { status: { equals: 'abierto' } } })
   const courses = coursesData.docs as any[]
 
+  // Próximos programas (desde Excel)
+  const futureCourses = [
+    { id: 1, title: 'Mejora Continua', format: 'Base · 4 talleres', quotas: '20', start: 'Abre 29 de junio', month: 'Julio' },
+    { id: 2, title: 'Liderazgo', format: 'Express · 4 encuentros', quotas: '20', start: 'Abre 13 de julio', month: 'Agosto' },
+    { id: 3, title: 'Gestión de Equipos', format: 'Base · 2 talleres', quotas: '20', start: 'Abre 17 de agosto', month: 'Septiembre' },
+    { id: 4, title: 'Atención al Cliente (Gastronómicos)', format: 'Express · 4 encuentros', quotas: '20', start: 'Abre 14 de septiembre', month: 'Octubre' },
+    { id: 5, title: 'Higiene y Seguridad', format: 'Teórico + Aplicado', quotas: '20', start: 'Abre 13 de octubre', month: 'Noviembre' },
+    { id: 6, title: 'Técnicas de Ventas Efectivas', format: 'Express · 4 encuentros', quotas: '20', start: 'Abre 17 de noviembre', month: 'Diciembre' },
+  ]
+
   return (
     <>
       {/* HERO */}
@@ -63,11 +73,7 @@ export default async function AcademyPage() {
                       {course.quotas && <div style={{ marginBottom: '0.5rem' }}><strong>👥 Cupos:</strong> {course.quotas}</div>}
                     </div>
 
-                    {course.link && (
-                      <a href={course.link} className="btn btn-ghost" style={{ marginTop: '1rem', padding: '0.5rem 1rem' }}>
-                        Inscribirme <span className="arr">→</span>
-                      </a>
-                    )}
+                    {/* course.link button removed as requested */}
                   </div>
                 )
               })
@@ -78,41 +84,38 @@ export default async function AcademyPage() {
         </div>
       </section>
 
-      {/* PROCESO */}
-      <section className="sec process">
-        <img className="foco-watermark" src="/assets/foco-blanco.png" alt="" />
-        <div className="hero-glow v" style={{ opacity: .5, top: 'auto', bottom: '-200px', right: '10%' }}></div>
+      {/* CARRUSEL DE PROGRAMAS */}
+      <section className="programs-marquee-section">
         <div className="wrap">
-          <div className="sec-head reveal">
-            <h2 style={{ color: '#fff' }}>
-              {globalData?.process?.title || 'Cuatro pasos para transformar tu empresa'}
-            </h2>
+          <div className="sec-head center reveal">
+            <h2>Próximos programas de <em className="hl" style={{ color: 'var(--violet-lt)', fontStyle: 'italic' }}>formación<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M3 17 C 70 6, 150 6, 210 12 S 280 20, 297 9"/></svg></em></h2>
+            <p style={{ color: '#fff' }}>Conocé el calendario de talleres y workshops para este año. Cupos limitados.</p>
           </div>
-          <div className="steps">
-            <div className="step reveal" data-d="1">
-              <div className="idx">01<svg className="arrow" viewBox="0 0 40 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M2 9h32M28 3l8 6-8 6"/></svg></div>
-              <div className="ph">PRIMER CONTACTO</div>
-              <h4>Tomamos un café</h4>
-              <p>Nos contás tu desafío, sin compromiso. El 80% de nuestros clientes empieza así.</p>
-            </div>
-            <div className="step reveal" data-d="2">
-              <div className="idx">02<svg className="arrow" viewBox="0 0 40 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M2 9h32M28 3l8 6-8 6"/></svg></div>
-              <div className="ph">DIAGNÓSTICO</div>
-              <h4>Hallamos tu punto de dolor</h4>
-              <p>Escuchamos, preguntamos y detectamos tus oportunidades de mejora.</p>
-            </div>
-            <div className="step reveal" data-d="3">
-              <div className="idx">03<svg className="arrow" viewBox="0 0 40 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M2 9h32M28 3l8 6-8 6"/></svg></div>
-              <div className="ph">PROPUESTA</div>
-              <h4>Te enviamos el plan</h4>
-              <p>Una propuesta clara, con objetivos medibles y tiempos concretos. Sin letra chica.</p>
-            </div>
-            <div className="step reveal" data-d="4">
-              <div className="idx">04</div>
-              <div className="ph">IMPLEMENTACIÓN</div>
-              <h4>Trabajamos juntos</h4>
-              <p>Acompañamiento de nuestro equipo durante todo el proyecto para cumplir los objetivos.</p>
-            </div>
+        </div>
+        
+        <div className="programs-marquee reveal" data-d="1">
+          <div className="programs-track">
+            {/* Renderizamos las cards dos veces para el efecto infinito */}
+            {[...futureCourses, ...futureCourses].map((course, i) => (
+              <div className="program-card" key={`course-${i}`}>
+                <div className="pc-month">{course.month}</div>
+                <h4 className="pc-title">{course.title}</h4>
+                <div className="pc-format">{course.format}</div>
+                
+                <div className="pc-details">
+                  <div className="pc-detail">
+                    <span className="pc-icon">👥</span> {course.quotas} cupos
+                  </div>
+                  <div className="pc-detail">
+                    <span className="pc-icon">📅</span> {course.start}
+                  </div>
+                </div>
+
+                <div className="pc-cta">
+                  <span>Próximamente</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
