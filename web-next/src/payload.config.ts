@@ -8,6 +8,8 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { Courses } from './collections/Courses'
+import { AcademyPage } from './globals/AcademyPage'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -30,7 +32,8 @@ export default buildConfig({
       beforeLogin: ['@/components/admin/BeforeLogin#BeforeLogin'],
     },
   },
-  collections: [Users, Media],
+  collections: [Users, Media, Courses],
+  globals: [AcademyPage],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

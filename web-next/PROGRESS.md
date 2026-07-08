@@ -65,10 +65,10 @@ escalabilidad se resuelve vertical si algún día hace falta. Costo fijo, sin lo
 - **Verificación:** `next dev` levanta; `/admin` funciona; falta crear el usuario y loguearse manualmente (paso de UI, ver abajo).
 
 ## Sprint 2 — Dockerizar y desplegar esqueleto a la VPS
-- [ ] `Dockerfile` de producción para la app Next+Payload.
-- [ ] `docker-compose.yml` con `app` + `db` (Postgres) + `caddy` (HTTPS automático).
+- [x] `Dockerfile` de producción para la app Next+Payload.
+- [x] `docker-compose.yml` con `app` + `db` (Postgres) + `caddy` (HTTPS automático).
 - [ ] Deploy del esqueleto vacío a la VPS; `/admin` accesible por HTTPS en el dominio.
-- [ ] Script de **backup** de Postgres (cron/volumen) + probar un restore.
+- [x] Script de **backup** de Postgres (cron/volumen) + probar un restore.
 - **Verificación:** el sitio esqueleto responde por HTTPS; backup genera dump y restore funciona.
 
 ---
@@ -79,38 +79,38 @@ escalabilidad se resuelve vertical si algún día hace falta. Costo fijo, sin lo
 > animaciones antes de tocar contenido. El contenido sigue hardcodeado en JSX en esta etapa.
 
 ## Sprint 3 — Base de estilos + layout compartido
-- [ ] Importar `styles.css` como CSS global (sin modificarlo). Portar fonts/favicons/meta.
-- [ ] Copiar `assets/` y `public/` al proyecto Next.
-- [ ] Crear **root layout** con el nav + footer compartidos (plantilla: nav
+- [x] Importar `styles.css` como CSS global (sin modificarlo). Portar fonts/favicons/meta.
+- [x] Copiar `assets/` y `public/` al proyecto Next.
+- [x] Crear **root layout** con el nav + footer compartidos (plantilla: nav
   [academy.html:22-73](academy.html#L22), footer [academy.html:171-207](academy.html#L171)).
 - **Verificación:** una página vacía muestra nav+footer idénticos al sitio actual.
 
 ## Sprint 4 — Portar las animaciones de `app.js`
-- [ ] Client component que corre la lógica de `app.js` (scroll nav, menú mobile, IntersectionObserver
+- [x] Client component que corre la lógica de `app.js` (scroll nav, menú mobile, IntersectionObserver
   reveal, parallax/spotlight, contadores) sobre el mismo markup.
-- [ ] Verificar cada efecto en una página de prueba.
+- [x] Verificar cada efecto en una página de prueba.
 - **Verificación:** reveal, parallax, menú mobile y contadores se comportan igual que hoy.
 
 ## Sprint 5 — Migrar Home (`index.html`)
-- [ ] Portar hero, stats, servicios, proceso, clientes, equipo, CTA final — markup 1:1.
+- [x] Portar hero, stats, servicios, proceso, clientes, equipo, CTA final — markup 1:1.
 - **Verificación:** `/` es visualmente indistinguible del `index.html` actual (incluida animación).
 
 ## Sprint 6 — Migrar páginas de servicio
-- [ ] `academy.html` → `/academy`
-- [ ] `consultoria.html` → `/consultoria`
-- [ ] `people.html` → `/people`
-- [ ] `tech.html` → `/tech`
-- [ ] `makers.html` → `/makers`
+- [x] `academy.html` → `/academy`
+- [x] `consultoria.html` → `/consultoria`
+- [x] `people.html` → `/people`
+- [x] `tech.html` → `/tech`
+- [x] `makers.html` → `/makers`
 - **Verificación:** cada ruta coincide 1:1 con su `.html`.
 
 ## Sprint 7 — Migrar Club (calendario scrollytelling) + Pymeton
-- [ ] `/club` con el calendario scrollytelling (por ahora el array `EVENTOS` sigue hardcodeado).
-- [ ] `/pymeton` con sus ediciones/capítulos hardcodeados.
+- [x] `/club` con el calendario scrollytelling (por ahora el array `EVENTOS` sigue hardcodeado).
+- [x] `/pymeton` con sus ediciones/capítulos hardcodeados.
 - **Verificación:** el scrollytelling (rail, furgoneta, cuenta regresiva) funciona igual.
 
 ## Sprint 8 — Migrar páginas restantes + paridad de URLs
-- [ ] `lo-que-hacemos`, `postulate`, `nuestrapropuesta`/`propuesta`, sub-páginas de `club`.
-- [ ] Replicar `cleanUrls` y redirects para no romper links existentes (`/club`, `/pymeton`, etc.).
+- [x] `lo-que-hacemos`, `postulate`, `nuestrapropuesta`/`propuesta`, sub-páginas de `club`.
+- [x] Replicar `cleanUrls` y redirects para no romper links existentes (`/club`, `/pymeton`, etc.).
 - **Verificación:** todas las URLs actuales siguen funcionando; nada tira 404.
 
 ## Sprint 9 — QA de paridad + salir a producción
@@ -124,24 +124,24 @@ escalabilidad se resuelve vertical si algún día hace falta. Costo fijo, sin lo
 # EPIC C — Fundaciones del CMS
 
 ## Sprint 10 — Media + Users base
-- [ ] Collection `Media` (uploads) e importar imágenes actuales de `assets/`/`public/`.
-- [ ] Collection `Users` con campo `role`/`modules` (todavía sin restricciones finas).
+- [x] Collection `Media` (uploads) e importar imágenes actuales de `assets/`/`public/`.
+- [x] Collection `Users` con campo `role`/`modules` (todavía sin restricciones finas).
 - **Verificación:** se sube una imagen en `/admin` y se referencia desde una página.
 
 ## Sprint 11 — PILOTO: Academy editable + cards de cursos ⭐
-- [ ] Global `AcademyPage` (hero, "Qué incluye", proceso, CTA) — ver estructura en
+- [x] Global `AcademyPage` (hero, "Qué incluye", proceso, CTA) — ver estructura en
   [academy.html:77-169](academy.html#L77).
-- [ ] Collection `Courses`: título, descripción, fechas, cupos, estado (abierto/cerrado), imagen/ícono,
+- [x] Collection `Courses`: título, descripción, fechas, cupos, estado (abierto/cerrado), imagen/ícono,
   link (WhatsApp/form).
-- [ ] `/academy` pasa a renderizar desde Payload (`payload.find`): textos del Global + grilla de
+- [x] `/academy` pasa a renderizar desde Payload (`payload.find`): textos del Global + grilla de
   **cards de cursos abiertos** (reusa estilos `.areas-grid`/`.area-card`).
-- [ ] Cargar los cursos reales.
+- [x] Cargar los cursos reales.
 - **Verificación:** crear/editar/borrar un curso en `/admin` se refleja en `/academy`; editar un texto
   del Global también. (Este es el pedido central del usuario.)
 
 ## Sprint 12 — Icon picker + campo de imagen reutilizable
-- [ ] Set curado de SVGs (los ya usados en el sitio) como opciones seleccionables.
-- [ ] Componente de campo reutilizable ícono/imagen para todas las colecciones.
+- [x] Set curado de SVGs (los ya usados en el sitio) como opciones seleccionables.
+- [x] Componente de campo reutilizable ícono/imagen para todas las colecciones.
 - **Verificación:** una editora cambia el ícono de una card desde `/admin` sin tocar código.
 
 ---
