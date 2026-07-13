@@ -165,7 +165,7 @@ export default async function AcademyPage() {
                       </a>
                     </div>
                     <div className="inv-reveal" aria-hidden="true">
-                      <p className="inv-hook"><span className="inv-hook-typed"></span><span className="inv-caret"></span></p>
+                      <p className="inv-hook"><span className="inv-hook-typed">{p.hook}</span><span className="inv-caret"></span></p>
                       <p className="inv-body" dangerouslySetInnerHTML={{ __html: p.bodyHtml }} />
                       <p className="inv-close">{p.close}</p>
                     </div>

@@ -96,7 +96,7 @@ export const ClientAnimations = () => {
     const track = marquee?.querySelector('.inv-track') as HTMLElement | null
     const hoverCapable = window.matchMedia('(hover: hover)').matches
 
-    if (marquee && track && !reduce && hoverCapable) {
+    if (marquee && track && hoverCapable) {
       const cells = Array.from(track.querySelectorAll('.inv-cell')) as HTMLElement[]
       const BASE_SPEED = 0.6
       const CENTER_EASE = 0.18
@@ -109,8 +109,12 @@ export const ClientAnimations = () => {
       let rafId = 0
       const typeTimers = new Map<HTMLElement, ReturnType<typeof setInterval>>()
 
-      track.style.animation = 'none'
-      track.style.willChange = 'transform'
+      // con reduced-motion seguimos permitiendo abrir cards con el mouse (accesible),
+      // pero sin tipeo animado ni scroll automático del track
+      if (!reduce) {
+        track.style.animation = 'none'
+        track.style.willChange = 'transform'
+      }
 
       const startTyping = (cell: HTMLElement, instant: boolean) => {
         const card = cell.querySelector('.inv-card') as HTMLElement | null
@@ -121,7 +125,7 @@ export const ClientAnimations = () => {
         const prevTimer = typeTimers.get(cell)
         if (prevTimer) clearInterval(prevTimer)
         reveal?.classList.remove('is-revealed')
-        if (instant) {
+        if (instant || reduce) {
           typedEl.textContent = text
           reveal?.classList.add('is-revealed')
           return
@@ -207,7 +211,7 @@ export const ClientAnimations = () => {
         track.style.transform = `translate3d(${x}px,0,0)`
         rafId = requestAnimationFrame(tick)
       }
-      rafId = requestAnimationFrame(tick)
+      if (!reduce) rafId = requestAnimationFrame(tick)
 
       invCleanups.push(() => {
         cancelAnimationFrame(rafId)

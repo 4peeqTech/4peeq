@@ -141,7 +141,7 @@
   const invTrack = invMarquee && invMarquee.querySelector('.inv-track');
   const hoverCapable = window.matchMedia('(hover: hover)').matches;
 
-  if (invMarquee && invTrack && !reduce && hoverCapable) {
+  if (invMarquee && invTrack && hoverCapable) {
     const BASE_SPEED = 0.6;
     const CENTER_EASE = 0.18;
     const LOCK_MS = 380; // tras activar una card, ignora el hit-test del mouse hasta que termine de centrarse:
@@ -152,8 +152,12 @@
     let lockUntil = 0;
     const typeTimers = new Map();
 
-    invTrack.style.animation = 'none';
-    invTrack.style.willChange = 'transform';
+    // con reduced-motion seguimos permitiendo abrir cards con el mouse (accesible),
+    // pero sin tipeo animado ni scroll automático del track
+    if (!reduce) {
+      invTrack.style.animation = 'none';
+      invTrack.style.willChange = 'transform';
+    }
 
     const startTyping = (cell, instant) => {
       const card = cell.querySelector('.inv-card');
@@ -164,7 +168,7 @@
       const prevTimer = typeTimers.get(cell);
       if (prevTimer) clearInterval(prevTimer);
       if (reveal) reveal.classList.remove('is-revealed');
-      if (instant) {
+      if (instant || reduce) {
         typedEl.textContent = text;
         if (reveal) reveal.classList.add('is-revealed');
         return;
@@ -243,7 +247,7 @@
       invTrack.style.transform = `translate3d(${ix}px,0,0)`;
       requestAnimationFrame(tickInv);
     };
-    requestAnimationFrame(tickInv);
+    if (!reduce) requestAnimationFrame(tickInv);
   }
 })();
 

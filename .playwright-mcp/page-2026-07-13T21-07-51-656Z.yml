@@ -1,0 +1,335 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "4Peeq inicio" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "4Peeq · Personas & Equipos" [ref=e5]
+      - navigation [ref=e6]:
+        - button "Lo que hacemos" [ref=e8] [cursor=pointer]
+        - link "Cómo trabajamos" [ref=e11] [cursor=pointer]:
+          - /url: /#proceso
+        - link "Clientes" [ref=e12] [cursor=pointer]:
+          - /url: /#clientes
+        - link "Equipo" [ref=e13] [cursor=pointer]:
+          - /url: /#equipo
+      - link "Tomemos un café →" [ref=e15] [cursor=pointer]:
+        - /url: https://wa.me/5493794398385
+        - text: Tomemos un café
+        - generic [ref=e16]: →
+  - main [ref=e17]:
+    - generic [ref=e19]:
+      - navigation "Miga de pan" [ref=e20]:
+        - link "Lo que hacemos" [ref=e21] [cursor=pointer]:
+          - /url: /lo-que-hacemos
+        - generic [ref=e22]: /
+        - generic [ref=e23]: Academy
+      - generic [ref=e24]: FORMACIÓN
+      - heading "Formamos equipos que alcanzan resultados." [level=1] [ref=e25]
+      - paragraph [ref=e26]: Diseñamos programas de capacitación a medida para que tu gente desarrolle las habilidades que tu empresa necesita hoy.
+      - link "Quiero empezar →" [ref=e28] [cursor=pointer]:
+        - /url: https://wa.me/5493794398385
+        - text: Quiero empezar
+        - generic [ref=e29]: →
+    - generic [ref=e31]:
+      - heading "Qué incluye" [level=2] [ref=e32]
+      - paragraph [ref=e33]: "Cada programa se diseña en función del diagnóstico previo: qué necesita aprender tu equipo, en qué formato y con qué objetivo concreto."
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - heading "Cultura y trabajo en equipo" [level=4] [ref=e40]
+          - paragraph [ref=e41]: Talleres y dinámicas para fortalecer la cohesión, la comunicación y el sentido de pertenencia al equipo.
+        - generic [ref=e42]:
+          - heading "Habilidades comerciales" [level=4] [ref=e47]
+          - paragraph [ref=e48]: Formación en venta consultiva, manejo de objeciones y cierre para equipos comerciales de pymes.
+        - generic [ref=e49]:
+          - heading "Liderazgo y gestión" [level=4] [ref=e54]
+          - paragraph [ref=e55]: Desarrollo de líderes intermedios, mandos medios y equipos de conducción para mejorar la gestión del día a día.
+        - generic [ref=e56]:
+          - heading "Programas a medida" [level=4] [ref=e61]
+          - paragraph [ref=e62]: Diseñamos el contenido en función del contexto real de tu empresa. No formaciones genéricas de catálogo.
+    - generic [ref=e63]:
+      - generic [ref=e65]:
+        - heading [level=2] [ref=e66]:
+          - text: Próximos programas de
+          - emphasis [ref=e67]: formación
+        - paragraph [ref=e70]: Pasá el mouse por cada card para conocer el programa.
+      - generic [ref=e72]:
+        - article [ref=e75]:
+          - generic [ref=e76]:
+            - generic [ref=e77]:
+              - generic [ref=e78]: "01"
+              - heading "Mejora Continua" [level=3] [ref=e79]
+            - link "Inscribirme →" [ref=e84] [cursor=pointer]:
+              - /url: https://forms.gle/PENDIENTE
+              - text: Inscribirme
+              - generic [ref=e85]: →
+          - generic [ref=e86]:
+            - paragraph [ref=e87]: Tus costos crecen. Tus márgenes, ¿no?
+            - paragraph [ref=e89]:
+              - text: En toda operación hay plata que se escapa en
+              - strong [ref=e90]: desperdicios que nadie ve
+              - text: . Con la filosofía que llevó a Toyota a ser el líder mundial que es hoy, tu equipo entrena el ojo para detectar esas oportunidades dentro de tu proceso actual y resolverlas con un método rápido y concreto. No se trata de invertir más, sino de
+              - strong [ref=e91]: hacer rendir lo que ya tenés
+              - text: .
+            - paragraph [ref=e92]: Recuperá margen sin gastar de más.
+          - paragraph [ref=e93]: Tus costos crecen. Tus márgenes, ¿no? En toda operación hay plata que se escapa en desperdicios que nadie ve. Con la filosofía que llevó a Toyota a ser el líder mundial que es hoy, tu equipo entrena el ojo para detectar esas oportunidades dentro de tu proceso actual y resolverlas con un método rápido y concreto. No se trata de invertir más, sino de hacer rendir lo que ya tenés. Recuperá margen sin gastar de más.
+        - article [ref=e96]:
+          - generic [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]: "02"
+              - heading "Liderazgo" [level=3] [ref=e100]
+            - link "Inscribirme →" [ref=e104] [cursor=pointer]:
+              - /url: https://forms.gle/PENDIENTE
+              - text: Inscribirme
+              - generic [ref=e105]: →
+          - generic [ref=e106]:
+            - paragraph [ref=e107]: Tu empresa creció. ¿Y tu liderazgo?
+            - paragraph [ref=e109]:
+              - text: Cuando el negocio escala más rápido que la forma de conducir,
+              - strong [ref=e110]: aparece la ambigüedad
+              - text: ": nadie tiene claro qué se espera y todo termina dependiendo de la dirección. Definimos el modelo de liderazgo que tu empresa necesita hoy y formamos a tus líderes para que"
+              - strong [ref=e111]: sostengan el crecimiento sin que todo pase por vos
+              - text: .
+            - paragraph [ref=e112]: Profesionalizá tu conducción.
+          - paragraph [ref=e113]: "Tu empresa creció. ¿Y tu liderazgo? Cuando el negocio escala más rápido que la forma de conducir, aparece la ambigüedad: nadie tiene claro qué se espera y todo termina dependiendo de la dirección. Definimos el modelo de liderazgo que tu empresa necesita hoy y formamos a tus líderes para que sostengan el crecimiento sin que todo pase por vos. Profesionalizá tu conducción."
+        - article [ref=e116]:
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - generic [ref=e119]: "03"
+              - heading "Gestión de Equipos" [level=3] [ref=e120]
+            - link "Inscribirme →" [ref=e127] [cursor=pointer]:
+              - /url: https://forms.gle/PENDIENTE
+              - text: Inscribirme
+              - generic [ref=e128]: →
+          - generic [ref=e129]:
+            - paragraph [ref=e130]: Tenés un grupo de personas. No un equipo.
+            - paragraph [ref=e132]:
+              - text: "Se llevan bien, pero no rinden al máximo: reprocesos, roles difusos y fricción que frena los resultados. Trabajamos la diferencia entre"
+              - strong [ref=e133]: estar juntos y estar alineados
+              - text: para convertir ese grupo en un equipo que
+              - strong [ref=e134]: decide rápido y rinde bajo presión
+              - text: .
+            - paragraph [ref=e135]: Pasá de la buena onda al alto rendimiento.
+          - paragraph [ref=e136]: "Tenés un grupo de personas. No un equipo. Se llevan bien, pero no rinden al máximo: reprocesos, roles difusos y fricción que frena los resultados. Trabajamos la diferencia entre estar juntos y estar alineados para convertir ese grupo en un equipo que coordina, decide rápido y rinde bajo presión. Pasá de la buena onda al alto rendimiento."
+        - article [ref=e139]:
+          - generic [ref=e140]:
+            - generic [ref=e141]:
+              - generic [ref=e142]: "04"
+              - heading "Higiene y Seguridad" [level=3] [ref=e143]
+            - link "Inscribirme →" [ref=e148] [cursor=pointer]:
+              - /url: https://forms.gle/PENDIENTE
+              - text: Inscribirme
+              - generic [ref=e149]: →
+          - generic [ref=e150]:
+            - paragraph [ref=e151]: Un accidente cuesta mucho más que prevenirlo.
+            - paragraph [ref=e153]:
+              - text: Cuidar a tu gente y cumplir con la normativa
+              - strong [ref=e154]: no es opcional
+              - text: . Formamos a tu equipo en prevención de riesgos, uso de EPP, manejo de extintores y evacuación, con teoría y práctica real.
+              - strong [ref=e155]: Menos exposición, más tranquilidad
+              - text: y la operación protegida.
+            - paragraph [ref=e156]: Protegé a tu equipo y cumplí la norma.
+          - paragraph [ref=e157]: Un accidente cuesta mucho más que prevenirlo. Cuidar a tu gente y cumplir con la normativa no es opcional. Formamos a tu equipo en prevención de riesgos, uso de EPP, manejo de extintores y evacuación, con teoría y práctica real. Menos exposición, más tranquilidad y la operación protegida. Protegé a tu equipo y cumplí la norma.
+        - article [ref=e160]:
+          - generic [ref=e161]:
+            - generic [ref=e162]:
+              - generic [ref=e163]: "05"
+              - heading "Capacitaciones Express" [level=3] [ref=e164]
+            - link "Inscribirme →" [ref=e168] [cursor=pointer]:
+              - /url: https://forms.gle/PENDIENTE
+              - text: Inscribirme
+              - generic [ref=e169]: →
+          - generic [ref=e170]:
+            - paragraph [ref=e171]: Formación corta. Resultados que se notan ya.
+            - paragraph [ref=e173]:
+              - text: Talleres puntuales para resolver lo urgente
+              - strong [ref=e174]: sin frenar la operación
+              - text: ": atención al cliente en gastronomía, vínculos que fidelizan y técnicas de venta efectivas."
+              - strong [ref=e175]: Bajo compromiso, alto impacto
+              - text: y la puerta de entrada ideal para empezar a formar a tu equipo.
+            - paragraph [ref=e176]: Empezá simple, mejorá rápido.
+          - paragraph [ref=e177]: "Formación corta. Resultados que se notan ya. Talleres puntuales para resolver lo urgente sin frenar la operación: atención al cliente en gastronomía, vínculos que fidelizan y técnicas de venta efectivas. Bajo compromiso, alto impacto y la puerta de entrada ideal para empezar a formar a tu equipo. Empezá simple, mejorá rápido."
+        - article [ref=e180]:
+          - generic [ref=e181]:
+            - generic [ref=e182]:
+              - generic [ref=e183]: "06"
+              - heading "Escuela de Emprendedores" [level=3] [ref=e184]
+            - link "Inscribirme →" [ref=e188] [cursor=pointer]:
+              - /url: https://forms.gle/PENDIENTE
+              - text: Inscribirme
+              - generic [ref=e189]: →
+          - generic [ref=e190]:
+            - paragraph [ref=e191]: ¿Tenés un negocio o tenés un hobby?
+            - paragraph [ref=e193]:
+              - text: Muchos emprendedores empiezan haciendo lo que les gusta, y eso está muy bien. Pero si ese negocio crece, demanda
+              - strong [ref=e194]: otros conocimientos, herramientas y más responsabilidad
+              - text: ". En este curso vas a aprender las cuestiones básicas de un negocio: cómo hacerlo"
+              - strong [ref=e195]: rentable y sostenible
+              - text: .
+            - paragraph [ref=e196]: Entendé tu negocio hoy.
+          - paragraph [ref=e197]: "¿Tenés un negocio o tenés un hobby? Muchos emprendedores empiezan haciendo lo que les gusta, y eso está muy bien. Pero si ese negocio crece, demanda otros conocimientos, herramientas y más responsabilidad. En este curso vas a aprender las cuestiones básicas de un negocio: cómo hacerlo rentable y sostenible. Entendé tu negocio hoy."
+        - article [ref=e200]:
+          - generic [ref=e201]:
+            - generic [ref=e202]:
+              - generic [ref=e203]: "01"
+              - heading [level=3] [ref=e204]: Mejora Continua
+            - link [ref=e209] [cursor=pointer]:
+              - /url: https://forms.gle/PENDIENTE
+              - text: Inscribirme
+              - generic [ref=e210]: →
+          - generic [ref=e211]:
+            - paragraph [ref=e212]: Tus costos crecen. Tus márgenes, ¿no?
+            - paragraph [ref=e214]:
+              - text: En toda operación hay plata que se escapa en
+              - strong [ref=e215]: desperdicios que nadie ve
+              - text: . Con la filosofía que llevó a Toyota a ser el líder mundial que es hoy, tu equipo entrena el ojo para detectar esas oportunidades dentro de tu proceso actual y resolverlas con un método rápido y concreto. No se trata de invertir más, sino de
+              - strong [ref=e216]: hacer rendir lo que ya tenés
+              - text: .
+            - paragraph [ref=e217]: Recuperá margen sin gastar de más.
+          - paragraph [ref=e218]: Tus costos crecen. Tus márgenes, ¿no? En toda operación hay plata que se escapa en desperdicios que nadie ve. Con la filosofía que llevó a Toyota a ser el líder mundial que es hoy, tu equipo entrena el ojo para detectar esas oportunidades dentro de tu proceso actual y resolverlas con un método rápido y concreto. No se trata de invertir más, sino de hacer rendir lo que ya tenés. Recuperá margen sin gastar de más.
+        - article [ref=e221]:
+          - generic [ref=e222]:
+            - generic [ref=e223]:
+              - generic [ref=e224]: "02"
+              - heading [level=3] [ref=e225]: Liderazgo
+            - link [ref=e229] [cursor=pointer]:
+              - /url: https://forms.gle/PENDIENTE
+              - text: Inscribirme
+              - generic [ref=e230]: →
+          - generic [ref=e231]:
+            - paragraph [ref=e232]: Tu empresa creció. ¿Y tu liderazgo?
+            - paragraph [ref=e234]:
+              - text: Cuando el negocio escala más rápido que la forma de conducir,
+              - strong [ref=e235]: aparece la ambigüedad
+              - text: ": nadie tiene claro qué se espera y todo termina dependiendo de la dirección. Definimos el modelo de liderazgo que tu empresa necesita hoy y formamos a tus líderes para que"
+              - strong [ref=e236]: sostengan el crecimiento sin que todo pase por vos
+              - text: .
+            - paragraph [ref=e237]: Profesionalizá tu conducción.
+          - paragraph [ref=e238]: "Tu empresa creció. ¿Y tu liderazgo? Cuando el negocio escala más rápido que la forma de conducir, aparece la ambigüedad: nadie tiene claro qué se espera y todo termina dependiendo de la dirección. Definimos el modelo de liderazgo que tu empresa necesita hoy y formamos a tus líderes para que sostengan el crecimiento sin que todo pase por vos. Profesionalizá tu conducción."
+        - article [ref=e241]:
+          - generic [ref=e242]:
+            - generic [ref=e243]:
+              - generic [ref=e244]: "03"
+              - heading [level=3] [ref=e245]: Gestión de Equipos
+            - link [ref=e252] [cursor=pointer]:
+              - /url: https://forms.gle/PENDIENTE
+              - text: Inscribirme
+              - generic [ref=e253]: →
+          - generic [ref=e254]:
+            - paragraph [ref=e255]: Tenés un grupo de personas. No un equipo.
+            - paragraph [ref=e257]:
+              - text: "Se llevan bien, pero no rinden al máximo: reprocesos, roles difusos y fricción que frena los resultados. Trabajamos la diferencia entre"
+              - strong [ref=e258]: estar juntos y estar alineados
+              - text: para convertir ese grupo en un equipo que
+              - strong [ref=e259]: decide rápido y rinde bajo presión
+              - text: .
+            - paragraph [ref=e260]: Pasá de la buena onda al alto rendimiento.
+          - paragraph [ref=e261]: "Tenés un grupo de personas. No un equipo. Se llevan bien, pero no rinden al máximo: reprocesos, roles difusos y fricción que frena los resultados. Trabajamos la diferencia entre estar juntos y estar alineados para convertir ese grupo en un equipo que coordina, decide rápido y rinde bajo presión. Pasá de la buena onda al alto rendimiento."
+        - article [ref=e264]:
+          - generic [ref=e265]:
+            - generic [ref=e266]:
+              - generic [ref=e267]: "04"
+              - heading [level=3] [ref=e268]: Higiene y Seguridad
+            - link [ref=e273] [cursor=pointer]:
+              - /url: https://forms.gle/PENDIENTE
+              - text: Inscribirme
+              - generic [ref=e274]: →
+          - generic [ref=e275]:
+            - paragraph [ref=e276]: Un accidente cuesta mucho más que prevenirlo.
+            - paragraph [ref=e278]:
+              - text: Cuidar a tu gente y cumplir con la normativa
+              - strong [ref=e279]: no es opcional
+              - text: . Formamos a tu equipo en prevención de riesgos, uso de EPP, manejo de extintores y evacuación, con teoría y práctica real.
+              - strong [ref=e280]: Menos exposición, más tranquilidad
+              - text: y la operación protegida.
+            - paragraph [ref=e281]: Protegé a tu equipo y cumplí la norma.
+          - paragraph [ref=e282]: Un accidente cuesta mucho más que prevenirlo. Cuidar a tu gente y cumplir con la normativa no es opcional. Formamos a tu equipo en prevención de riesgos, uso de EPP, manejo de extintores y evacuación, con teoría y práctica real. Menos exposición, más tranquilidad y la operación protegida. Protegé a tu equipo y cumplí la norma.
+        - article [ref=e285]:
+          - generic [ref=e286]:
+            - generic [ref=e287]:
+              - generic [ref=e288]: "05"
+              - heading [level=3] [ref=e289]: Capacitaciones Express
+            - link [ref=e293] [cursor=pointer]:
+              - /url: https://forms.gle/PENDIENTE
+              - text: Inscribirme
+              - generic [ref=e294]: →
+          - generic [ref=e295]:
+            - paragraph [ref=e296]: Formación corta. Resultados que se notan ya.
+            - paragraph [ref=e298]:
+              - text: Talleres puntuales para resolver lo urgente
+              - strong [ref=e299]: sin frenar la operación
+              - text: ": atención al cliente en gastronomía, vínculos que fidelizan y técnicas de venta efectivas."
+              - strong [ref=e300]: Bajo compromiso, alto impacto
+              - text: y la puerta de entrada ideal para empezar a formar a tu equipo.
+            - paragraph [ref=e301]: Empezá simple, mejorá rápido.
+          - paragraph [ref=e302]: "Formación corta. Resultados que se notan ya. Talleres puntuales para resolver lo urgente sin frenar la operación: atención al cliente en gastronomía, vínculos que fidelizan y técnicas de venta efectivas. Bajo compromiso, alto impacto y la puerta de entrada ideal para empezar a formar a tu equipo. Empezá simple, mejorá rápido."
+        - article [ref=e305]:
+          - generic [ref=e306]:
+            - generic [ref=e307]:
+              - generic [ref=e308]: "06"
+              - heading [level=3] [ref=e309]: Escuela de Emprendedores
+            - link [ref=e313] [cursor=pointer]:
+              - /url: https://forms.gle/PENDIENTE
+              - text: Inscribirme
+              - generic [ref=e314]: →
+          - generic [ref=e315]:
+            - paragraph [ref=e316]: ¿Tenés un negocio o tenés un hobby?
+            - paragraph [ref=e318]:
+              - text: Muchos emprendedores empiezan haciendo lo que les gusta, y eso está muy bien. Pero si ese negocio crece, demanda
+              - strong [ref=e319]: otros conocimientos, herramientas y más responsabilidad
+              - text: ". En este curso vas a aprender las cuestiones básicas de un negocio: cómo hacerlo"
+              - strong [ref=e320]: rentable y sostenible
+              - text: .
+            - paragraph [ref=e321]: Entendé tu negocio hoy.
+          - paragraph [ref=e322]: "¿Tenés un negocio o tenés un hobby? Muchos emprendedores empiezan haciendo lo que les gusta, y eso está muy bien. Pero si ese negocio crece, demanda otros conocimientos, herramientas y más responsabilidad. En este curso vas a aprender las cuestiones básicas de un negocio: cómo hacerlo rentable y sostenible. Entendé tu negocio hoy."
+    - generic [ref=e325]:
+      - heading "Te invitamos un café y hablamos de tu idea." [level=2] [ref=e326]
+      - paragraph [ref=e327]: Contanos tu desafío, sin compromiso. Empezamos por entender tu empresa y dónde está hoy.
+      - link "Quiero una reunión gratuita →" [ref=e329] [cursor=pointer]:
+        - /url: https://wa.me/5493794398385
+        - text: Quiero una reunión gratuita
+        - generic [ref=e330]: →
+  - contentinfo [ref=e331]:
+    - generic [ref=e332]:
+      - generic [ref=e333]:
+        - generic [ref=e334]:
+          - img "4Peeq · Personas & Equipos" [ref=e335]
+          - paragraph [ref=e336]: "Personas & Equipos®. Iluminamos el camino de las organizaciones: ordenamos ideas y transformamos el potencial en estructura y resultados."
+        - generic [ref=e337]:
+          - heading "SOLUCIONES" [level=5] [ref=e338]
+          - link "Consultoría" [ref=e339] [cursor=pointer]:
+            - /url: /consultoria
+          - link "Academy" [ref=e340] [cursor=pointer]:
+            - /url: /academy
+          - link "People" [ref=e341] [cursor=pointer]:
+            - /url: /people
+          - link "Tech · Club · Makers" [ref=e342] [cursor=pointer]:
+            - /url: /lo-que-hacemos
+        - generic [ref=e343]:
+          - heading "EMPRESA" [level=5] [ref=e344]
+          - link "Cómo trabajamos" [ref=e345] [cursor=pointer]:
+            - /url: /#proceso
+          - link "Club" [ref=e346] [cursor=pointer]:
+            - /url: /club
+          - link "¡Postulate!" [ref=e347] [cursor=pointer]:
+            - /url: /postulate
+        - generic [ref=e348]:
+          - heading "CONTACTO" [level=5] [ref=e349]
+          - link "Mendoza 947, Corrientes" [ref=e350] [cursor=pointer]:
+            - /url: https://www.google.com/maps/search/?api=1&query=Mendoza+947
+          - link "4peeq.ok@gmail.com" [ref=e351] [cursor=pointer]:
+            - /url: mailto:4peeq.ok@gmail.com
+          - link "+54 3794 872576" [ref=e352] [cursor=pointer]:
+            - /url: https://wa.me/+543794872576
+      - generic [ref=e353]:
+        - generic [ref=e354]: © 2026 4Peeq · Personas & Equipos® — Todos los derechos reservados.
+        - generic [ref=e355]:
+          - link "Instagram" [ref=e356] [cursor=pointer]:
+            - /url: https://www.instagram.com/4peeq.ok
+          - link "WhatsApp" [ref=e361] [cursor=pointer]:
+            - /url: https://wa.me/+543794872576
+          - link "Email" [ref=e364] [cursor=pointer]:
+            - /url: mailto:4peeq.ok@gmail.com
+  - link "WhatsApp" [ref=e368] [cursor=pointer]:
+    - /url: https://wa.me/+543794872576?text=¡Hola%204Peeq!%20Quiero%20hacer%20una%20consulta.
+    - generic [ref=e371]: Escribinos por WhatsApp
+  - button "Open Next.js Dev Tools" [ref=e377] [cursor=pointer]
