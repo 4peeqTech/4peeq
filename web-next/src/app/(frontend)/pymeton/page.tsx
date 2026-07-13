@@ -103,6 +103,19 @@ export default function PymetonPage() {
           <div className="pym-grid">
             <article className="pym-video reveal" data-d="1">
               <span className="pym-edition-tag">2da edición</span>
+              <YouTubeVideo id="2pKAP68d5zE" title="El desafío del empresario: construir una empresa que no dependa de él" />
+              <div className="pym-video-body">
+                <span className="pym-chapter-badge">Capítulo 2</span>
+                <h3>El desafío del empresario: construir una empresa que no dependa de él</h3>
+                <p className="pym-video-hook">¿Por qué tantos dueños quedan atrapados en la operación?</p>
+                <details className="pym-video-toggle">
+                  <summary>Enterate de qué se trata el capítulo <span className="arr">→</span></summary>
+                  <p className="pym-video-text">Crear una empresa requiere compromiso, esfuerzo y dedicación. Pero llega un momento en que ese mismo esfuerzo que impulsó el crecimiento puede convertirse en una barrera. En este episodio de PYMETON hablamos sobre liderazgo, delegación y transformación empresarial: por qué tantos dueños quedan atrapados en la operación, qué cuesta realmente soltar y cómo pasar de hacer todo a liderar mejor. Una conversación sobre el cambio más importante del empresario: dejar de ser indispensable para convertirse en líder.</p>
+                </details>
+              </div>
+            </article>
+            <article className="pym-video reveal" data-d="2">
+              <span className="pym-edition-tag">2da edición</span>
               <YouTubeVideo id="hCsZaRby2OY" title="Adaptarse o Desaparecer" />
               <div className="pym-video-body">
                 <span className="pym-chapter-badge">Capítulo 1</span>
