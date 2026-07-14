@@ -1,0 +1,221 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "4Peeq inicio" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "4Peeq · Personas & Equipos" [ref=e5]
+      - navigation [ref=e6]:
+        - button "Lo que hacemos" [ref=e8] [cursor=pointer]
+        - link "Cómo trabajamos" [ref=e11] [cursor=pointer]:
+          - /url: /#proceso
+        - link "Clientes" [ref=e12] [cursor=pointer]:
+          - /url: /#clientes
+        - link "Equipo" [ref=e13] [cursor=pointer]:
+          - /url: /#equipo
+      - link "Tomemos un café →" [ref=e15] [cursor=pointer]:
+        - /url: https://wa.me/5493794398385
+        - text: Tomemos un café
+        - generic [ref=e16]: →
+  - main [ref=e17]:
+    - generic [ref=e19]:
+      - navigation "Miga de pan" [ref=e20]:
+        - link "Lo que hacemos" [ref=e21] [cursor=pointer]:
+          - /url: /lo-que-hacemos
+        - generic [ref=e22]: /
+        - generic [ref=e23]: Academy
+      - generic [ref=e24]: FORMACIÓN
+      - heading "Formamos equipos que alcanzan resultados." [level=1] [ref=e25]
+      - paragraph [ref=e26]: Diseñamos programas de capacitación a medida para que tu gente desarrolle las habilidades que tu empresa necesita hoy.
+      - link "Quiero empezar →" [ref=e28] [cursor=pointer]:
+        - /url: https://wa.me/5493794398385
+        - text: Quiero empezar
+        - generic [ref=e29]: →
+    - generic [ref=e31]:
+      - heading "Qué incluye" [level=2] [ref=e32]
+      - paragraph [ref=e33]: "Cada programa se diseña en función del diagnóstico previo: qué necesita aprender tu equipo, en qué formato y con qué objetivo concreto."
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - heading "Cultura y trabajo en equipo" [level=4] [ref=e40]
+          - paragraph [ref=e41]: Talleres y dinámicas para fortalecer la cohesión, la comunicación y el sentido de pertenencia al equipo.
+        - generic [ref=e42]:
+          - heading "Habilidades comerciales" [level=4] [ref=e47]
+          - paragraph [ref=e48]: Formación en venta consultiva, manejo de objeciones y cierre para equipos comerciales de pymes.
+        - generic [ref=e49]:
+          - heading "Liderazgo y gestión" [level=4] [ref=e54]
+          - paragraph [ref=e55]: Desarrollo de líderes intermedios, mandos medios y equipos de conducción para mejorar la gestión del día a día.
+        - generic [ref=e56]:
+          - heading "Programas a medida" [level=4] [ref=e61]
+          - paragraph [ref=e62]: Diseñamos el contenido en función del contexto real de tu empresa. No formaciones genéricas de catálogo.
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - heading [level=2] [ref=e66]:
+          - text: Próximos programas de
+          - emphasis [ref=e67]: formación
+        - paragraph [ref=e70]: Hacé click en cada card para conocer el programa.
+      - generic [ref=e71]:
+        - generic [ref=e73]:
+          - button "01 Mejora Continua Ver programa" [ref=e74] [cursor=pointer]:
+            - generic [ref=e75]:
+              - generic [ref=e76]: "01"
+              - heading "Mejora Continua" [level=3] [ref=e77]
+            - generic [ref=e82]: Ver programa
+          - generic [ref=e85]:
+            - paragraph [ref=e86]: Tus costos crecen. Tus márgenes, ¿no?
+            - paragraph [ref=e87]:
+              - text: En toda operación hay plata que se escapa en
+              - strong [ref=e88]: desperdicios que nadie ve
+              - text: . Con la filosofía que llevó a Toyota a ser el líder mundial que es hoy, tu equipo entrena el ojo para detectar esas oportunidades dentro de tu proceso actual y resolverlas con un método rápido y concreto. No se trata de invertir más, sino de
+              - strong [ref=e89]: hacer rendir lo que ya tenés
+              - text: .
+            - paragraph [ref=e90]: Recuperá margen sin gastar de más.
+            - link "Inscribirme →" [ref=e91] [cursor=pointer]:
+              - /url: https://bit.ly/Inscripción4PEEQAcademy
+              - text: Inscribirme
+              - generic [ref=e92]: →
+        - generic [ref=e94]:
+          - button "02 Liderazgo Ver programa" [ref=e95] [cursor=pointer]:
+            - generic [ref=e96]:
+              - generic [ref=e97]: "02"
+              - heading "Liderazgo" [level=3] [ref=e98]
+            - generic [ref=e102]: Ver programa
+          - generic [ref=e105]:
+            - paragraph [ref=e106]: Tu empresa creció. ¿Y tu liderazgo?
+            - paragraph [ref=e107]:
+              - text: Cuando el negocio escala más rápido que la forma de conducir,
+              - strong [ref=e108]: aparece la ambigüedad
+              - text: ": nadie tiene claro qué se espera y todo termina dependiendo de la dirección. Definimos el modelo de liderazgo que tu empresa necesita hoy y formamos a tus líderes para que"
+              - strong [ref=e109]: sostengan el crecimiento sin que todo pase por vos
+              - text: .
+            - paragraph [ref=e110]: Profesionalizá tu conducción.
+            - link "Inscribirme →" [ref=e111] [cursor=pointer]:
+              - /url: https://bit.ly/Inscripción4PEEQAcademy
+              - text: Inscribirme
+              - generic [ref=e112]: →
+        - generic [ref=e114]:
+          - button "03 Gestión de Equipos Ver programa" [ref=e115] [cursor=pointer]:
+            - generic [ref=e116]:
+              - generic [ref=e117]: "03"
+              - heading "Gestión de Equipos" [level=3] [ref=e118]
+            - generic [ref=e125]: Ver programa
+          - generic [ref=e128]:
+            - paragraph [ref=e129]: Tenés un grupo de personas. No un equipo.
+            - paragraph [ref=e130]:
+              - text: "Se llevan bien, pero no rinden al máximo: reprocesos, roles difusos y fricción que frena los resultados. Trabajamos la diferencia entre"
+              - strong [ref=e131]: estar juntos y estar alineados
+              - text: para convertir ese grupo en un equipo que
+              - strong [ref=e132]: decide rápido y rinde bajo presión
+              - text: .
+            - paragraph [ref=e133]: Pasá de la buena onda al alto rendimiento.
+            - link "Inscribirme →" [ref=e134] [cursor=pointer]:
+              - /url: https://bit.ly/Inscripción4PEEQAcademy
+              - text: Inscribirme
+              - generic [ref=e135]: →
+        - generic [ref=e137]:
+          - button "04 Higiene y Seguridad Ver programa" [ref=e138] [cursor=pointer]:
+            - generic [ref=e139]:
+              - generic [ref=e140]: "04"
+              - heading "Higiene y Seguridad" [level=3] [ref=e141]
+            - generic [ref=e146]: Ver programa
+          - generic [ref=e149]:
+            - paragraph [ref=e150]: Un accidente cuesta mucho más que prevenirlo.
+            - paragraph [ref=e151]:
+              - text: Cuidar a tu gente y cumplir con la normativa
+              - strong [ref=e152]: no es opcional
+              - text: . Formamos a tu equipo en prevención de riesgos, uso de EPP, manejo de extintores y evacuación, con teoría y práctica real.
+              - strong [ref=e153]: Menos exposición, más tranquilidad
+              - text: y la operación protegida.
+            - paragraph [ref=e154]: Protegé a tu equipo y cumplí la norma.
+            - link "Inscribirme →" [ref=e155] [cursor=pointer]:
+              - /url: https://bit.ly/Inscripción4PEEQAcademy
+              - text: Inscribirme
+              - generic [ref=e156]: →
+        - generic [ref=e158]:
+          - button "05 Capacitaciones Express Ver programa" [ref=e159] [cursor=pointer]:
+            - generic [ref=e160]:
+              - generic [ref=e161]: "05"
+              - heading "Capacitaciones Express" [level=3] [ref=e162]
+            - generic [ref=e166]: Ver programa
+          - generic [ref=e169]:
+            - paragraph [ref=e170]: Formación corta. Resultados que se notan ya.
+            - paragraph [ref=e171]:
+              - text: Talleres puntuales para resolver lo urgente
+              - strong [ref=e172]: sin frenar la operación
+              - text: ": atención al cliente en gastronomía, vínculos que fidelizan y técnicas de venta efectivas."
+              - strong [ref=e173]: Bajo compromiso, alto impacto
+              - text: y la puerta de entrada ideal para empezar a formar a tu equipo.
+            - paragraph [ref=e174]: Empezá simple, mejorá rápido.
+            - link "Inscribirme →" [ref=e175] [cursor=pointer]:
+              - /url: https://bit.ly/Inscripción4PEEQAcademy
+              - text: Inscribirme
+              - generic [ref=e176]: →
+        - generic [ref=e178]:
+          - button "06 Escuela de Emprendedores Ver programa" [ref=e179] [cursor=pointer]:
+            - generic [ref=e180]:
+              - generic [ref=e181]: "06"
+              - heading "Escuela de Emprendedores" [level=3] [ref=e182]
+            - generic [ref=e186]: Ver programa
+          - generic [ref=e189]:
+            - paragraph [ref=e190]: ¿Tenés un negocio o tenés un hobby?
+            - paragraph [ref=e191]:
+              - text: Muchos emprendedores empiezan haciendo lo que les gusta, y eso está muy bien. Pero si ese negocio crece, demanda
+              - strong [ref=e192]: otros conocimientos, herramientas y más responsabilidad
+              - text: ". En este curso vas a aprender las cuestiones básicas de un negocio: cómo hacerlo"
+              - strong [ref=e193]: rentable y sostenible
+              - text: .
+            - paragraph [ref=e194]: Entendé tu negocio hoy.
+            - link "Inscribirme →" [ref=e195] [cursor=pointer]:
+              - /url: https://bit.ly/Inscripción4PEEQAcademy
+              - text: Inscribirme
+              - generic [ref=e196]: →
+    - generic [ref=e199]:
+      - heading "Te invitamos un café y hablamos de tu idea." [level=2] [ref=e200]
+      - paragraph [ref=e201]: Contanos tu desafío, sin compromiso. Empezamos por entender tu empresa y dónde está hoy.
+      - link "Quiero una reunión gratuita →" [ref=e203] [cursor=pointer]:
+        - /url: https://wa.me/5493794398385
+        - text: Quiero una reunión gratuita
+        - generic [ref=e204]: →
+  - contentinfo [ref=e205]:
+    - generic [ref=e206]:
+      - generic [ref=e207]:
+        - generic [ref=e208]:
+          - img "4Peeq · Personas & Equipos" [ref=e209]
+          - paragraph [ref=e210]: "Personas & Equipos®. Iluminamos el camino de las organizaciones: ordenamos ideas y transformamos el potencial en estructura y resultados."
+        - generic [ref=e211]:
+          - heading "SOLUCIONES" [level=5] [ref=e212]
+          - link "Consultoría" [ref=e213] [cursor=pointer]:
+            - /url: /consultoria
+          - link "Academy" [ref=e214] [cursor=pointer]:
+            - /url: /academy
+          - link "People" [ref=e215] [cursor=pointer]:
+            - /url: /people
+          - link "Tech · Club · Makers" [ref=e216] [cursor=pointer]:
+            - /url: /lo-que-hacemos
+        - generic [ref=e217]:
+          - heading "EMPRESA" [level=5] [ref=e218]
+          - link "Cómo trabajamos" [ref=e219] [cursor=pointer]:
+            - /url: /#proceso
+          - link "Club" [ref=e220] [cursor=pointer]:
+            - /url: /club
+          - link "¡Postulate!" [ref=e221] [cursor=pointer]:
+            - /url: /postulate
+        - generic [ref=e222]:
+          - heading "CONTACTO" [level=5] [ref=e223]
+          - link "Mendoza 947, Corrientes" [ref=e224] [cursor=pointer]:
+            - /url: https://www.google.com/maps/search/?api=1&query=Mendoza+947
+          - link "4peeq.ok@gmail.com" [ref=e225] [cursor=pointer]:
+            - /url: mailto:4peeq.ok@gmail.com
+          - link "+54 3794 872576" [ref=e226] [cursor=pointer]:
+            - /url: https://wa.me/+543794872576
+      - generic [ref=e227]:
+        - generic [ref=e228]: © 2026 4Peeq · Personas & Equipos® — Todos los derechos reservados.
+        - generic [ref=e229]:
+          - link "Instagram" [ref=e230] [cursor=pointer]:
+            - /url: https://www.instagram.com/4peeq.ok
+          - link "WhatsApp" [ref=e235] [cursor=pointer]:
+            - /url: https://wa.me/+543794872576
+          - link "Email" [ref=e238] [cursor=pointer]:
+            - /url: mailto:4peeq.ok@gmail.com
+  - link "WhatsApp" [ref=e242] [cursor=pointer]:
+    - /url: https://wa.me/+543794872576?text=¡Hola%204Peeq!%20Quiero%20hacer%20una%20consulta.
+    - generic [ref=e245]: Escribinos por WhatsApp
+  - button "Open Next.js Dev Tools" [ref=e251] [cursor=pointer]

@@ -3,7 +3,7 @@ import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import Link from 'next/link'
 
-const ACADEMY_FORM_URL = 'https://forms.gle/PENDIENTE'
+const ACADEMY_FORM_URL = 'https://bit.ly/Inscripción4PEEQAcademy'
 
 const invitationPrograms = [
   {
@@ -133,47 +133,50 @@ export default async function AcademyPage() {
         </div>
       </section>
 
-      {/* INVITACIÓN A PROGRAMAS (carrusel que centra y agranda la card en hover) */}
+      {/* INVITACIÓN A PROGRAMAS (grid, se expande con click) */}
       <section className="inv-section">
         <div className="wrap">
           <div className="sec-head center reveal">
             <h2>Próximos programas de <em className="hl" style={{ color: 'var(--violet-lt)', fontStyle: 'italic' }}>formación<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M3 17 C 70 6, 150 6, 210 12 S 280 20, 297 9"/></svg></em></h2>
-            <p style={{ color: '#fff' }}>Pasá el mouse por cada card para conocer el programa.</p>
+            <p style={{ color: '#fff' }}>Hacé click en cada card para conocer el programa.</p>
           </div>
-        </div>
 
-        <div className="inv-marquee reveal" data-d="1">
-          <div className="inv-track">
-            {/* Duplicamos las cards para el loop infinito; la mitad duplicada se oculta de lectores de pantalla */}
-            {[...invitationPrograms, ...invitationPrograms].map((p, i) => {
-              const isDup = i >= invitationPrograms.length
-              const fullText = `${p.hook} ${p.bodyText} ${p.close}`
-              return (
-                <div className="inv-cell" key={`${p.title}-${i}`} aria-hidden={isDup || undefined}>
-                  <div className="inv-frame" aria-hidden="true"></div>
-                  <article className="inv-card" data-hook={p.hook}>
-                    <div className="inv-main">
-                      <div className="inv-head">
-                        <span className="inv-index">{p.index}</span>
-                        <h3 className="inv-title">{p.title}</h3>
-                      </div>
-                      <div className="inv-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">{p.icon}</svg>
-                      </div>
-                      <a className="inv-btn btn btn-violet" href={ACADEMY_FORM_URL} target="_blank" rel="noopener" tabIndex={isDup ? -1 : undefined}>
-                        Inscribirme <span className="arr">→</span>
-                      </a>
+          <div className="inv-grid">
+            {invitationPrograms.map((p, i) => (
+              <div className="inv-cell reveal" data-d={(i % 3) + 1} key={p.title}>
+                <div className="inv-frame" aria-hidden="true"></div>
+                <div className="inv-card">
+                  <div className="inv-watermark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">{p.icon}</svg>
+                  </div>
+                  <button className="inv-trigger" type="button" aria-expanded="false" aria-controls={`inv-panel-${p.index}`}>
+                    <div className="inv-head">
+                      <span className="inv-index">{p.index}</span>
+                      <h3 className="inv-title">{p.title}</h3>
                     </div>
-                    <div className="inv-reveal" aria-hidden="true">
-                      <p className="inv-hook"><span className="inv-hook-typed">{p.hook}</span><span className="inv-caret"></span></p>
-                      <p className="inv-body" dangerouslySetInnerHTML={{ __html: p.bodyHtml }} />
-                      <p className="inv-close">{p.close}</p>
+                    <div className="inv-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">{p.icon}</svg>
                     </div>
-                    <p className="inv-full sr-only">{fullText}</p>
-                  </article>
+                    <span className="inv-affordance">
+                      Ver programa
+                      <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
+                    </span>
+                  </button>
+                  <div className="inv-reveal-wrap" id={`inv-panel-${p.index}`}>
+                    <div className="inv-reveal-inner">
+                      <div className="inv-reveal-pad">
+                        <p className="inv-hook">{p.hook}</p>
+                        <p className="inv-body" dangerouslySetInnerHTML={{ __html: p.bodyHtml }} />
+                        <p className="inv-close">{p.close}</p>
+                        <a className="inv-btn btn btn-violet" href={ACADEMY_FORM_URL} target="_blank" rel="noopener">
+                          Inscribirme <span className="arr">→</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              )
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </section>

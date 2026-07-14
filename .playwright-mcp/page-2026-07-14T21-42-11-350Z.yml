@@ -1,0 +1,8 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - img "4Peeq" [ref=e5]
+    - heading "Sistema de Gestión" [level=1] [ref=e6]
+    - paragraph [ref=e7]: Ingresá con tu cuenta de Google para acceder al sistema
+    - button "Continuar con Google" [ref=e8] [cursor=pointer]
+    - paragraph [ref=e14]: Solo usuarios autorizados pueden acceder.El acceso es gestionado por el administrador del sistema.
+  - alert [ref=e15]
