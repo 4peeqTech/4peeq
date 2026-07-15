@@ -3,7 +3,7 @@ import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import Link from 'next/link'
 
-const ACADEMY_FORM_URL = 'https://bit.ly/Inscripción4PEEQAcademy'
+const ACADEMY_FORM_URL = 'https://forms.gle/HzsRNeyY3rmepP5e9'
 
 const invitationPrograms = [
   {
@@ -85,7 +85,7 @@ export default async function AcademyPage() {
           <h1>{globalData?.hero?.title || 'Formamos equipos que alcanzan resultados.'}</h1>
           <p className="svc-hero-lead">{globalData?.hero?.lead || 'Diseñamos programas de capacitación a medida para que tu gente desarrolle las habilidades que tu empresa necesita hoy.'}</p>
           <div className="svc-hero-cta">
-            <a href={globalData?.hero?.cta?.link || 'https://wa.me/5493794398385'} className="btn btn-violet">
+            <a href={globalData?.hero?.cta?.link || 'https://wa.me/5493794398385'} target="_blank" rel="noopener noreferrer" className="btn btn-violet">
               {globalData?.hero?.cta?.text || 'Quiero empezar'} <span className="arr">→</span>
             </a>
           </div>
@@ -103,32 +103,34 @@ export default async function AcademyPage() {
                 // Renderizamos el ícono si es SVG, o la imagen si se subió
                 let MediaElement = null
                 if (course.mediaType?.type === 'icon') {
-                  // Mapeo básico de íconos o renderizar un placeholder. 
-                  // Usamos el diseño que tenían las cards anteriores.
-                  MediaElement = <div className="svc-ico" style={{ marginBottom: '1rem', color: 'var(--violet-lt)' }}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" width="32" height="32"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+                  MediaElement = <div className="area-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" width="24" height="24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
                 } else if (course.mediaType?.type === 'image' && course.mediaType.image?.url) {
                   MediaElement = <img src={course.mediaType.image.url} alt={course.title} style={{ width: '48px', height: '48px', marginBottom: '1rem', borderRadius: '4px' }} />
                 }
 
                 return (
-                  <div className="area-card reveal" data-d={i + 1} key={course.id}>
+                  <div className="area-card reveal" data-d={(i % 6) + 1} key={course.id}>
                     {MediaElement}
                     <h4>{course.title}</h4>
                     <p>{course.description}</p>
-                    
-                    {/* Detalles adicionales del curso */}
-                    <div style={{ marginTop: '1rem', fontSize: '0.9rem', color: 'var(--gray-300)' }}>
-                      {course.dates && <div style={{ marginBottom: '0.5rem' }}><strong>📅 Fechas:</strong> {course.dates}</div>}
-                      {course.quotas && <div style={{ marginBottom: '0.5rem' }}><strong>👥 Cupos:</strong> {course.quotas}</div>}
-                    </div>
 
-                    {/* course.link button removed as requested */}
+                    {(course.dates || course.quotas) && (
+                      <div className="area-meta">
+                        {course.dates && <span className="area-badge">📅 {course.dates}</span>}
+                        {course.quotas && <span className="area-badge">👥 {course.quotas}</span>}
+                      </div>
+                    )}
                   </div>
                 )
               })
             ) : (
               <p>No hay cursos abiertos en este momento.</p>
             )}
+          </div>
+
+          <div className="scroll-onward reveal" aria-hidden="true">
+            <span>Seguí mirando</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 6l4 4 4-4"/></svg>
           </div>
         </div>
       </section>
@@ -189,7 +191,7 @@ export default async function AcademyPage() {
             <h2>{globalData?.finalCta?.title || 'Te invitamos un café y hablamos de tu idea.'}</h2>
             <p>{globalData?.finalCta?.description || 'Contanos tu desafío, sin compromiso. Empezamos por entender tu empresa y dónde está hoy.'}</p>
             <div className="final-cta">
-              <a href={globalData?.finalCta?.button?.link || 'https://wa.me/5493794398385'} className="btn btn-violet">
+              <a href={globalData?.finalCta?.button?.link || 'https://wa.me/5493794398385'} target="_blank" rel="noopener noreferrer" className="btn btn-violet">
                 {globalData?.finalCta?.button?.text || 'Quiero una reunión gratuita'} <span className="arr">→</span>
               </a>
             </div>

@@ -336,6 +336,7 @@ a{ color:inherit; text-decoration:none; }
   .up{ animation:none; opacity:1; }
   .hero .hl svg path{ animation:none; stroke-dashoffset:0; }
   .marquee-track,.sparkle{ animation:none; }
+  .scroll-onward svg{ animation:none; opacity:.75; }
   *{ scroll-behavior:auto; }
 }
 
@@ -502,7 +503,15 @@ a{ color:inherit; text-decoration:none; }
 .svc-hero-cta{ display:flex; flex-wrap:wrap; gap:14px; margin-top:36px; }
 
 /* detail content */
-.svc-body{ background:var(--paper); }
+.svc-body{
+  position:relative; overflow:hidden;
+  background:linear-gradient(180deg, var(--paper) 0%, var(--paper) 62%, #efe9f7 100%);
+}
+.svc-body::after{
+  content:''; position:absolute; left:50%; bottom:-220px; width:640px; height:440px;
+  transform:translateX(-50%); border-radius:50%;
+  background:rgba(119,100,169,.16); filter:blur(130px); pointer-events:none;
+}
 .svc-block{ padding:clamp(60px,8vw,96px) 0; }
 .svc-block + .svc-block{ border-top:1px solid rgba(21,20,43,.07); }
 .svc-block h2{
@@ -512,16 +521,55 @@ a{ color:inherit; text-decoration:none; }
 .svc-block > .wrap > p{ font-size:17px; color:var(--gray-d); max-width:60ch; line-height:1.65; margin-bottom:18px; }
 
 /* areas grid */
-.areas-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:32px; }
+.areas-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px 20px; margin-top:40px; position:relative; z-index:1;
+}
 .area-card{
   background:var(--white); border:1px solid rgba(21,20,43,.08);
-  border-radius:var(--r); padding:26px 24px;
+  border-radius:var(--r); padding:28px 26px;
   transition:transform .45s var(--ease), box-shadow .45s, border-color .3s;
+  position:relative; overflow:hidden;
 }
-.area-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); border-color:transparent; }
+.area-card::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--violet-lt), var(--violet));
+  transform:scaleX(0); transform-origin:left; transition:transform .5s var(--ease);
+}
+.area-card:hover{ transform:translateY(-8px); box-shadow:var(--shadow-md); border-color:transparent; }
+.area-card:hover::before{ transform:scaleX(1); }
 .area-card:hover .svc-ico{ background:var(--violet); color:#fff; transform:rotate(-6deg) scale(1.05); }
+.area-card .area-ico{
+  width:48px; height:48px; border-radius:13px; background:var(--lavender); color:var(--violet);
+  display:flex; align-items:center; justify-content:center; margin-bottom:18px;
+  transition:background .35s, color .35s, transform .35s var(--ease);
+}
+.area-card:hover .area-ico{ background:var(--violet); color:#fff; transform:rotate(-6deg) scale(1.05); }
 .area-card h4{ font-size:17px; font-weight:700; color:var(--ink); margin-bottom:8px; }
 .area-card p{ font-size:14.5px; color:var(--gray-d); line-height:1.55; margin:0; }
+.area-meta{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+.area-badge{
+  display:inline-flex; align-items:center; font-size:12.5px; font-weight:600;
+  color:var(--plum); background:var(--lavender); border-radius:100px; padding:5px 12px;
+}
+
+/* rhythm: lift alternating cards so the grid doesn't read as a flat, closed-off block.
+   Even/odd (not 3n+2) so the offset is a legible zigzag regardless of card count —
+   a single offset card among few reads as a mistake, not rhythm. */
+@media (min-width:760px){
+  .area-card:nth-child(even){ transform:translateY(14px); }
+  .area-card:nth-child(even):hover{ transform:translateY(6px); }
+}
+
+/* onward cue — signals there's more below instead of the grid reading as the page's end */
+.scroll-onward{
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  margin-top:clamp(48px,6vw,72px); position:relative; z-index:1;
+  font-size:12.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--violet);
+}
+.scroll-onward svg{ width:18px; height:18px; animation:onwardBob 1.8s ease-in-out infinite; }
+@keyframes onwardBob{ 0%,100%{ transform:translateY(0); opacity:.55; } 50%{ transform:translateY(6px); opacity:1; } }
 
 /* ============ HUB PAGE ============ */
 .hub-hero-lead{ font-size:clamp(18px,2vw,22px); color:rgba(255,255,255,.72); max-width:52ch; line-height:1.55; margin-top:20px; }
