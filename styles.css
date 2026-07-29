@@ -1532,116 +1532,78 @@ body.pym-page .pym-buddy-bubble::after{
   .pym-hero{ padding-top:96px; }
 }
 
-/* ============ INVITATION CARDS GRID (Academy · click-to-expand) ============ */
-.inv-section{ background:var(--ink); color:#fff; padding:clamp(74px,9vw,128px) 0; overflow:hidden; }
+/* ============ PROGRAMS GRID (Academy · fixed cards, no accordion) ============
+   Mobile-first. Each program is a single white card that floats off the dark
+   section on shadow alone — a tight contact shadow plus a big violet-tinted
+   ambient one, no second card/frame element doing the work. */
+.inv-section{ background:var(--ink); color:#fff; padding:clamp(64px,9vw,128px) 0; overflow:hidden; }
 .inv-section .sec-head h2{ color:#fff; }
 .inv-section .sec-head p{ color:rgba(255,255,255,.66); }
 
-.inv-grid{
-  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-  grid-auto-flow:dense; align-items:start; gap:28px; margin-top:56px;
-}
+.prog-grid{ display:grid; grid-template-columns:1fr; gap:26px; margin-top:40px; }
 
-.inv-cell{ position:relative; }
-.inv-cell.is-open{ grid-column:1 / -1; }
-
-/* Marco superpuesto (estilo hero): más grande que la card en TODOS los lados antes de rotar,
-   así ninguna rotación puede dejar una esquina descubierta mostrando el fondo oscuro de la sección. */
-.inv-frame{
-  position:absolute; inset:-10px; background:var(--violet); border-radius:30px;
-  transform:rotate(2.5deg); transition:transform .4s var(--ease); z-index:0; pointer-events:none;
-}
-.inv-cell:hover .inv-frame, .inv-cell.is-open .inv-frame{ transform:rotate(-1.5deg); }
-
-.inv-card{
-  position:relative; z-index:1; overflow:hidden;
-  background:#fff; border-radius:24px; border:1px solid rgba(21,20,43,.06);
-  box-shadow:0 14px 34px rgba(10,8,25,.28);
+.prog-face{ position:relative; z-index:1; overflow:hidden;
+  background:#fff; border-radius:22px; padding:26px 24px;
+  box-shadow:
+    0 1px 2px rgba(10,8,25,.18),
+    0 22px 44px -14px rgba(10,8,25,.5),
+    0 10px 26px -8px rgba(119,100,169,.35);
   transition:box-shadow .4s var(--ease), transform .4s var(--ease);
 }
-.inv-cell:hover .inv-card{ transform:translateY(-4px); }
-.inv-cell:hover .inv-card, .inv-cell.is-open .inv-card{ box-shadow:var(--shadow-violet); }
-
-/* Ícono gigante y tenue de fondo: llena el espacio vacío del panel abierto (mismo recurso que .foco-watermark) */
-.inv-watermark{ display:none; }
-
-/* El botón dispara la apertura; ocupa todo el estado "cerrado" de la card */
-.inv-trigger{
-  all:unset; box-sizing:border-box; font-family:inherit; cursor:pointer;
-  display:flex; flex-direction:column; justify-content:space-between;
-  width:100%; min-height:300px; padding:28px;
-  transition:transform .15s var(--ease);
-}
-.inv-trigger:focus-visible{ box-shadow:0 0 0 6px rgba(119,100,169,.18); border-radius:24px; }
-.inv-trigger:active{ transform:scale(0.985); }
-
-.inv-head{ display:flex; align-items:baseline; gap:10px; }
-.inv-index{ font-family:var(--display); font-weight:800; font-size:14px; letter-spacing:.06em; color:var(--violet); flex:none; }
-.inv-title{ font-family:'Poppins',sans-serif; font-weight:600; font-size:23px; line-height:1.22; color:var(--ink); }
-
-.inv-icon{ flex:1; display:flex; align-items:center; justify-content:center; color:var(--violet); opacity:.8; }
-.inv-icon svg{ width:68px; height:68px; transition:transform .35s var(--ease); }
-.inv-cell:hover .inv-icon svg{ transform:scale(1.08); }
-
-/* Afordancia: deja claro que la card cerrada se puede clickear */
-.inv-affordance{ display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:var(--violet); }
-.inv-affordance svg{ width:14px; height:14px; flex:none; transition:transform .35s var(--ease); }
-.inv-cell.is-open .inv-affordance svg{ transform:rotate(180deg); }
-
-/* Panel que se despliega con click (técnica grid-template-rows 0fr→1fr, sin JS midiendo alturas) */
-.inv-reveal-wrap{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .4s var(--ease); }
-.inv-cell.is-open .inv-reveal-wrap{ grid-template-rows:1fr; }
-.inv-reveal-inner{ min-height:0; overflow:hidden; }
-.inv-reveal-pad{ padding:24px 28px 28px; border-top:1px solid rgba(21,20,43,.08); position:relative; z-index:1; }
-
-/* Entrada escalonada del contenido: cada línea aparece un poco después de la anterior (apertura con más carácter);
-   al cerrar no hay delay, así el cierre se siente instantáneo (asimetría abrir-lento/cerrar-rápido). */
-.inv-hook, .inv-body, .inv-close, .inv-reveal-pad .inv-btn{
-  opacity:0; transform:translateY(8px);
-  transition:opacity .3s var(--ease), transform .3s var(--ease);
-}
-.inv-cell.is-open .inv-hook{ opacity:1; transform:none; transition-delay:.08s; }
-.inv-cell.is-open .inv-body{ opacity:1; transform:none; transition-delay:.14s; }
-.inv-cell.is-open .inv-close{ opacity:1; transform:none; transition-delay:.2s; }
-.inv-cell.is-open .inv-reveal-pad .inv-btn{ opacity:1; transform:none; transition-delay:.24s; }
-
-.inv-hook{ font-family:'Poppins',sans-serif; font-weight:700; font-size:26px; line-height:1.26; color:var(--ink); margin:0 0 16px; text-wrap:balance; }
-.inv-body{ font-size:16.5px; line-height:1.62; color:var(--gray-d); text-wrap:pretty; max-width:52ch; }
-.inv-close{ font-size:16.5px; font-weight:600; color:var(--ink); margin-top:16px; }
-.inv-kw{ color:var(--violet); font-weight:700; }
-.inv-reveal-pad .inv-btn{ margin-top:22px; }
-
-/* Card abierta en pantallas anchas: ocupa todo el ancho de la fila y pasa a 2 columnas
-   (icono/título a la izquierda, texto a la derecha) para que el cuerpo se lea con una medida cómoda. */
-@media (min-width:860px){
-  .inv-cell.is-open .inv-card{ display:flex; align-items:stretch; }
-  .inv-cell.is-open .inv-trigger{
-    flex:0 0 260px; width:260px; min-height:0;
-    border-right:1px solid rgba(21,20,43,.08);
-    justify-content:flex-start; gap:24px;
+@media (hover:hover) and (pointer:fine){
+  .prog-card:hover .prog-face{
+    transform:translateY(-8px);
+    box-shadow:
+      0 2px 4px rgba(10,8,25,.2),
+      0 34px 64px -14px rgba(10,8,25,.55),
+      0 16px 36px -8px rgba(119,100,169,.45);
   }
-  .inv-cell.is-open .inv-icon{ flex:none; opacity:1; }
-  .inv-cell.is-open .inv-icon svg{ width:84px; height:84px; }
-  .inv-cell.is-open .inv-affordance{ margin-top:auto; }
-  .inv-cell.is-open .inv-reveal-wrap{ flex:1; min-width:0; }
-  .inv-cell.is-open .inv-reveal-pad{ max-width:64ch; border-top:none; }
+}
+.prog-card:active .prog-face{ transform:scale(0.99); }
 
-  /* el ícono del programa, gigante y casi invisible, ocupa el margen derecho que quedaba vacío */
-  .inv-watermark{
-    display:block; position:absolute; right:-24px; bottom:-24px; z-index:0;
-    width:260px; height:260px; color:var(--violet); opacity:0; pointer-events:none;
-    transform:rotate(-8deg); transition:opacity .5s var(--ease) .1s, transform .5s var(--ease) .1s;
-  }
-  .inv-watermark svg{ width:100%; height:100%; }
-  .inv-cell.is-open .inv-watermark{ opacity:.06; transform:rotate(-4deg); }
+/* Ghost icon watermark — the program's own icon, huge and faint, filling the
+   card's quiet corner (same device as the sitewide .foco-watermark). */
+.prog-watermark{ position:absolute; right:-14px; bottom:-14px; z-index:0; width:150px; height:150px;
+  color:var(--violet); opacity:.07; pointer-events:none; transform:rotate(-8deg); }
+.prog-watermark svg{ width:100%; height:100%; }
+
+.prog-top, .prog-title, .prog-hook, .prog-body, .prog-close, .prog-cta{ position:relative; z-index:1; }
+
+.prog-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+.prog-num{ font-family:var(--display); font-weight:700; font-size:13px; letter-spacing:.08em;
+  font-variant-numeric:tabular-nums; color:var(--violet); opacity:.55; }
+.prog-icon{ display:flex; color:var(--violet); }
+.prog-icon svg{ width:30px; height:30px; transition:transform .35s var(--ease); }
+@media (hover:hover) and (pointer:fine){ .prog-card:hover .prog-icon svg{ transform:scale(1.12) rotate(-4deg); } }
+
+.prog-title{ font-family:'Poppins',sans-serif; font-weight:700; font-size:21px; line-height:1.22; color:var(--ink); margin-bottom:12px; }
+.prog-hook{ font-family:'Poppins',sans-serif; font-weight:700; font-size:17px; line-height:1.35; color:var(--violet); margin:0 0 10px; text-wrap:balance; }
+.prog-body{ font-size:15px; line-height:1.6; color:var(--gray-d); text-wrap:pretty; }
+.prog-close{ font-size:15px; font-weight:600; color:var(--ink); margin-top:12px; }
+.prog-kw{ color:var(--violet); font-weight:700; }
+.prog-cta{ margin-top:20px; }
+
+@media (min-width:480px){
+  .prog-face{ padding:30px 28px; }
+  .prog-title{ font-size:22px; }
+  .prog-hook{ font-size:18px; }
+  .prog-body{ font-size:15.5px; }
 }
 
-@media (max-width:480px){
-  .inv-trigger{ padding:22px; min-height:260px; }
-  .inv-reveal-pad{ padding:20px 22px 22px; }
+@media (min-width:760px){
+  .prog-grid{ grid-template-columns:1fr 1fr; gap:40px 32px; margin-top:52px; }
+  .prog-face{ padding:34px 32px; min-height:100%; display:flex; flex-direction:column; }
+  .prog-body{ flex:1; }
+  .prog-watermark{ width:190px; height:190px; }
+}
+
+@media (min-width:1180px){
+  .prog-face{ padding:38px 36px; }
+  .prog-title{ font-size:24px; }
+  .prog-hook{ font-size:19.5px; }
+  .prog-body{ font-size:16px; }
 }
 
 @media (prefers-reduced-motion:reduce){
-  .inv-reveal-wrap, .inv-frame, .inv-card, .inv-icon svg, .inv-affordance svg, .inv-trigger,
-  .inv-hook, .inv-body, .inv-close, .inv-reveal-pad .inv-btn, .inv-watermark{ transition:none; }
+  .prog-face, .prog-icon svg{ transition:none; }
 }

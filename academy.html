@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -15,7 +15,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://4peeq.com/assets/og-image.png">
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
 
@@ -126,206 +126,104 @@
   </div>
 </section>
 
-<!-- INVITACIÓN A PROGRAMAS (grid, se expande con click) -->
+<!-- PROGRAMAS (grid de cards fijas, sin acordeón) -->
 <section class="inv-section">
   <div class="wrap">
     <div class="sec-head center reveal">
       <h2>Próximos programas de <em class="hl" style="color:var(--violet-lt); font-style:italic">formación<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M3 17 C 70 6, 150 6, 210 12 S 280 20, 297 9"/></svg></em></h2>
-      <p style="color:#fff">Hacé click en cada card para conocer el programa.</p>
+      <p>Elegí el que tu equipo necesita hoy.</p>
     </div>
 
-    <div class="inv-grid">
-      <div class="inv-cell reveal" data-d="1">
-        <div class="inv-frame" aria-hidden="true"></div>
-        <div class="inv-card">
-          <div class="inv-watermark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+    <div class="prog-grid">
+      <article class="prog-card reveal" data-d="1">
+        <div class="prog-face">
+          <div class="prog-watermark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+          <div class="prog-top">
+            <span class="prog-num">01</span>
+            <span class="prog-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
           </div>
-          <button class="inv-trigger" type="button" aria-expanded="false" aria-controls="inv-panel-01">
-            <div class="inv-head">
-              <span class="inv-index">01</span>
-              <h3 class="inv-title">Mejora Continua</h3>
-            </div>
-            <div class="inv-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
-            </div>
-            <span class="inv-affordance">
-              Ver programa
-              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
-            </span>
-          </button>
-          <div class="inv-reveal-wrap" id="inv-panel-01">
-            <div class="inv-reveal-inner">
-              <div class="inv-reveal-pad">
-                <p class="inv-hook">Tus costos crecen. Tus márgenes, ¿no?</p>
-                <p class="inv-body">En toda operación hay plata que se escapa en <strong class="inv-kw">desperdicios que nadie ve</strong>. Con la filosofía que llevó a Toyota a ser el líder mundial que es hoy, tu equipo entrena el ojo para detectar esas oportunidades dentro de tu proceso actual y resolverlas con un método rápido y concreto. No se trata de invertir más, sino de <strong class="inv-kw">hacer rendir lo que ya tenés</strong>.</p>
-                <p class="inv-close">Recuperá margen sin gastar de más.</p>
-                <a class="inv-btn btn btn-violet" href="https://forms.gle/HzsRNeyY3rmepP5e9" target="_blank" rel="noopener">Inscribirme <span class="arr">→</span></a>
-              </div>
-            </div>
-          </div>
+          <h3 class="prog-title">Mejora Continua</h3>
+          <p class="prog-hook">Tus costos crecen. Tus márgenes, ¿no?</p>
+          <p class="prog-body">En toda operación hay plata que se escapa en <strong class="prog-kw">desperdicios que nadie ve</strong>. Con la filosofía que llevó a Toyota a ser el líder mundial que es hoy, tu equipo entrena el ojo para detectar esas oportunidades dentro de tu proceso actual y resolverlas con un método rápido y concreto. No se trata de invertir más, sino de <strong class="prog-kw">hacer rendir lo que ya tenés</strong>.</p>
+          <p class="prog-close">Recuperá margen sin gastar de más.</p>
+          <a class="prog-cta btn btn-violet" href="https://forms.gle/HzsRNeyY3rmepP5e9" target="_blank" rel="noopener">Inscribirme <span class="arr">→</span></a>
         </div>
-      </div>
+      </article>
 
-      <div class="inv-cell reveal" data-d="2">
-        <div class="inv-frame" aria-hidden="true"></div>
-        <div class="inv-card">
-          <div class="inv-watermark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18"/><path d="M5 4h11l-2 4 2 4H5"/></svg>
+      <article class="prog-card reveal" data-d="2">
+        <div class="prog-face">
+          <div class="prog-watermark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18"/><path d="M5 4h11l-2 4 2 4H5"/></svg></div>
+          <div class="prog-top">
+            <span class="prog-num">02</span>
+            <span class="prog-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18"/><path d="M5 4h11l-2 4 2 4H5"/></svg></span>
           </div>
-          <button class="inv-trigger" type="button" aria-expanded="false" aria-controls="inv-panel-02">
-            <div class="inv-head">
-              <span class="inv-index">02</span>
-              <h3 class="inv-title">Liderazgo</h3>
-            </div>
-            <div class="inv-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v18"/><path d="M5 4h11l-2 4 2 4H5"/></svg>
-            </div>
-            <span class="inv-affordance">
-              Ver programa
-              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
-            </span>
-          </button>
-          <div class="inv-reveal-wrap" id="inv-panel-02">
-            <div class="inv-reveal-inner">
-              <div class="inv-reveal-pad">
-                <p class="inv-hook">Tu empresa creció. ¿Y tu liderazgo?</p>
-                <p class="inv-body">Cuando el negocio escala más rápido que la forma de conducir, <strong class="inv-kw">aparece la ambigüedad</strong>: nadie tiene claro qué se espera y todo termina dependiendo de la dirección. Definimos el modelo de liderazgo que tu empresa necesita hoy y formamos a tus líderes para que <strong class="inv-kw">sostengan el crecimiento sin que todo pase por vos</strong>.</p>
-                <p class="inv-close">Profesionalizá tu conducción.</p>
-                <a class="inv-btn btn btn-violet" href="https://forms.gle/HzsRNeyY3rmepP5e9" target="_blank" rel="noopener">Inscribirme <span class="arr">→</span></a>
-              </div>
-            </div>
-          </div>
+          <h3 class="prog-title">Liderazgo</h3>
+          <p class="prog-hook">Tu empresa creció. ¿Y tu liderazgo?</p>
+          <p class="prog-body">Cuando el negocio escala más rápido que la forma de conducir, <strong class="prog-kw">aparece la ambigüedad</strong>: nadie tiene claro qué se espera y todo termina dependiendo de la dirección. Definimos el modelo de liderazgo que tu empresa necesita hoy y formamos a tus líderes para que <strong class="prog-kw">sostengan el crecimiento sin que todo pase por vos</strong>.</p>
+          <p class="prog-close">Profesionalizá tu conducción.</p>
+          <a class="prog-cta btn btn-violet" href="https://forms.gle/HzsRNeyY3rmepP5e9" target="_blank" rel="noopener">Inscribirme <span class="arr">→</span></a>
         </div>
-      </div>
+      </article>
 
-      <div class="inv-cell reveal" data-d="3">
-        <div class="inv-frame" aria-hidden="true"></div>
-        <div class="inv-card">
-          <div class="inv-watermark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c2.6.4 4.5 2.3 5 5.8"/></svg>
+      <article class="prog-card reveal" data-d="3">
+        <div class="prog-face">
+          <div class="prog-watermark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c2.6.4 4.5 2.3 5 5.8"/></svg></div>
+          <div class="prog-top">
+            <span class="prog-num">03</span>
+            <span class="prog-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c2.6.4 4.5 2.3 5 5.8"/></svg></span>
           </div>
-          <button class="inv-trigger" type="button" aria-expanded="false" aria-controls="inv-panel-03">
-            <div class="inv-head">
-              <span class="inv-index">03</span>
-              <h3 class="inv-title">Gestión de Equipos</h3>
-            </div>
-            <div class="inv-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.2c2.6.4 4.5 2.3 5 5.8"/></svg>
-            </div>
-            <span class="inv-affordance">
-              Ver programa
-              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
-            </span>
-          </button>
-          <div class="inv-reveal-wrap" id="inv-panel-03">
-            <div class="inv-reveal-inner">
-              <div class="inv-reveal-pad">
-                <p class="inv-hook">Tenés un grupo de personas. No un equipo.</p>
-                <p class="inv-body">Se llevan bien, pero no rinden al máximo: reprocesos, roles difusos y fricción que frena los resultados. Trabajamos la diferencia entre <strong class="inv-kw">estar juntos y estar alineados</strong> para convertir ese grupo en un equipo que <strong class="inv-kw">decide rápido y rinde bajo presión</strong>.</p>
-                <p class="inv-close">Pasá de la buena onda al alto rendimiento.</p>
-                <a class="inv-btn btn btn-violet" href="https://forms.gle/HzsRNeyY3rmepP5e9" target="_blank" rel="noopener">Inscribirme <span class="arr">→</span></a>
-              </div>
-            </div>
-          </div>
+          <h3 class="prog-title">Gestión de Equipos</h3>
+          <p class="prog-hook">Tenés un grupo de personas. No un equipo.</p>
+          <p class="prog-body">Se llevan bien, pero no rinden al máximo: reprocesos, roles difusos y fricción que frena los resultados. Trabajamos la diferencia entre <strong class="prog-kw">estar juntos y estar alineados</strong> para convertir ese grupo en un equipo que <strong class="prog-kw">decide rápido y rinde bajo presión</strong>.</p>
+          <p class="prog-close">Pasá de la buena onda al alto rendimiento.</p>
+          <a class="prog-cta btn btn-violet" href="https://forms.gle/HzsRNeyY3rmepP5e9" target="_blank" rel="noopener">Inscribirme <span class="arr">→</span></a>
         </div>
-      </div>
+      </article>
 
-      <div class="inv-cell reveal" data-d="1">
-        <div class="inv-frame" aria-hidden="true"></div>
-        <div class="inv-card">
-          <div class="inv-watermark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+      <article class="prog-card reveal" data-d="1">
+        <div class="prog-face">
+          <div class="prog-watermark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div class="prog-top">
+            <span class="prog-num">04</span>
+            <span class="prog-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
           </div>
-          <button class="inv-trigger" type="button" aria-expanded="false" aria-controls="inv-panel-04">
-            <div class="inv-head">
-              <span class="inv-index">04</span>
-              <h3 class="inv-title">Higiene y Seguridad</h3>
-            </div>
-            <div class="inv-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-            </div>
-            <span class="inv-affordance">
-              Ver programa
-              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
-            </span>
-          </button>
-          <div class="inv-reveal-wrap" id="inv-panel-04">
-            <div class="inv-reveal-inner">
-              <div class="inv-reveal-pad">
-                <p class="inv-hook">Un accidente cuesta mucho más que prevenirlo.</p>
-                <p class="inv-body">Cuidar a tu gente y cumplir con la normativa <strong class="inv-kw">no es opcional</strong>. Formamos a tu equipo en prevención de riesgos, uso de EPP, manejo de extintores y evacuación, con teoría y práctica real. <strong class="inv-kw">Menos exposición, más tranquilidad</strong> y la operación protegida.</p>
-                <p class="inv-close">Protegé a tu equipo y cumplí la norma.</p>
-                <a class="inv-btn btn btn-violet" href="https://forms.gle/HzsRNeyY3rmepP5e9" target="_blank" rel="noopener">Inscribirme <span class="arr">→</span></a>
-              </div>
-            </div>
-          </div>
+          <h3 class="prog-title">Higiene y Seguridad</h3>
+          <p class="prog-hook">Un accidente cuesta mucho más que prevenirlo.</p>
+          <p class="prog-body">Cuidar a tu gente y cumplir con la normativa <strong class="prog-kw">no es opcional</strong>. Formamos a tu equipo en prevención de riesgos, uso de EPP, manejo de extintores y evacuación, con teoría y práctica real. <strong class="prog-kw">Menos exposición, más tranquilidad</strong> y la operación protegida.</p>
+          <p class="prog-close">Protegé a tu equipo y cumplí la norma.</p>
+          <a class="prog-cta btn btn-violet" href="https://forms.gle/HzsRNeyY3rmepP5e9" target="_blank" rel="noopener">Inscribirme <span class="arr">→</span></a>
         </div>
-      </div>
+      </article>
 
-      <div class="inv-cell reveal" data-d="2">
-        <div class="inv-frame" aria-hidden="true"></div>
-        <div class="inv-card">
-          <div class="inv-watermark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+      <article class="prog-card reveal" data-d="2">
+        <div class="prog-face">
+          <div class="prog-watermark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+          <div class="prog-top">
+            <span class="prog-num">05</span>
+            <span class="prog-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></span>
           </div>
-          <button class="inv-trigger" type="button" aria-expanded="false" aria-controls="inv-panel-05">
-            <div class="inv-head">
-              <span class="inv-index">05</span>
-              <h3 class="inv-title">Capacitaciones Express</h3>
-            </div>
-            <div class="inv-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
-            </div>
-            <span class="inv-affordance">
-              Ver programa
-              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
-            </span>
-          </button>
-          <div class="inv-reveal-wrap" id="inv-panel-05">
-            <div class="inv-reveal-inner">
-              <div class="inv-reveal-pad">
-                <p class="inv-hook">Formación corta. Resultados que se notan ya.</p>
-                <p class="inv-body">Talleres puntuales para resolver lo urgente <strong class="inv-kw">sin frenar la operación</strong>: atención al cliente en gastronomía, vínculos que fidelizan y técnicas de venta efectivas. <strong class="inv-kw">Bajo compromiso, alto impacto</strong> y la puerta de entrada ideal para empezar a formar a tu equipo.</p>
-                <p class="inv-close">Empezá simple, mejorá rápido.</p>
-                <a class="inv-btn btn btn-violet" href="https://forms.gle/HzsRNeyY3rmepP5e9" target="_blank" rel="noopener">Inscribirme <span class="arr">→</span></a>
-              </div>
-            </div>
-          </div>
+          <h3 class="prog-title">Capacitaciones Express</h3>
+          <p class="prog-hook">Formación corta. Resultados que se notan ya.</p>
+          <p class="prog-body">Talleres puntuales para resolver lo urgente <strong class="prog-kw">sin frenar la operación</strong>: atención al cliente en gastronomía, vínculos que fidelizan y técnicas de venta efectivas. <strong class="prog-kw">Bajo compromiso, alto impacto</strong> y la puerta de entrada ideal para empezar a formar a tu equipo.</p>
+          <p class="prog-close">Empezá simple, mejorá rápido.</p>
+          <a class="prog-cta btn btn-violet" href="https://forms.gle/HzsRNeyY3rmepP5e9" target="_blank" rel="noopener">Inscribirme <span class="arr">→</span></a>
         </div>
-      </div>
+      </article>
 
-      <div class="inv-cell reveal" data-d="3">
-        <div class="inv-frame" aria-hidden="true"></div>
-        <div class="inv-card">
-          <div class="inv-watermark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.3h6c0-1.1.4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+      <article class="prog-card reveal" data-d="3">
+        <div class="prog-face">
+          <div class="prog-watermark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.3h6c0-1.1.4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></div>
+          <div class="prog-top">
+            <span class="prog-num">06</span>
+            <span class="prog-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.3h6c0-1.1.4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></span>
           </div>
-          <button class="inv-trigger" type="button" aria-expanded="false" aria-controls="inv-panel-06">
-            <div class="inv-head">
-              <span class="inv-index">06</span>
-              <h3 class="inv-title">Escuela de Emprendedores</h3>
-            </div>
-            <div class="inv-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.3h6c0-1.1.4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
-            </div>
-            <span class="inv-affordance">
-              Ver programa
-              <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
-            </span>
-          </button>
-          <div class="inv-reveal-wrap" id="inv-panel-06">
-            <div class="inv-reveal-inner">
-              <div class="inv-reveal-pad">
-                <p class="inv-hook">¿Tenés un negocio o tenés un hobby?</p>
-                <p class="inv-body">Muchos emprendedores empiezan haciendo lo que les gusta, y eso está muy bien. Pero si ese negocio crece, demanda <strong class="inv-kw">otros conocimientos, herramientas y más responsabilidad</strong>. En este curso vas a aprender las cuestiones básicas de un negocio: cómo hacerlo <strong class="inv-kw">rentable y sostenible</strong>.</p>
-                <p class="inv-close">Entendé tu negocio hoy.</p>
-                <a class="inv-btn btn btn-violet" href="https://forms.gle/HzsRNeyY3rmepP5e9" target="_blank" rel="noopener">Inscribirme <span class="arr">→</span></a>
-              </div>
-            </div>
-          </div>
+          <h3 class="prog-title">Escuela de Emprendedores</h3>
+          <p class="prog-hook">¿Tenés un negocio o tenés un hobby?</p>
+          <p class="prog-body">Muchos emprendedores empiezan haciendo lo que les gusta, y eso está muy bien. Pero si ese negocio crece, demanda <strong class="prog-kw">otros conocimientos, herramientas y más responsabilidad</strong>. En este curso vas a aprender las cuestiones básicas de un negocio: cómo hacerlo <strong class="prog-kw">rentable y sostenible</strong>.</p>
+          <p class="prog-close">Entendé tu negocio hoy.</p>
+          <a class="prog-cta btn btn-violet" href="https://forms.gle/HzsRNeyY3rmepP5e9" target="_blank" rel="noopener">Inscribirme <span class="arr">→</span></a>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
