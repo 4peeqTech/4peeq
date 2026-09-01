@@ -454,44 +454,44 @@
      ==================================================================== */
   var EVENTOS = [
     {
-      iso: '2026-04-15',
-      dia: '15', mes: 'ABR', anio: '2026',
-      label: '4Peeqneta',
+      iso: '2026-09-11',
+      dia: '11', mes: 'SEP', anio: '2026',
+      label: 'Pymeton Streaming',
+      categoria: 'PROGRAMAS ON DEMAND',
+      titulo: 'Pymeton Streaming',
+      desc: 'Experiencias y aprendizajes reales de consultores y dueños pymes que ya recorrieron el camino.',
+      meta: ['Streaming', 'On demand', 'Aprendizaje real'],
+      cta: { texto: 'Ver los capítulos', href: '/pymeton' }
+    },
+    {
+      iso: '2026-09-23',
+      dia: '23', mes: 'SEP', anio: '2026',
+      label: 'Pymeton Comunidad',
       categoria: 'NETWORKING',
-      titulo: '4Peeqneta',
-      desc: 'Encuentros informales de networking. Donde las conversaciones sin agenda rígida se vuelven las oportunidades más importantes.',
+      titulo: 'Pymeton Comunidad',
+      desc: 'Encuentros de networking. Donde las conversaciones se vuelven las oportunidades más importantes.',
       meta: ['Networking', 'Cupos limitados', 'Dueños de pymes'],
       cta: { texto: 'Reservar lugar', href: 'https://wa.me/5493794398385' }
     },
     {
-      iso: '2026-05-23',
-      dia: '23', mes: 'MAY', anio: '2026',
+      iso: '2026-10-03',
+      dia: '03', mes: 'OCT', anio: '2026',
       label: '4Peeq Cup',
       categoria: 'COMPETENCIA · TORNEO',
-      titulo: '4Peeq Cup · Pádel',
-      desc: 'Torneo de pádel interempresas. Una tarde para competir, conocer otros dueños y transformar saques en alianzas.',
+      titulo: '4Peeq Cup · Fútbol',
+      desc: 'Torneo de fútbol interempresas. Una tarde para competir, conocer otros dueños y transformar goles en alianzas.',
       meta: ['Interempresas', 'Cupos limitados', 'Dueños de pymes'],
       cta: { texto: 'Reservar mi lugar', href: 'https://wa.me/5493794398385' }
     },
     {
-      iso: '2026-06-05',
-      dia: '05', mes: 'JUN', anio: '2026',
-      label: 'Pymeton',
-      categoria: 'VISITAS',
-      titulo: 'Pymeton',
-      desc: 'Visitas a empresas de la región. Aprendizaje in situ de los que ya recorrieron el camino y están dispuestos a compartirlo.',
-      meta: ['Visitas', 'Cupos limitados', 'Aprendizaje in situ'],
-      cta: { texto: 'Reservar lugar', href: 'https://wa.me/5493794398385' }
-    },
-    {
-      iso: '2026-07-20',
-      dia: '20', mes: 'JUL', anio: '2026',
-      label: '4Peeq Talks',
-      categoria: 'INSPIRACIÓN',
-      titulo: '4Peeq Talks',
+      iso: '2026-10-14',
+      dia: '14', mes: 'OCT', anio: '2026',
+      label: 'Pymeton La Conferencia',
+      categoria: 'CICLO DE CHARLAS',
+      titulo: 'Pymeton La Conferencia',
       desc: 'Charlas que inspiran, ideas que transforman. Speakers con experiencia real compartiendo lo que funciona y lo que no.',
       meta: ['Charlas', 'Cupos limitados', 'Speakers reales'],
-      cta: { texto: 'Reservar lugar', href: 'https://wa.me/5493794398385' }
+      cta: { texto: 'Reservar lugar', href: 'https://eventos.4peeq.com/eventos/pymeton-la-conferencia-2026/comprar' }
     }
   ];
 
