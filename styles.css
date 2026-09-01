@@ -101,11 +101,13 @@ a{ color:inherit; text-decoration:none; }
 .btn-ghost.on-dark:hover{ border-color:#fff; background:rgba(255,255,255,.07); }
 
 /* ============ PROMO BAR ============ */
-.promo-bar{ position:fixed; top:0; left:0; right:0; z-index:61; background:linear-gradient(90deg,#6c49a3,#9062d9,#6c49a3); background-size:200% 100%; animation:promoShift 6s ease-in-out infinite; color:#fff; box-shadow:0 4px 24px rgba(108,73,163,.35); }
-.promo-bar-inner{ display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; padding:15px var(--pad); text-align:center; }
+.promo-bar{ position:fixed; overflow:hidden; top:0; left:0; right:0; z-index:61; background:linear-gradient(90deg,#6c49a3,#9062d9,#6c49a3); background-size:200% 100%; animation:promoShift 6s ease-in-out infinite; color:#fff; box-shadow:0 4px 24px rgba(108,73,163,.35); }
+.promo-bar::before{ content:''; position:absolute; top:0; left:-30%; width:26%; height:100%; background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent); transform:skewX(-18deg); animation:promoShine 4.5s ease-in-out infinite; pointer-events:none; }
+.promo-bar-inner{ position:relative; display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; padding:15px var(--pad); text-align:center; }
+.promo-bar-emoji{ display:inline-block; margin-right:2px; animation:promoWiggle 1.6s ease-in-out infinite; }
 .promo-bar-text{ margin:0; font-size:16px; font-weight:600; line-height:1.4; }
 .promo-bar-text strong{ font-weight:800; }
-.promo-bar-count{ display:inline-block; margin-left:10px; padding:5px 14px; border-radius:100px; background:rgba(255,255,255,.22); font-size:13.5px; font-weight:800; white-space:nowrap; animation:promoPulse 1.8s ease-in-out infinite; }
+.promo-bar-count{ display:inline-block; margin-left:10px; padding:5px 14px; border-radius:100px; background:#ffcf3f; color:#4a2f7a; font-size:13.5px; font-weight:800; white-space:nowrap; animation:promoPulse 1.8s ease-in-out infinite; }
 .promo-bar-actions{ display:flex; align-items:center; gap:12px; flex-shrink:0; }
 .promo-bar-cta{ display:inline-flex; align-items:center; gap:7px; background:#fff; color:#9062d9; font-weight:800; font-size:15px; padding:11px 24px; border-radius:100px; white-space:nowrap; transition:transform .2s; animation:promoGlow 2.2s ease-in-out infinite; }
 .promo-bar-cta:hover{ transform:translateY(-2px) scale(1.04); }
@@ -114,9 +116,11 @@ a{ color:inherit; text-decoration:none; }
 .promo-bar-close{ background:none; border:none; color:rgba(255,255,255,.65); font-size:22px; line-height:1; cursor:pointer; padding:2px 4px; }
 .promo-bar-close:hover{ color:#fff; }
 @keyframes promoShift{ 0%,100%{ background-position:0% 50%; } 50%{ background-position:100% 50%; } }
-@keyframes promoPulse{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.1); } }
+@keyframes promoShine{ 0%{ left:-30%; } 55%,100%{ left:130%; } }
+@keyframes promoWiggle{ 0%,100%{ transform:rotate(0deg) scale(1); } 20%{ transform:rotate(-14deg) scale(1.12); } 40%{ transform:rotate(10deg) scale(1.12); } 60%{ transform:rotate(-8deg) scale(1.05); } 80%{ transform:rotate(6deg) scale(1.05); } }
+@keyframes promoPulse{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.12); } }
 @keyframes promoGlow{ 0%,100%{ box-shadow:0 0 0 0 rgba(255,255,255,.55); } 50%{ box-shadow:0 0 0 9px rgba(255,255,255,0); } }
-@media (prefers-reduced-motion:reduce){ .promo-bar, .promo-bar-count, .promo-bar-cta{ animation:none; } }
+@media (prefers-reduced-motion:reduce){ .promo-bar, .promo-bar::before, .promo-bar-count, .promo-bar-cta, .promo-bar-emoji{ animation:none; } }
 body.has-promo .nav{ top:var(--promo-h,42px); }
 body.has-promo .mobile-menu{ inset:calc(76px + var(--promo-h,42px)) 0 auto 0; }
 body.has-promo .hero{ padding-top:calc(150px + var(--promo-h,42px)); }
