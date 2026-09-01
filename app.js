@@ -21,6 +21,31 @@
   burger.addEventListener('click', () => toggle());
   menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => toggle(false)));
 
+  /* ---- promo bar (Pymeton La Conferencia) ---- */
+  const promoBar = document.getElementById('promoBar');
+  if (promoBar) {
+    const PROMO_KEY = 'promo-pymeton-conferencia-2026-closed';
+    const eventDate = new Date('2026-10-14T14:00:00-03:00');
+    const close = () => { document.body.classList.add('promo-closed'); localStorage.setItem(PROMO_KEY, '1'); };
+
+    if (Date.now() > eventDate.getTime() || localStorage.getItem(PROMO_KEY) === '1') {
+      document.body.classList.add('promo-closed');
+    } else {
+      const setPromoHeight = () => {
+        document.documentElement.style.setProperty('--promo-h', promoBar.offsetHeight + 'px');
+      };
+      setPromoHeight();
+      window.addEventListener('resize', setPromoHeight, { passive: true });
+      const countdownEl = document.getElementById('promoCountdown');
+      if (countdownEl) {
+        const daysLeft = Math.ceil((eventDate.getTime() - Date.now()) / 86400000);
+        countdownEl.textContent = daysLeft <= 0 ? '¡Es hoy!' : `Faltan ${daysLeft} días`;
+      }
+      const closeBtn = document.getElementById('promoBarClose');
+      if (closeBtn) closeBtn.addEventListener('click', close);
+    }
+  }
+
   /* ---- scroll reveal (robust: IO + sync sweep + scroll + safety net) ---- */
   const reveals = document.querySelectorAll('.reveal');
   const reveal = (el) => el.classList.add('in');
