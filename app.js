@@ -21,14 +21,15 @@
   burger.addEventListener('click', () => toggle());
   menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => toggle(false)));
 
-  /* ---- promo bar (Pymeton La Conferencia) ---- */
+  /* ---- promo bar (Pymeton Misiones: La Conferencia) ---- */
   const promoBar = document.getElementById('promoBar');
   if (promoBar) {
-    const PROMO_KEY = 'promo-pymeton-conferencia-2026-closed';
-    const eventDate = new Date('2026-10-14T14:00:00-03:00');
+    const PROMO_KEY = 'promo-pymeton-misiones-conferencia-2026-closed';
+    const eventDate = new Date('2026-12-01T16:00:00-03:00'); // inicio: cuenta regresiva
+    const eventEnd  = new Date('2026-12-01T20:00:00-03:00'); // fin: la barra se oculta
     const close = () => { document.body.classList.add('promo-closed'); localStorage.setItem(PROMO_KEY, '1'); };
 
-    if (Date.now() > eventDate.getTime() || localStorage.getItem(PROMO_KEY) === '1') {
+    if (Date.now() > eventEnd.getTime() || localStorage.getItem(PROMO_KEY) === '1') {
       document.body.classList.add('promo-closed');
     } else {
       const setPromoHeight = () => {
@@ -39,7 +40,7 @@
       const countdownEl = document.getElementById('promoCountdown');
       if (countdownEl) {
         const daysLeft = Math.ceil((eventDate.getTime() - Date.now()) / 86400000);
-        countdownEl.textContent = daysLeft <= 0 ? '¡Es hoy!' : `Faltan ${daysLeft} días`;
+        countdownEl.textContent = daysLeft <= 0 ? '¡Es hoy!' : daysLeft === 1 ? 'Falta 1 día' : `Faltan ${daysLeft} días`;
       }
       const closeBtn = document.getElementById('promoBarClose');
       if (closeBtn) closeBtn.addEventListener('click', close);
@@ -517,6 +518,16 @@
       desc: 'Charlas que inspiran, ideas que transforman. Speakers con experiencia real compartiendo lo que funciona y lo que no.',
       meta: ['Charlas', 'Cupos limitados', 'Speakers reales'],
       cta: { texto: 'Reservar lugar', href: 'https://eventos.4peeq.com/eventos/pymeton-la-conferencia-2026/comprar' }
+    },
+    {
+      iso: '2026-12-01',
+      dia: '01', mes: 'DIC', anio: '2026',
+      label: 'Pymeton Misiones La Conferencia',
+      categoria: 'CICLO DE CHARLAS · MISIONES',
+      titulo: 'Pymeton Misiones · La Conferencia',
+      desc: 'Charlas que inspiran, ideas que transforman. Speakers con experiencia real compartiendo lo que funciona y lo que no, ahora en Posadas.',
+      meta: ['16 a 20 h', 'Parque del Conocimiento', 'Posadas, Misiones'],
+      cta: { texto: 'Reservar lugar', href: 'https://eventos.4peeq.com/' }
     }
   ];
 
