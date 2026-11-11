@@ -27,21 +27,80 @@
     const PROMO_KEY = 'promo-pymeton-misiones-conferencia-2026-closed';
     const eventDate = new Date('2026-12-01T16:00:00-03:00'); // inicio: cuenta regresiva
     const eventEnd  = new Date('2026-12-01T20:00:00-03:00'); // fin: la barra se oculta
-    const close = () => { document.body.classList.add('promo-closed'); localStorage.setItem(PROMO_KEY, '1'); };
+    // localStorage puede tirar error (Safari privado, cookies bloqueadas): la barra sigue andando igual
+    const wasClosed = () => { try { return localStorage.getItem(PROMO_KEY) === '1'; } catch (e) { return false; } };
+    const hide = () => document.body.classList.add('promo-closed');
+    const close = () => { hide(); try { localStorage.setItem(PROMO_KEY, '1'); } catch (e) { /* solo esta visita */ } };
 
-    if (Date.now() > eventEnd.getTime() || localStorage.getItem(PROMO_KEY) === '1') {
-      document.body.classList.add('promo-closed');
+    if (Date.now() >= eventEnd.getTime() || wasClosed()) {
+      hide();
     } else {
+      const countdownEl = document.getElementById('promoCountdown');
+
+      // Separa "🔥 título" del detalle (fecha · lugar) para que el CSS recorte o esconda el detalle según el ancho
+      const text = promoBar.querySelector('.promo-bar-text');
+      if (text && !text.querySelector('.promo-bar-title')) {
+        const title = document.createElement('span');
+        const meta = document.createElement('span');
+        title.className = 'promo-bar-title';
+        meta.className = 'promo-bar-meta';
+        Array.from(text.childNodes).forEach((n) => {
+          if (n === countdownEl) return;
+          const isTitle = n.nodeType === 1 && (n.tagName === 'STRONG' || n.classList.contains('promo-bar-emoji'));
+          (isTitle ? title : meta).appendChild(n);
+        });
+        meta.textContent = meta.textContent.replace(/\s+/g, ' ').replace(/^\s*·\s*/, '').trim();
+        meta.title = meta.textContent;
+        text.insertBefore(title, countdownEl);
+        text.insertBefore(meta, countdownEl);
+      }
+
+      // El detalle se muestra entero o no se muestra; y el nav y el hero se corren según el alto
+      // real de la barra (cambia con el ancho y cuando carga Poppins)
+      const meta = promoBar.querySelector('.promo-bar-meta');
       const setPromoHeight = () => {
-        document.documentElement.style.setProperty('--promo-h', promoBar.offsetHeight + 'px');
+        if (meta) {
+          promoBar.classList.remove('no-meta');
+          promoBar.classList.toggle('no-meta', meta.scrollWidth > meta.clientWidth + 1);
+        }
+        if (promoBar.offsetHeight) document.documentElement.style.setProperty('--promo-h', promoBar.offsetHeight + 'px');
       };
       setPromoHeight();
-      window.addEventListener('resize', setPromoHeight, { passive: true });
-      const countdownEl = document.getElementById('promoCountdown');
+      if ('ResizeObserver' in window) new ResizeObserver(setPromoHeight).observe(promoBar);
+      else window.addEventListener('resize', setPromoHeight, { passive: true });
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(setPromoHeight);
+
+      // Cuenta regresiva en vivo: 20d 04h 12m 08s → "En vivo" durante el evento → se oculta al terminar
       if (countdownEl) {
-        const daysLeft = Math.ceil((eventDate.getTime() - Date.now()) / 86400000);
-        countdownEl.textContent = daysLeft <= 0 ? '¡Es hoy!' : daysLeft === 1 ? 'Falta 1 día' : `Faltan ${daysLeft} días`;
+        countdownEl.setAttribute('role', 'timer');
+        const pad = (n) => String(n).padStart(2, '0');
+        const seg = (v, unit, cls) => '<span class="pc-seg' + (cls ? ' ' + cls : '') + '"><b>' + v + '</b>' + unit + '</span>';
+        const plural = (n, one, many) => n + ' ' + (n === 1 ? one : many);
+        let lastLabel = '';
+        const tick = () => {
+          const now = Date.now();
+          if (now >= eventEnd.getTime()) { hide(); return; }
+          let html, label;
+          if (now >= eventDate.getTime()) {
+            html = '<span class="pc-live" aria-hidden="true"></span>En vivo';
+            label = 'La conferencia está en vivo';
+          } else {
+            const s = Math.floor((eventDate.getTime() - now) / 1000);
+            const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
+            html = '<span class="pc-label">Faltan</span>' + (d ? seg(d, 'd') : '') + seg(pad(h), 'h') + seg(pad(m), 'm') + seg(pad(s % 60), 's', 'pc-sec');
+            const parts = [];
+            if (d) parts.push(plural(d, 'día', 'días'));
+            if (h) parts.push(plural(h, 'hora', 'horas'));
+            parts.push(plural(m, 'minuto', 'minutos'));
+            label = 'Faltan ' + (parts.length > 1 ? parts.slice(0, -1).join(', ') + ' y ' + parts[parts.length - 1] : parts[0]);
+          }
+          countdownEl.innerHTML = html;
+          if (label !== lastLabel) { countdownEl.setAttribute('aria-label', label); lastLabel = label; }
+          setTimeout(tick, 1000 - (Date.now() % 1000) + 20); // alineado al cambio de segundo
+        };
+        tick();
       }
+
       const closeBtn = document.getElementById('promoBarClose');
       if (closeBtn) closeBtn.addEventListener('click', close);
     }
