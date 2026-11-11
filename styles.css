@@ -1651,3 +1651,21 @@ body.pym-page .pym-buddy-bubble::after{
 @media (prefers-reduced-motion:reduce){
   .prog-face, .prog-icon svg{ transition:none; }
 }
+
+/* preguntas frecuentes (details/summary): el contenido queda en el HTML para buscadores e IAs */
+.faq-list{ margin-top:36px; max-width:860px; border-top:1px solid rgba(21,20,43,.1); position:relative; z-index:1; }
+.faq-item{ border-bottom:1px solid rgba(21,20,43,.1); }
+.faq-item summary{
+  list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px;
+  padding:22px 4px; font-size:17px; font-weight:600; color:var(--ink); transition:color .25s;
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary::after{
+  content:'+'; flex-shrink:0; font-size:26px; font-weight:400; line-height:1; color:var(--violet);
+  transition:transform .3s var(--ease);
+}
+.faq-item[open] summary::after{ transform:rotate(45deg); }
+.faq-item summary:hover{ color:var(--violet); }
+.faq-item summary:focus-visible{ outline:2px solid var(--violet); outline-offset:4px; border-radius:6px; }
+.faq-item p{ padding:0 4px 24px; margin:0; font-size:15.5px; color:var(--gray-d); line-height:1.65; max-width:70ch; }
+.area-card p a{ color:var(--violet); font-weight:600; }
