@@ -1,0 +1,15 @@
+# Todo lo que no es el sitio estático queda fuera del deploy de Vercel.
+web-next
+tools
+.agents
+.claude
+.playwright-cli
+.playwright-mcp
+_check
+node_modules
+public/*.xlsx
+skills-lock.json
+package.json
+package-lock.json
+convert.js
+*.md
