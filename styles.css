@@ -4,7 +4,10 @@
    Concept: "el foco" — illuminate the path, order from chaos
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap');
+/* Poppins se carga con <link> en el <head> de cada página (antes un @import acá, que la descubría tarde).
+   Mientras llega, Arial ajustada a las medidas de Poppins ocupa el mismo lugar: el texto no salta al cambiar. */
+@font-face{ font-family:'Poppins Fallback'; src:local('Arial'), local('ArialMT'); font-weight:300 500; ascent-override:93.62%; descent-override:31.21%; line-gap-override:8.92%; size-adjust:112.16%; }
+@font-face{ font-family:'Poppins Fallback'; src:local('Arial Bold'), local('Arial-BoldMT'); font-weight:600 800; ascent-override:93.62%; descent-override:31.21%; line-gap-override:8.92%; size-adjust:107.5%; }
 
 :root{
   /* ---- brand palette (manual de marca) ---- */
@@ -20,9 +23,9 @@
   --paper-2:  #f1eef7;   /* recessed lavender-white */
   --white:    #ffffff;
 
-  --serif:   'Poppins', system-ui, sans-serif;
-  --sans:    'Poppins', system-ui, sans-serif;
-  --display: 'Poppins', system-ui, sans-serif;
+  --serif:   'Poppins', 'Poppins Fallback', system-ui, sans-serif;
+  --sans:    'Poppins', 'Poppins Fallback', system-ui, sans-serif;
+  --display: 'Poppins', 'Poppins Fallback', system-ui, sans-serif;
 
   --maxw: 1280px;
   --pad: clamp(20px, 5vw, 68px);
@@ -300,7 +303,7 @@ body.has-promo.promo-closed .pym-hero{ padding-top:clamp(96px,9vw,128px); }
 .step .arrow{ width:38px; height:18px; color:rgba(255,255,255,.35); }
 .step:last-child .arrow{ display:none; }
 .step .ph{ font-family:var(--display); font-weight:600; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-top:22px; }
-.step h4{ font-family:var(--serif); font-weight:700; font-size:21px; letter-spacing:-0.01em; margin-top:8px; }
+.step h3, .step h4{ font-family:var(--serif); font-weight:700; font-size:21px; letter-spacing:-0.01em; margin-top:8px; }
 .step p{ margin-top:10px; font-size:14.5px; color:rgba(255,255,255,.66); line-height:1.55; }
 
 /* ============ PROOF / marquee ============ */
@@ -365,7 +368,7 @@ body.has-promo.promo-closed .pym-hero{ padding-top:clamp(96px,9vw,128px); }
 .foot-top{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1.1fr; gap:40px; }
 .foot-logo{ height:50px; width:auto; margin-bottom:20px; }
 .foot-blurb{ font-size:15px; max-width:290px; line-height:1.6; }
-.foot-col h5{ font-family:var(--display); font-weight:700; font-size:12.5px; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:14px; }
+.foot-col h2, .foot-col h5{ font-family:var(--display); font-weight:700; font-size:12.5px; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.62); margin-bottom:14px; }
 .foot-col a, .foot-col span{ display:block; font-size:15px; color:rgba(255,255,255,.72); padding:6px 0; transition:color .2s; }
 .foot-col a:hover{ color:var(--violet-lt); }
 .foot-bottom{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; margin-top:56px; padding-top:24px; border-top:1px solid rgba(255,255,255,.1); font-size:13.5px; color:rgba(255,255,255,.5); }
@@ -561,7 +564,7 @@ body.has-promo.promo-closed .pym-hero{ padding-top:clamp(96px,9vw,128px); }
 .breadcrumb a:hover{ color:var(--violet-lt); }
 .svc-tag-hero{
   display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.13em;
-  text-transform:uppercase; color:var(--violet-lt); margin-bottom:20px;
+  text-transform:uppercase; color:#b3a4de; margin-bottom:20px; /* violeta más claro: ≥4.5:1 también sobre el brillo del hero */
   border:1px solid rgba(154,134,207,.28); padding:7px 16px; border-radius:100px;
 }
 .svc-hero h1{
@@ -617,7 +620,7 @@ body.has-promo.promo-closed .pym-hero{ padding-top:clamp(96px,9vw,128px); }
   transition:background .35s, color .35s, transform .35s var(--ease);
 }
 .area-card:hover .area-ico{ background:var(--violet); color:#fff; transform:rotate(-6deg) scale(1.05); }
-.area-card h4{ font-size:17px; font-weight:700; color:var(--ink); margin-bottom:8px; }
+.area-card h3, .area-card h4{ font-size:17px; font-weight:700; color:var(--ink); margin-bottom:8px; }
 .area-card p{ font-size:14.5px; color:var(--gray-d); line-height:1.55; margin:0; }
 .area-meta{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
 .area-badge{
@@ -659,7 +662,7 @@ body.has-promo.promo-closed .pym-hero{ padding-top:clamp(96px,9vw,128px); }
 }
 .hub-card:hover .hub-ico{ background:var(--violet); color:#fff; }
 .hub-ico svg{ width:26px; height:26px; }
-.hub-card h3{ font-family:var(--serif); font-weight:700; font-size:22px; letter-spacing:-0.01em; margin-bottom:6px; }
+.hub-card h2, .hub-card h3{ font-family:var(--serif); font-weight:700; font-size:22px; letter-spacing:-0.01em; margin-bottom:6px; }
 .hub-card .tag{ font-size:11.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--violet); margin-bottom:14px; display:block; }
 .hub-card p{ font-size:14.5px; color:var(--gray-d); line-height:1.55; flex:1; }
 .hub-card .svc-link{ margin-top:22px; align-self:flex-start; }
@@ -1647,13 +1650,13 @@ body.pym-page .pym-buddy-bubble::after{
 
 .prog-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
 .prog-num{ font-family:var(--display); font-weight:700; font-size:13px; letter-spacing:.08em;
-  font-variant-numeric:tabular-nums; color:var(--violet); opacity:.55; }
+  font-variant-numeric:tabular-nums; color:var(--violet); } /* sin opacidad: con .55 quedaba en 2.2:1 sobre blanco */
 .prog-icon{ display:flex; color:var(--violet); }
 .prog-icon svg{ width:30px; height:30px; transition:transform .35s var(--ease); }
 @media (hover:hover) and (pointer:fine){ .prog-card:hover .prog-icon svg{ transform:scale(1.12) rotate(-4deg); } }
 
-.prog-title{ font-family:'Poppins',sans-serif; font-weight:700; font-size:21px; line-height:1.22; color:var(--ink); margin-bottom:12px; }
-.prog-hook{ font-family:'Poppins',sans-serif; font-weight:700; font-size:17px; line-height:1.35; color:var(--violet); margin:0 0 10px; text-wrap:balance; }
+.prog-title{ font-family:var(--display); font-weight:700; font-size:21px; line-height:1.22; color:var(--ink); margin-bottom:12px; }
+.prog-hook{ font-family:var(--display); font-weight:700; font-size:17px; line-height:1.35; color:var(--violet); margin:0 0 10px; text-wrap:balance; }
 .prog-body{ font-size:15px; line-height:1.6; color:var(--gray-d); text-wrap:pretty; }
 .prog-close{ font-size:15px; font-weight:600; color:var(--ink); margin-top:12px; }
 .prog-kw{ color:var(--violet); font-weight:700; }

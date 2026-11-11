@@ -273,6 +273,25 @@
   });
 })();
 
+/* Escena de scrollytelling invisible: fuera del lector de pantalla y fuera del Tab.
+   `inert` cubre ambas cosas; el tabindex es para navegadores que todavía no lo soportan. */
+function setSceneHidden(el, hidden) {
+  if (el._sceneHidden === hidden) return;
+  el._sceneHidden = hidden;
+  el.inert = hidden;
+  el.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+  el.querySelectorAll('a, button, input, select, textarea, [tabindex]').forEach(function (f) {
+    if (hidden) {
+      if (!f.hasAttribute('data-tabindex')) f.setAttribute('data-tabindex', f.getAttribute('tabindex') || '');
+      f.setAttribute('tabindex', '-1');
+    } else if (f.hasAttribute('data-tabindex')) {
+      var prev = f.getAttribute('data-tabindex');
+      if (prev) f.setAttribute('tabindex', prev); else f.removeAttribute('tabindex');
+      f.removeAttribute('data-tabindex');
+    }
+  });
+}
+
 /* ---- scrollytelling: strict scroll-linked scenes ---- */
 (function () {
   'use strict';
@@ -330,8 +349,7 @@
       var y       = map4(p, r, [yAmp, 0, 0, -yAmp]);
       s.el.style.opacity   = opacity;
       s.el.style.transform = 'translateY(' + y + 'px)';
-      /* aria-hidden: hide from AT when invisible */
-      s.el.setAttribute('aria-hidden', opacity < 0.05 ? 'true' : 'false');
+      setSceneHidden(s.el, opacity < 0.05);
     });
   }
 
@@ -674,7 +692,7 @@
     var metaHTML = e.meta.map(function (m) {
       return '<div class="cal-chip">' + m + '</div>';
     }).join('');
-    return '<article class="cal-scene" aria-hidden="true">'
+    return '<article class="cal-scene" aria-hidden="true" inert>'
       + '<div class="cal-date">'
       +   '<span class="cal-date-day">' + e.dia + '</span>'
       +   '<span class="cal-date-mo">' + e.mes + '</span>'
@@ -803,7 +821,7 @@
       var opacity = map4(p, r, [0, 1, 1, 0]);
       el.style.opacity   = opacity;
       el.style.transform = 'translateY(' + map4(p, r, [yAmp, 0, 0, -yAmp]) + 'px)';
-      el.setAttribute('aria-hidden', opacity < 0.05 ? 'true' : 'false');
+      setSceneHidden(el, opacity < 0.05);
     });
 
     dotEls.forEach(function (d, i) {
