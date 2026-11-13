@@ -1692,3 +1692,11 @@ body.pym-page .pym-buddy-bubble::after{
 @media (prefers-reduced-motion:reduce){
   .prog-face, .prog-icon svg{ transition:none; }
 }
+
+/* legal (privacidad) */
+.foot-legal{ color:rgba(255,255,255,.72); text-decoration:underline; text-underline-offset:3px; transition:color .2s; }
+.foot-legal:hover{ color:var(--violet-lt); }
+.legal .wrap{ max-width:760px; }
+.legal h2{ margin-top:36px; }
+.legal p{ margin:0 0 14px; }
+.legal code{ font-size:.92em; background:var(--lavender, #e3d8ec); padding:1px 6px; border-radius:4px; }
