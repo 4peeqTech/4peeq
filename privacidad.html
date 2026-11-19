@@ -11,6 +11,9 @@
 <script src="/analytics.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Barra promo: datos del anuncio (app.js los usa). Va antes de los estilos para decidir sin demorar la página
+     si se muestra: se oculta 24 h después de cerrarla y al terminar el evento. -->
+<script>window.PROMO={id:'pymeton-misiones-2026',start:'2026-12-01T16:00:00-03:00',end:'2026-12-01T20:00:00-03:00'};try{(function(p,h){if(Date.now()>=Date.parse(p.end)||Date.now()<(h[p.id]||0))document.documentElement.classList.add('promo-closed')})(PROMO,JSON.parse(localStorage.getItem('promo-hidden')||'{}')||{})}catch(e){}</script>
 <title>Política de privacidad | 4Peeq</title>
 <meta name="description" content="Qué datos usa 4Peeq en su sitio web y en sus sistemas internos, para qué y cómo pedir acceso, corrección o borrado.">
 <meta name="robots" content="noindex, follow">
@@ -182,6 +185,6 @@
   <span class="wa-txt">Escribinos por WhatsApp</span>
 </a>
 
-<script src="app.js?v=13"></script>
+<script src="app.js?v=14"></script>
 </body>
 </html>

@@ -163,12 +163,10 @@ body.has-promo .mobile-menu{ inset:calc(76px + var(--promo-h)) 0 auto 0; }
 body.has-promo .hero{ padding-top:calc(150px + var(--promo-h)); }
 body.has-promo .svc-hero{ padding-top:calc(clamp(130px,12vw,180px) + var(--promo-h)); }
 body.has-promo .pym-hero{ padding-top:calc(clamp(96px,9vw,128px) + var(--promo-h)); }
-body.has-promo.promo-closed .promo-bar{ display:none; }
-body.has-promo.promo-closed .nav{ top:0; }
-body.has-promo.promo-closed .mobile-menu{ inset:76px 0 auto 0; }
-body.has-promo.promo-closed .hero{ padding-top:150px; }
-body.has-promo.promo-closed .svc-hero{ padding-top:clamp(130px,12vw,180px); }
-body.has-promo.promo-closed .pym-hero{ padding-top:clamp(96px,9vw,128px); }
+/* Barra oculta (cerrada hace menos de 24 h o evento terminado): la clase va en <html> y la pone
+   el script inline que sigue a la barra, antes de pintar. Con alto 0 el nav y el hero vuelven solos a su lugar. */
+:root.promo-closed{ --promo-h:0px !important; }
+.promo-closed .promo-bar{ display:none; }
 
 /* ============ NAV ============ */
 .nav{ position:fixed; top:0; left:0; right:0; margin-top:0 !important; z-index:60; transition:background .3s, box-shadow .3s, border-color .3s; border-bottom:1px solid transparent; }

@@ -21,18 +21,36 @@
   burger.addEventListener('click', () => toggle());
   menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => toggle(false)));
 
-  /* ---- promo bar (Pymeton Misiones: La Conferencia) ---- */
+  /* ---- promo bar ----
+     Los datos del anuncio están en window.PROMO, en el <head> de cada página: id, start (cuenta
+     regresiva) y end (después se oculta). Ese mismo script decide antes de pintar si la barra va;
+     acá se repite la regla por si falta. */
   const promoBar = document.getElementById('promoBar');
   if (promoBar) {
-    const PROMO_KEY = 'promo-pymeton-misiones-conferencia-2026-closed';
-    const eventDate = new Date('2026-12-01T16:00:00-03:00'); // inicio: cuenta regresiva
-    const eventEnd  = new Date('2026-12-01T20:00:00-03:00'); // fin: la barra se oculta
+    const promo = window.PROMO || {};
+    const HIDE_KEY = 'promo-hidden';          // { [PROMO.id]: ocultar hasta (ms) } — lo lee también el <head>
+    const SNOOZE_MS = 24 * 60 * 60 * 1000;    // al cerrarla vuelve a aparecer a las 24 h
+    const promoId = promo.id || 'promo';
+    const eventDate = new Date(promo.start);
+    const eventEnd  = new Date(promo.end);
     // localStorage puede tirar error (Safari privado, cookies bloqueadas): la barra sigue andando igual
-    const wasClosed = () => { try { return localStorage.getItem(PROMO_KEY) === '1'; } catch (e) { return false; } };
-    const hide = () => document.body.classList.add('promo-closed');
-    const close = () => { hide(); try { localStorage.setItem(PROMO_KEY, '1'); } catch (e) { /* solo esta visita */ } };
+    const readHidden = () => {
+      try { const v = JSON.parse(localStorage.getItem(HIDE_KEY) || '{}'); return v && typeof v === 'object' ? v : {}; } catch (e) { return {}; }
+    };
+    const hide = () => document.documentElement.classList.add('promo-closed');
+    const close = () => {
+      hide();
+      try {
+        const hidden = readHidden(), now = Date.now();
+        Object.keys(hidden).forEach((k) => { if (!(hidden[k] > now)) delete hidden[k]; }); // limpia vencidos
+        hidden[promoId] = now + SNOOZE_MS;
+        localStorage.setItem(HIDE_KEY, JSON.stringify(hidden));
+      } catch (e) { /* solo esta visita */ }
+    };
+    // el esquema anterior cerraba para siempre: se borra para que esas visitas la vuelvan a ver
+    try { localStorage.removeItem('promo-pymeton-misiones-conferencia-2026-closed'); } catch (e) { /* nada */ }
 
-    if (Date.now() >= eventEnd.getTime() || wasClosed()) {
+    if (Date.now() >= eventEnd.getTime() || Date.now() < (readHidden()[promoId] || 0)) {
       hide();
     } else {
       const countdownEl = document.getElementById('promoCountdown');
@@ -71,7 +89,7 @@
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(setPromoHeight);
 
       // Cuenta regresiva en vivo: 20d 04h 12m 08s → "En vivo" durante el evento → se oculta al terminar
-      if (countdownEl) {
+      if (countdownEl && !isNaN(eventDate.getTime())) {
         countdownEl.setAttribute('role', 'timer');
         const pad = (n) => String(n).padStart(2, '0');
         const seg = (v, unit, cls) => '<span class="pc-seg' + (cls ? ' ' + cls : '') + '"><b>' + v + '</b>' + unit + '</span>';
